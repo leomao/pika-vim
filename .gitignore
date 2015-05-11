@@ -1,0 +1,6 @@
+.netrwhist
+*.pyc
+.vimrc_leader
+.vimrc_custom
+.undodir
+plugged
