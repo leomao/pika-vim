@@ -73,6 +73,7 @@ let g:maplocalleader = " "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the curors - when moving vertical
 set so=7
+set wildignorecase
 set wildmenu "Turn on WiLd menu
 set guitablabel=%t
 " stuff to ignore when tab completing
