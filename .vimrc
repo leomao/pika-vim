@@ -106,11 +106,11 @@ set smartcase
 
 set hlsearch "Highlight search things
 set incsearch "Make search act like search in modern browsers
-set nolazyredraw "Don't redraw while executing macros 
+set nolazyredraw "Don't redraw while executing macros
 set magic "Set magic on, for regular expressions
 
 set showmatch "Show matching bracets when text indicator is over them
-set mat=0 "How many tenths of a second to blink 
+set mat=0 "How many tenths of a second to blink
 " time out of mappings
 set timeout
 set ttimeoutlen=10
@@ -203,11 +203,11 @@ runtime .vimrc_leader
 """"""""""""""""""""""""""""""
 " Really useful!
 " substitude word
-nnoremap <leader>sw :%s/<C-R><C-W>//g<left><left>
+nnoremap <leader>sw :%s/<C-R><C-W>//ge<left><left>
 " substitude current word in selection
-vnoremap <leader>sw <ESC>"syiwgv:s/<C-R>s//g<left><left>
+vnoremap <leader>sw <ESC>"syiwgv:s/<C-R>s//ge<left><left>
 " substitude selection
-vnoremap <leader>ss "sy<ESC>:%s/<C-R>s//g<left><left>
+vnoremap <leader>ss "sy<ESC>:%s/<C-R>s//ge<left><left>
 " In visual mode when you press * or # to search for the current selection
 function! s:VSetSearch(cmdtype)
   let temp = @s
@@ -321,7 +321,7 @@ noremap <silent> <leader>cp :cp<CR>
 """"""""""""""""""""""""""""""
 " }}}
 " => Plugin settings {{{
-""""""""""""""""""""""""""""""  
+""""""""""""""""""""""""""""""
 " --- vim-plug plugin --- {{{
 execute plug#begin()
 
@@ -366,7 +366,7 @@ let g:SrcExpl_isUpdateTags = 0
 " }}}
 
 " --- Tagbar plugin --- {{{
-nnoremap <silent> <leader>tb :TagbarToggle<CR> 
+nnoremap <silent> <leader>tb :TagbarToggle<CR>
 let g:tagbar_left = 1
 let g:tagbar_width = 25
 let g:tagbar_autofocus = 1
@@ -450,6 +450,8 @@ set grepprg=grep\ -nH\ $*
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
 nnoremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
+" Remove trailing spaces
+nnoremap <leader>s mmHmt:%s/\s\+$//ge<CR>'tzt'm
 " }}}
 " => Load custom settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
