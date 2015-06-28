@@ -4,3 +4,4 @@
 .vimrc_custom
 .undodir
 plugged
+*.old
