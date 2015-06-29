@@ -21,8 +21,12 @@ syn match cOperator	"/[^/*=]"me=e-1
 syn match cOperator	"/$"
 syn match cOperator "&&\|||"
 
+" highlight : in label or scope identifier
+hi link cUserCont Operator
+
 " highlight operator, typeid as statement
-syn keyword cppOperator operator typeid
+syn keyword ccOperator operator typeid
+hi link ccOperator Statement
 
 " Functions
 syn match cUserFunction "\(\.\|->\)\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cType,cDelimiter,cDefine,cOperator
@@ -50,6 +54,5 @@ hi def link cBraces Delimiter
 hi def link cBoolean Boolean
 
 hi link cIncluded Include
-hi link cppOperator Statement
 
 " foldmethod=syntax fix, courtesy of Ivan Freitas

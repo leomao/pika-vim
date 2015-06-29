@@ -175,7 +175,7 @@ set shiftwidth=2
 set tabstop=2
 set smarttab
 
-set cino+=g0
+set cino+=g1,h1
 
 " line break on 80 characters
 set fo-=t
@@ -291,6 +291,7 @@ nnoremap <leader>w :w!<CR>
 nnoremap <C-d> :q!<CR>
 inoremap <C-d> <ESC>:q!<CR>
 vnoremap <C-d> <ESC>:q!<CR>
+
 " Fast editing of the .vimrc
 nnoremap <leader>ev :e! $MYVIMRC<CR>
 
@@ -341,6 +342,7 @@ Plug 'mbbill/undotree'
 Plug 'vim-scripts/OmniCppComplete'
 Plug 'pangloss/vim-javascript'
 Plug 'lervag/vimtex'
+Plug 'terryma/vim-multiple-cursors'
 
 execute plug#end()
 " }}}
@@ -412,6 +414,13 @@ let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
 " }}}
 
 " --- Emmet --- {{{
@@ -449,9 +458,9 @@ set grepprg=grep\ -nH\ $*
 " => MISC {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
-nnoremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
+nnoremap <silent><leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 " Remove trailing spaces
-nnoremap <leader>s mmHmt:%s/\s\+$//ge<CR>'tzt'm
+nnoremap <silent><leader>s mmHmt:%s/\s\+$//ge<CR>'tzt'm:nohl<CR>
 " }}}
 " => Load custom settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

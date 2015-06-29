@@ -6,7 +6,7 @@
 setl cindent
 
 "styling mappings (need astyle)
-noremap <buffer><F3> <ESC>:%!astyle -A8KpHUyk1qs2<CR>
+noremap <buffer><F3> <ESC>:%!astyle -A8KpHUyk1qs2 -xG<CR>
 
 " tag generation mappings (need ctags)
 noremap <buffer><F12> <ESC>:wa!<CR>:!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q %:p:h <CR><CR>
