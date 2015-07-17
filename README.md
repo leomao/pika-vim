@@ -25,6 +25,9 @@ $ ./deploy.py -h # check help (need python3)
 $ ./deploy.py # deploy the configuration
 ```
 
+### Update Plugins
+use `:PlugUpdate` and `:PlugUpgrade` to update the plugins.
+
 Included Plugins:
 =======
 * [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)

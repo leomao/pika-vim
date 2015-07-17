@@ -5,3 +5,4 @@
 .undodir
 plugged
 *.old
+autoload/plug.vim
