@@ -1,8 +1,8 @@
 .netrwhist
 *.pyc
+*.pyo
 .vimrc_leader
 .vimrc_custom
 .undodir
 plugged
 *.old
-autoload/plug.vim
