@@ -120,7 +120,7 @@ set noerrorbells
 set t_vb=
 set tm=500
 
-" set mouse=a
+set mouse=a
 set ttymouse=xterm2
 
 " Paren highlight
