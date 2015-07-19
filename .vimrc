@@ -120,7 +120,7 @@ set noerrorbells
 set t_vb=
 set tm=500
 
-set mouse=a
+" set mouse=a
 set ttymouse=xterm2
 
 " Paren highlight
@@ -203,11 +203,11 @@ runtime .vimrc_leader
 """"""""""""""""""""""""""""""
 " Really useful!
 " substitude word
-nnoremap <leader>sw :%s/<C-R><C-W>//ge<left><left>
+nnoremap <leader>sw :%s/<C-R><C-W>//ge<left><left><left>
 " substitude current word in selection
-vnoremap <leader>sw <ESC>"syiwgv:s/<C-R>s//ge<left><left>
+vnoremap <leader>sw <ESC>"syiwgv:s/<C-R>s//ge<left><left><left>
 " substitude selection
-vnoremap <leader>ss "sy<ESC>:%s/<C-R>s//ge<left><left>
+vnoremap <leader>ss "sy<ESC>:%s/<C-R>s//ge<left><left><left>
 " In visual mode when you press * or # to search for the current selection
 function! s:VSetSearch(cmdtype)
   let temp = @s
@@ -280,8 +280,8 @@ set clipboard+=unnamed
 " Move a line of text using CTRL+[jk]
 nnoremap <C-j> mz:m+<CR>`z:echo "move line down"<CR>
 nnoremap <C-k> mz:m-2<CR>`z:echo "move line up"<CR>
-vnoremap <C-j> :m'>+<CR>:echo "move block down"<CR>`<my`>mzgv`yo`z
-vnoremap <C-k> :m'<-2<CR>:echo "move block up"<CR>`>my`<mzgv`yo`z
+vnoremap <C-j> :m'>+<CR>:echo "move block down"<CR>gv
+vnoremap <C-k> :m'<-2<CR>:echo "move block up"<CR>gv
 
 nnoremap <leader>/ :nohl<CR>
 
