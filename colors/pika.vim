@@ -38,8 +38,8 @@ if has("gui_running")
 
   " -> Line info  
   hi LineNr         guibg=#000000 guifg=#696567 gui=none
-  hi StatusLine     guibg=#000000 guifg=#696567 gui=none
-  hi StatusLineNC   guibg=#25365a guifg=#696567 gui=none
+  hi StatusLine     guibg=#b2b2b2 guifg=#121212 gui=none
+  hi StatusLineNC   guibg=#444444 guifg=#e4e4e4 gui=none
   hi ColorColumn    guibg=#404040               gui=none
 
   " -> Messages
@@ -130,8 +130,8 @@ elseif &t_Co == 256
 
   " -> Line info  
   hi LineNr         ctermbg=0    ctermfg=241 cterm=none
-  hi StatusLine     ctermbg=0    ctermfg=241 cterm=none
-  hi StatusLineNC   ctermbg=237  ctermfg=241 cterm=none
+  hi StatusLine     ctermbg=249  ctermfg=233 cterm=none
+  hi StatusLineNC   ctermbg=238  ctermfg=254 cterm=none
   hi ColorColumn    ctermbg=238              cterm=none
 
   " -> Messages

@@ -35,8 +35,9 @@
 "    -> Buffer Explorer
 "    -> Emmet
 "    -> NERD Commenter
+"    -> NERD Tree
+"    -> Ack.vim
 "    -> OmnicppComplete
-"    -> SrcExl
 "    -> Surround
 "    -> TagBar
 "    -> undotree
@@ -241,8 +242,6 @@ nnoremap <C-Left>  <C-W>h
 nnoremap <C-Right> <C-W>l
 nnoremap <C-Up>    <C-W>k
 
-runtime macros/matchit.vim " include matchit plugins in vim
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Statusline {{{
@@ -251,12 +250,7 @@ runtime macros/matchit.vim " include matchit plugins in vim
 set laststatus=2
 
 " Format the statusline
-set statusline=\ %f%m%r%h\ %w\ \ CWD:\ %.40{CurDir()}\ \ \ %=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}Line:\ %l/%L:%c
-
-function! CurDir()
-  let curdir = substitute(getcwd(), $HOME, "~", "g")
-  return curdir
-endfunction
+set statusline=\ %f%m%r%h\ %w\ %=%y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}\ %4l/%4L:%3c
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Tags {{{
@@ -323,6 +317,8 @@ noremap <silent> <leader>cp :cp<CR>
 " }}}
 " => Plugin settings {{{
 """"""""""""""""""""""""""""""
+runtime macros/matchit.vim " include matchit plugins in vim
+
 " --- vim-plug plugin --- {{{
 execute plug#begin()
 
@@ -330,8 +326,8 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
-Plug 'wesleyche/SrcExpl'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'hdima/python-syntax'
 Plug 'groenewege/vim-less'
@@ -357,14 +353,10 @@ noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
 " }}}
 
-" --- SrcExl plugin --- {{{
-nnoremap <buffer> <silent> <leader>se :SrcExplToggle<CR>
-let g:SrcExpl_pluginList = [
-      \ "BufExplorer",
-      \ "__TagBar__",
-      \ "Source_Explorer"
-      \ ]
-let g:SrcExpl_isUpdateTags = 0
+" --- NerdTree plugin --- {{{
+nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinSize = 25
 " }}}
 
 " --- Tagbar plugin --- {{{
@@ -389,8 +381,8 @@ let g:vimtex_quickfix_ignored_warnings = [
 " }}}
 
 " --- NERD Commenter plugin --- {{{
-let NERDCreateDefaultMappings = 0
-let NERDSpaceDelims = 1
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
 map <leader>cc <plug>NERDCommenterComment
 map <leader>cu <plug>NERDCommenterUncomment
 map <leader>c<space> <plug>NERDCommenterToggle
