@@ -1,7 +1,7 @@
 pika-vim
 ========
 
-Version: 2.7.0
+Version: 2.8.0
 
 My Pika vim configuration
 
@@ -26,7 +26,8 @@ $ ./deploy.py # deploy the configuration
 ```
 
 ### Update Plugins
-use `:PlugUpdate` and `:PlugUpgrade` to update the plugins.
+- use `:PlugClean` to clean old plugins.
+- use `:PlugUpdate` and `:PlugUpgrade` to update the plugins.
 
 Included Plugins:
 =======
@@ -34,10 +35,10 @@ Included Plugins:
 * [Emmet](https://github.com/mattn/emmet-vim)
 * [html5.vim](https://github.com/othree/html5.vim)
 * [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
+* [NERD Tree](https://github.com/scrooloose/nerdtree)
 * [OmnicppComplete](https://github.com/vim-scripts/OmniCppComplete)
 * [python syntax](https://github.com/hdima/python-syntax)
 * [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
-* [SrcExpl](https://github.com/wesleyche/SrcExpl)
 * [Surround](https://github.com/tpope/vim-surround)
 * [TagBar](https://github.com/majutsushi/tagbar)
 * [undotree](https://github.com/mbbill/undotree)
@@ -86,12 +87,12 @@ $pdflatex = 'xelatex -synctex=1 -interaction=nonstopmode --shell-escape %O %S';
 ```
 in  `~/.latexmkrc`.
 
+### NERDTree
++ Toggle NERDTree `<leader>nt`
+
 ### TagBar
 + Generate tags (ctags) `<F12>`
 + toggle TagBar `<leader>tb`
-
-### srcexpl
-+ Toggle srcexpl `<leader>se`
 
 ### Emmet
 + Emmet Prefix `<C-y>`
