@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 2.7.0
+" Version: 2.8.2
 "
 " Sections:
 "    -> General
@@ -34,9 +34,9 @@
 " Plugins_Included:
 "    -> Buffer Explorer
 "    -> Emmet
+"    -> fugitive
 "    -> NERD Commenter
 "    -> NERD Tree
-"    -> Ack.vim
 "    -> OmnicppComplete
 "    -> Surround
 "    -> TagBar
@@ -338,7 +338,8 @@ Plug 'mbbill/undotree'
 Plug 'vim-scripts/OmniCppComplete'
 Plug 'pangloss/vim-javascript'
 Plug 'lervag/vimtex'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
 execute plug#end()
 " }}}
@@ -450,9 +451,9 @@ set grepprg=grep\ -nH\ $*
 " => MISC {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
-nnoremap <silent><leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
+nnoremap <silent><leader>m :%s/<C-V><CR>//ge<CR>``
 " Remove trailing spaces
-nnoremap <silent><leader>s mmHmt:%s/\s\+$//ge<CR>'tzt'm:nohl<CR>
+nnoremap <silent><leader>s :%s/\s\+$//ge<CR>``:nohl<CR>
 " }}}
 " => Load custom settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

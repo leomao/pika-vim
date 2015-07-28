@@ -1,13 +1,13 @@
 pika-vim
 ========
 
-Version: 2.8.0
+Version: 2.8.2
 
 My Pika vim configuration
 
-Use [vim-plug](https://github.com/tpope/vim-pathogen) to manage plugins.
+Use [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins.
 
-This configuration is not tested on Windows.
+This configuration is only for linux.
 
 ## How to use
 Dependencies:
@@ -33,6 +33,7 @@ Included Plugins:
 =======
 * [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)
 * [Emmet](https://github.com/mattn/emmet-vim)
+* [fugitive.vim](https://github.com/tpope/vim-fugitive)
 * [html5.vim](https://github.com/othree/html5.vim)
 * [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
 * [NERD Tree](https://github.com/scrooloose/nerdtree)
@@ -45,8 +46,9 @@ Included Plugins:
 * [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 * [vim-javascript](https://github.com/pangloss/vim-javascript)
 * [vimtex](https://github.com/lervag/vimtex)
-* [vim-less](https://github.com/groenewege/vim-less.git)
+* [vim-less](https://github.com/groenewege/vim-less)
 * [Python pep8 indent](https://github.com/hynek/vim-python-pep8-indent)
+* [FZF](https://github.com/junegunn/fzf)
 
 Common Shortcut:
 =======
