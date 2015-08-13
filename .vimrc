@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 2.8.2
+" Version: 2.8.4
 "
 " Sections:
 "    -> General
@@ -53,6 +53,16 @@ set history=500
 set nocompatible
 " shell
 set shell=$SHELL
+
+" set term inside tmux for xterm-key on
+if &term =~ '^screen' && exists('$TMUX')
+  if &term =~ '256color'
+    set term=xterm-256color
+  else
+    set term=xterm
+  endif
+endif
+
 " Enable filetype plugin
 filetype on
 filetype plugin on
@@ -281,6 +291,8 @@ nnoremap <leader>/ :nohl<CR>
 
 " Fast saving
 nnoremap <leader>w :w!<CR>
+" save with sudo
+cmap w!! w !sudo tee > /dev/null %
 
 nnoremap <C-d> :q!<CR>
 inoremap <C-d> <ESC>:q!<CR>
