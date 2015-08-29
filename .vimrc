@@ -183,6 +183,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set expandtab
 set shiftwidth=2
+set softtabstop=2
 set tabstop=2
 set smarttab
 
@@ -292,7 +293,7 @@ nnoremap <leader>/ :nohl<CR>
 " Fast saving
 nnoremap <leader>w :w!<CR>
 " save with sudo
-cmap w!! w !sudo tee > /dev/null %
+command -nargs=0 Wsudo :w !sudo tee > /dev/null %
 
 nnoremap <C-d> :q!<CR>
 inoremap <C-d> <ESC>:q!<CR>
@@ -352,6 +353,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 
 execute plug#end()
 " }}}
