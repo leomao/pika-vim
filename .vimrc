@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 2.8.4
+" Version: 2.8.6
 "
 " Sections:
 "    -> General
@@ -254,6 +254,13 @@ nnoremap <C-Left>  <C-W>h
 nnoremap <C-Right> <C-W>l
 nnoremap <C-Up>    <C-W>k
 
+noremap <leader>bd :bd<CR>
+noremap <leader>bp :bp<CR>
+noremap <leader>bn :bn<CR>
+
+" don't jump to the begin of the line
+set nosol
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Statusline {{{
@@ -363,10 +370,6 @@ execute plug#end()
 let g:bufExplorerSortBy = 'name'
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerShowNoName = 1
-
-noremap <leader>bd :bd<CR>
-noremap <leader>bp :bp<CR>
-noremap <leader>bn :bn<CR>
 " }}}
 
 " --- NerdTree plugin --- {{{
@@ -398,7 +401,8 @@ let g:vimtex_quickfix_ignored_warnings = [
 
 " --- NERD Commenter plugin --- {{{
 let g:NERDCreateDefaultMappings = 0
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 0
+let g:NERDRemoveExtraSpaces = 1
 map <leader>cc <plug>NERDCommenterComment
 map <leader>cu <plug>NERDCommenterUncomment
 map <leader>c<space> <plug>NERDCommenterToggle

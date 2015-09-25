@@ -1,7 +1,6 @@
-pika-vim
-========
+# pika-vim
 
-Version: 2.8.2
+Version: 2.8.6
 
 My Pika vim configuration
 
@@ -10,13 +9,21 @@ Use [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins.
 This configuration is only for linux.
 
 ## How to use
-Dependencies:
 
-1. Vim 7.3+
-3. Ctags
-4. xelatex compiler
-5. g++
+### Dependencies
 
+- Vim 7.3+
+- Ctags
+- xelatex compiler
+- g++
+
+### Optional Dependencies
+
+For fzf:
+- tmux
+- ag (the\_silver\_searcher)
+
+### Deploy
 To use this configuration, run following commands:
 ```bash
 $ git clone https://github.com/leomao/pika-vim.git
@@ -29,78 +36,72 @@ $ ./deploy.py # deploy the configuration
 - use `:PlugClean` to clean old plugins.
 - use `:PlugUpdate` and `:PlugUpgrade` to update the plugins.
 
-Included Plugins:
-=======
-* [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)
-* [Emmet](https://github.com/mattn/emmet-vim)
-* [fugitive.vim](https://github.com/tpope/vim-fugitive)
-* [html5.vim](https://github.com/othree/html5.vim)
-* [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
-* [NERD Tree](https://github.com/scrooloose/nerdtree)
-* [OmnicppComplete](https://github.com/vim-scripts/OmniCppComplete)
-* [python syntax](https://github.com/hdima/python-syntax)
-* [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
-* [Surround](https://github.com/tpope/vim-surround)
-* [TagBar](https://github.com/majutsushi/tagbar)
-* [undotree](https://github.com/mbbill/undotree)
-* [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
-* [vim-javascript](https://github.com/pangloss/vim-javascript)
-* [vimtex](https://github.com/lervag/vimtex)
-* [vim-less](https://github.com/groenewege/vim-less)
-* [Python pep8 indent](https://github.com/hynek/vim-python-pep8-indent)
-* [FZF](https://github.com/junegunn/fzf)
+# Included Plugins:
+- [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)
+- [Emmet](https://github.com/mattn/emmet-vim)
+- [fugitive.vim](https://github.com/tpope/vim-fugitive)
+- [html5.vim](https://github.com/othree/html5.vim)
+- [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
+- [NERD Tree](https://github.com/scrooloose/nerdtree)
+- [OmnicppComplete](https://github.com/vim-scripts/OmniCppComplete)
+- [python syntax](https://github.com/hdima/python-syntax)
+- [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
+- [Surround](https://github.com/tpope/vim-surround)
+- [TagBar](https://github.com/majutsushi/tagbar)
+- [undotree](https://github.com/mbbill/undotree)
+- [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
+- [vim-javascript](https://github.com/pangloss/vim-javascript)
+- [vimtex](https://github.com/lervag/vimtex)
+- [vim-less](https://github.com/groenewege/vim-less)
+- [Python pep8 indent](https://github.com/hynek/vim-python-pep8-indent)
+- [FZF](https://github.com/junegunn/fzf)
 
-Common Shortcut:
-=======
-General:
--------
-+ Save file `<leader>w`
-+ next buffer `<leader>bn`
-+ previous buffer `<leader>bp`
-+ close buffer `<leader>bd`
-+ make `<F9>`
-+ Quit `<C-d>` or `ZQ`
+# Common Shortcut
+## General
+- Save file `<leader>w`
+- next buffer `<leader>bn`
+- previous buffer `<leader>bp`
+- close buffer `<leader>bd`
+- make `<F9>`
+- Quit `<C-d>` or `ZQ`
 
-Programming Language:
--------
+## Programming Language
 ### C/C++
-+ SingleCompile (let "make" compile single cpp file) `<C-F9>`
+- SingleCompile (let "make" compile single cpp file) `<C-F9>`
 
 ### Python
-+ make python script executable `<C-F9>`
+- make python script executable `<C-F9>`
 
-Plugin:
--------
+## Plugin:
 ### nerdcommenter
-+ Toggle line Comment `<leader>c<space>`
-+ add line Comment `<leader>cc`
-+ remove line Comment `<leader>cu`
+- Toggle line Comment `<leader>c<space>`
+- add line Comment `<leader>cc`
+- remove line Comment `<leader>cu`
 
 ### bufexpl
-+ open bufexpl `<leader>be`
+- open bufexpl `<leader>be`
 
 ### vim-latex
-+ Compile `<leader>ll`
-+ View `<leader>lv`
-+ set main file: add `%! TEX root=MAINFILE_RELATIVEPATH` at the top of your file
-+ you may want to add
+- Compile `<leader>ll`
+- View `<leader>lv`
+- set main file: add `%! TEX root=MAINFILE_RELATIVEPATH` at the top of your file
+- you may want to add
 ```
 $pdflatex = 'xelatex -synctex=1 -interaction=nonstopmode --shell-escape %O %S';
 ```
 in  `~/.latexmkrc`.
 
 ### NERDTree
-+ Toggle NERDTree `<leader>nt`
+- Toggle NERDTree `<leader>nt`
 
 ### TagBar
-+ Generate tags (ctags) `<F12>`
-+ toggle TagBar `<leader>tb`
+- Generate tags (ctags) `<F12>`
+- toggle TagBar `<leader>tb`
 
 ### Emmet
-+ Emmet Prefix `<C-y>`
+- Emmet Prefix `<C-y>`
 
-Customization:
-=======
+# Customization:
 To change the leader key `<leader>`, create a file named `.vimrc_leader`
 in the same directory of `.vimrc` and add following in the file:
 ```
