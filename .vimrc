@@ -187,7 +187,7 @@ set softtabstop=2
 set tabstop=2
 set smarttab
 
-set cino+=g0.5s,h0.5s
+set cino+=g0.5s,h0.5s,(0,W2s
 
 " line break on 80 characters
 set fo-=t
