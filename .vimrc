@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 2.8.6
+" Version: 2.9.0
 "
 " Sections:
 "    -> General
@@ -77,7 +77,7 @@ let g:mapleader = " "
 let g:maplocalleader = " "
 
 " When vimrc is edited, reload it
-" autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => VIM UI {{{
@@ -303,9 +303,9 @@ nnoremap <leader>w :w!<CR>
 " save with sudo
 command -nargs=0 Wsudo :w !sudo tee > /dev/null %
 
-nnoremap <C-d> :q!<CR>
-inoremap <C-d> <ESC>:q!<CR>
-vnoremap <C-d> <ESC>:q!<CR>
+" Fast quit
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
 
 " Fast editing of the .vimrc
 nnoremap <leader>ev :e! $MYVIMRC<CR>

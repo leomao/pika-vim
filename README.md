@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 2.8.6
+Version: 2.9.0
 
 My Pika vim configuration
 
@@ -63,7 +63,7 @@ $ ./deploy.py # deploy the configuration
 - previous buffer `<leader>bp`
 - close buffer `<leader>bd`
 - make `<F9>`
-- Quit `<C-d>` or `ZQ`
+- Quit `<leader>q` or `ZQ`
 
 ## Programming Language
 ### C/C++
