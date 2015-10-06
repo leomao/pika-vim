@@ -76,8 +76,8 @@ let maplocalleader = " "
 let g:mapleader = " "
 let g:maplocalleader = " "
 
-" When vimrc is edited, reload it
-autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+" Clear auto cmd for reload vimrc
+autocmd!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => VIM UI {{{
@@ -301,14 +301,12 @@ nnoremap <leader>/ :nohl<CR>
 " Fast saving
 nnoremap <leader>w :w!<CR>
 " save with sudo
-command -nargs=0 Wsudo :w !sudo tee > /dev/null %
+command! -nargs=0 Wsudo :w !sudo tee > /dev/null %
 
 " Fast quit
-nnoremap <leader>q :q<CR>
-nnoremap <leader>Q :q!<CR>
-
-" Fast editing of the .vimrc
-nnoremap <leader>ev :e! $MYVIMRC<CR>
+nnoremap <C-\> :q!<CR>
+inoremap <C-\> <ESC>:q!<CR>
+vnoremap <C-\> <ESC>:q!<CR>
 
 noremap <silent><F9> <ESC>:wa!<CR>:make<CR><CR>:cw<CR>
 
