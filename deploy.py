@@ -3,7 +3,6 @@
 import argparse
 import os, os.path, sys, subprocess
 import re
-from pathlib import Path
 
 parser = argparse.ArgumentParser(description='Deploy vim config files.')
 subparsers = parser.add_subparsers(title='commands',
@@ -16,6 +15,11 @@ updatep = subparsers.add_parser('update',
                                 help='update the configuration.')
 parser.add_argument('-k', '--keep', action='store_true',
                     help='keep old files (for deploy and link)')
+
+FILE_PATH = os.path.dirname(os.path.realpath(__file__))
+CMD_LN = 'ln -srfT {} {}'
+if sys.platform == 'darwin':
+    CMD_LN = 'ln -sf {} {}'
 
 def run_cmd(cmd):
     subprocess.call([cmd], shell=True)
@@ -34,11 +38,11 @@ def task_link(maps, keep):
     check_path(targets, keep)
 
     for f, t in maps.items():
-        run_cmd('ln -srfT {} {}'.format(f, t))
+        run_cmd(CMD_LN.format(f, t))
 
 def task_vim(keep):
     vimmap = {
-        '.': '~/.vim',
+        FILE_PATH: '~/.vim',
         '~/.vim/.vimrc': '~/.vimrc',
     }
     task_link(vimmap, keep)
@@ -65,5 +69,4 @@ if __name__ == '__main__':
         init()
         task_vim(args.keep)
         run_cmd('vim +PlugInstall +qall')
-
 
