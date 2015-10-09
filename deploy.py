@@ -3,6 +3,7 @@
 import argparse
 import os, os.path, sys, subprocess
 import re
+from pathlib import Path
 
 parser = argparse.ArgumentParser(description='Deploy vim config files.')
 subparsers = parser.add_subparsers(title='commands',
