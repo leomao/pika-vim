@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 2.9.0
+" Version: 3.0.0
 "
 " Sections:
 "    -> General
@@ -30,18 +30,6 @@
 "    -> Language section
 "    -> grep
 "    -> MISC
-"
-" Plugins_Included:
-"    -> Buffer Explorer
-"    -> Emmet
-"    -> fugitive
-"    -> NERD Commenter
-"    -> NERD Tree
-"    -> OmnicppComplete
-"    -> Surround
-"    -> TagBar
-"    -> undotree
-"    -> vimtex
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -255,8 +243,8 @@ nnoremap <C-Right> <C-W>l
 nnoremap <C-Up>    <C-W>k
 
 noremap <leader>bd :bd<CR>
-noremap <leader>bp :bp<CR>
-noremap <leader>bn :bn<CR>
+noremap <leader>bk :bp<CR>
+noremap <leader>bj :bn<CR>
 
 " don't jump to the begin of the line
 set nosol
@@ -269,7 +257,7 @@ set nosol
 set laststatus=2
 
 " Format the statusline
-set statusline=\ %f%m%r%h\ %w\ %=%y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}\ %4l/%4L:%3c
+"set statusline=\ %f%m%r%h\ %w\ %=%y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}\ %4l/%4L:%3c
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Tags {{{
@@ -310,6 +298,11 @@ vnoremap <C-\> <ESC>:q!<CR>
 
 noremap <silent><F9> <ESC>:wa!<CR>:make<CR><CR>:cw<CR>
 
+" check the syntax group under the cursor
+map <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Cope {{{
@@ -341,25 +334,31 @@ runtime macros/matchit.vim " include matchit plugins in vim
 " --- vim-plug plugin --- {{{
 execute plug#begin()
 
+" NOTE:
+" - leomao/lightline-pika is my personal settings.
+" - leomao/yajs.vim is fork from othree/yajs.vim.
+"   use it for some fixes which are not merged yet.
+
+Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
-Plug 'hynek/vim-python-pep8-indent'
-Plug 'hdima/python-syntax'
-Plug 'groenewege/vim-less'
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mbbill/undotree'
-Plug 'vim-scripts/OmniCppComplete'
-Plug 'pangloss/vim-javascript'
-Plug 'lervag/vimtex'
-Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'leomao/lightline-pika'
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'majutsushi/tagbar'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
+Plug 'mbbill/undotree'
+Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'leomao/yajs.vim', { 'for': 'javascript' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/OmniCppComplete'
 
 execute plug#end()
 " }}}
