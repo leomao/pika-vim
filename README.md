@@ -103,6 +103,26 @@ in  `~/.latexmkrc`.
 ### Emmet
 - Emmet Prefix `<C-y>`
 
+### lightline pika
+- To disable it:  
+  add `let g:disable_lightline_pika = 1` to `.vimrc_custom`
+- To disable the patch font:  
+  add `unlet g:lightline_pika_patchfont` to
+  `.vimrc_custom`
+- To change the patch font:  
+  change the unicode add the following to `.vimrc_custom`:
+  ```vim
+  let g:lightline_pika_patchfont = {
+        \ 'leftsep': "\ue0b0",
+        \ 'leftsubsep': "\ue0b1",
+        \ 'rightsep': "\ue0b2",
+        \ 'rightsubsep': "\ue0b3",
+        \ 'branch': "\ue0a0",
+        \ 'linecolumn': "\ue0a1",
+        \ 'readonly': "\ue0a2",
+        \ }
+  ```
+
 # Customization:
 To change the leader key `<leader>`, create a file named `.vimrc_leader`
 in the same directory of `.vimrc` and add following in the file:

@@ -437,6 +437,19 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 let g:user_emmet_install_global = 0
 au Filetype html,css EmmetInstall
 " }}}
+
+" --- lightline pika --- {{{
+let g:lightline_pika_patchfont = {
+      \ 'leftsep': "\ue0b0",
+      \ 'leftsubsep': "\ue0b1",
+      \ 'rightsep': "\ue0b2",
+      \ 'rightsubsep': "\ue0b3",
+      \ 'branch': "\ue0a0",
+      \ 'linecolumn': "\ue0a1",
+      \ 'readonly': "\ue0a2",
+      \ }
+" }}}
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Spell checking {{{
