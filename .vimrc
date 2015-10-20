@@ -387,6 +387,7 @@ let g:tagbar_autoclose = 0
 let g:tex_flavor = "latex"
 let g:tex_fast = "Mm"
 let g:vimtex_fold_enabled = 0
+let g:vimtex_imaps_leader = ';'
 let g:vimtex_quickfix_ignored_warnings = [
       \ 'Underfull',
       \ 'Overfull',
