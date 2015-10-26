@@ -60,7 +60,8 @@ hi link javascriptObjectLabel          javascriptLabel
 hi link javascriptObjectLabelColon     Operator
 hi link javascriptObjectComma          Operator
 hi link javascriptLabel                Normal
-hi link javascriptPropertyName         Normal
+hi link javascriptPropertyName         String
+hi link javascriptProperty             Operator
 hi link javascriptImport               Special
 hi link javascriptImportAs             Special
 hi link javascriptExport               Special
