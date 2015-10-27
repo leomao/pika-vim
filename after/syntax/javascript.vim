@@ -96,4 +96,9 @@ hi link javascriptOpSymbol             Operator
 hi link javascriptOpSymbols            Operator
 hi link javascriptLogicSymbol          Operator
 hi link javascriptBraces               Operator
+hi link javascriptPropertyBrackets     javascriptBrackets
+hi link javascriptBrackets             Operator
 hi link javascriptParens               Operator
+
+hi link javascriptDOMDocMethod         Function
+hi link javascriptCacheMethod          Function
