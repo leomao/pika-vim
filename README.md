@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 3.0.1
+Version: 3.1.0
 
 My Pika vim configuration
 
@@ -54,6 +54,7 @@ $ ./deploy.py # deploy the configuration
 - [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
 - [undotree](https://github.com/mbbill/undotree)
 - [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
+- [vim-jade](https://github.com/digitaltoad/vim-jade)
 - [vimtex](https://github.com/lervag/vimtex)
 - [yajs.vim](https://github.com/leomao/yajs.vim)
 

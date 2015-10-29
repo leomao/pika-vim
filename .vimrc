@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 3.0.1
+" Version: 3.1.0
 "
 " Sections:
 "    -> General
@@ -340,6 +340,7 @@ execute plug#begin()
 "   use it for some fixes which are not merged yet.
 
 Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
+Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'itchyny/lightline.vim'
