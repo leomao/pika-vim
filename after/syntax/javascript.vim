@@ -90,7 +90,10 @@ hi link javascriptClassName            Normal
 hi link javascriptClassSuperName       Normal
 hi link javascriptClassStatic          StorageClass
 hi link javascriptClassSuper           Identifier
+hi link javascriptDOMStorageProp       Normal
+hi link javascriptDOMElemProp          Normal
 
+hi link javascriptGlobalJSONDot        javascriptDotNotation
 hi link javascriptEndColons            Operator
 hi link javascriptOpSymbol             Operator
 hi link javascriptOpSymbols            Operator
@@ -100,5 +103,7 @@ hi link javascriptPropertyBrackets     javascriptBrackets
 hi link javascriptBrackets             Operator
 hi link javascriptParens               Operator
 
+hi link javascriptJSONStaticMethod     Function
+hi link javascriptDOMStorageMethod     Function
 hi link javascriptDOMDocMethod         Function
 hi link javascriptCacheMethod          Function
