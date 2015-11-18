@@ -66,11 +66,21 @@ $ ./deploy.py # deploy the configuration
 - close buffer `<leader>bd`
 - make `<F9>`
 - Toggle QuickFix `<F8>`
-- Quit `<leader>q` or `ZQ`
+- Quit `<C-\>` (or give built-in mapping `ZQ` a try!)
 
 ## Programming Language
 ### C/C++
 - SingleCompile (let "make" compile single cpp file) `<C-F9>`
+- astyle formatting `<F3>` (need astyle installed)
+- customization: (see [Customization](#customization))
+```vim
+" cpp ftplugin settings
+let g:cpp_astyle_mapping = '<F3>'
+let g:cpp_astyle_options = '-A8KpHUyk1qs2 -xG'
+let g:cpp_ctags_mapping = '<F12>'
+let g:cpp_ctags_options = '-R --c++-kinds=+pl --fields=+iaS --extra=+q'
+let g:cpp_compile_options = '-O2 -std=c++11 -Wall -Wshadow'
+```
 
 ### Python
 - make python script executable `<C-F9>`
@@ -98,7 +108,7 @@ in  `~/.latexmkrc`.
 - Toggle NERDTree `<leader>nt`
 
 ### TagBar
-- Generate tags (ctags) `<F12>`
+- Generate tags (ctags) `<F12>` (default: for C++ and python only)
 - toggle TagBar `<leader>tb`
 
 ### Emmet
@@ -112,17 +122,17 @@ in  `~/.latexmkrc`.
   `.vimrc_custom`
 - To change the patch font:  
   change the unicode add the following to `.vimrc_custom`:
-  ```vim
-  let g:lightline_pika_patchfont = {
-        \ 'leftsep': "\ue0b0",
-        \ 'leftsubsep': "\ue0b1",
-        \ 'rightsep': "\ue0b2",
-        \ 'rightsubsep': "\ue0b3",
-        \ 'branch': "\ue0a0",
-        \ 'linecolumn': "\ue0a1",
-        \ 'readonly': "\ue0a2",
-        \ }
-  ```
+```vim
+let g:lightline_pika_patchfont = {
+      \ 'leftsep': "\ue0b0",
+      \ 'leftsubsep': "\ue0b1",
+      \ 'rightsep': "\ue0b2",
+      \ 'rightsubsep': "\ue0b3",
+      \ 'branch': "\ue0a0",
+      \ 'linecolumn': "\ue0a1",
+      \ 'readonly': "\ue0a2",
+      \ }
+```
 
 # Customization:
 To change the leader key `<leader>`, create a file named `.vimrc_leader`
@@ -136,6 +146,8 @@ let g:maplocalleader = ","
 ```
 Use your favorite key to substitute `,`.  
 
-To change some plugins' settings or other things, create a file named
-`.vimrc_custom` in the same directory of `.vimrc` and add what you need
-in that file.
+To change settings of some plugins or other things, create a file named
+`.vimrc_custom` in the directory of this repo and add what you need in
+that file.
+
+For the detail settings, please refer to docs of each plugin and the `.vimrc`.
