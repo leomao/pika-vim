@@ -345,16 +345,16 @@ Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'leomao/lightline-pika'
+Plug 'leomao/yajs.vim', { 'for': 'javascript' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'mbbill/undotree'
 Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
