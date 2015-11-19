@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 3.1.0
+" Version: 3.2.0
 "
 " Sections:
 "    -> General
@@ -359,7 +359,10 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/OmniCppComplete'
+Plug 'vim-scripts/OmniCppComplete', { 'for': 'cpp' }
+
+"include custom plugin
+runtime .vimrc_plugin
 
 execute plug#end()
 " }}}

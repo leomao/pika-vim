@@ -1,12 +1,12 @@
 # pika-vim
 
-Version: 3.1.0
+Version: 3.2.0
 
 My Pika vim configuration
 
 Use [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins.
 
-This configuration is tested only on linux.
+This configuration is only tested on Archlinux.
 
 ## How to use
 
@@ -136,8 +136,8 @@ let g:lightline_pika_patchfont = {
 
 # Customization:
 To change the leader key `<leader>`, create a file named `.vimrc_leader`
-in the same directory of `.vimrc` and add following in the file:
-```
+in the directory of this repo and add following in the file:
+```vim
 " change your leader to ","
 let mapleader = ","
 let maplocalleader = ","
@@ -145,6 +145,14 @@ let g:mapleader = ","
 let g:maplocalleader = ","
 ```
 Use your favorite key to substitute `,`.  
+
+To add more plugin via vim-plug, , create a file named `.vimrc_plugin`
+in the directory of this repo and add something like following:
+```vim
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+```
+Please refer to [vim-plug](https://github.com/junegunn/vim-plug)
+documentation.
 
 To change settings of some plugins or other things, create a file named
 `.vimrc_custom` in the directory of this repo and add what you need in
