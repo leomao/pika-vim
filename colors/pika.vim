@@ -31,6 +31,7 @@ if has("gui_running")
   hi CursorIM       guibg=#D0D0D0 guifg=#1F1F1F gui=none
   hi CursorColumn   guibg=#000000               gui=none
   hi CursorLine     guibg=#303030               gui=none
+  hi CursorLineNR   guibg=#000000 guifg=#FFFF00 gui=bold
 
   " -> Folding
   hi FoldColumn     guibg=#001336 guifg=#003DAD gui=none
@@ -123,6 +124,7 @@ elseif &t_Co == 256
   hi CursorIM       ctermbg=22   ctermfg=none cterm=none
   hi CursorColumn   ctermbg=0                 cterm=none
   hi CursorLine     ctermbg=none              cterm=none
+  hi CursorLineNR   ctermbg=none ctermfg=226  cterm=bold
 
   " -> Folding
   hi FoldColumn     ctermbg=none ctermfg=25   cterm=none
