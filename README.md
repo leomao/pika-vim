@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 3.2.0
+Version: 3.3.0
 
 My Pika vim configuration
 
@@ -12,10 +12,10 @@ This configuration is only tested on Archlinux.
 
 ### Dependencies
 
-- Vim 7.4+
-- Ctags
-- xelatex compiler
+- vim 7.4+
 - g++
+- ctags
+- xelatex compiler (for latex usage)
 
 ### Optional Dependencies
 
@@ -41,7 +41,6 @@ $ ./deploy.py # deploy the configuration
 - [Emmet](https://github.com/mattn/emmet-vim)
 - [FZF](https://github.com/junegunn/fzf)
 - [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
-- [NERD Tree](https://github.com/scrooloose/nerdtree)
 - [OmnicppComplete](https://github.com/vim-scripts/OmniCppComplete)
 - [Python pep8 indent](https://github.com/hynek/vim-python-pep8-indent)
 - [Surround](https://github.com/tpope/vim-surround)
@@ -55,6 +54,7 @@ $ ./deploy.py # deploy the configuration
 - [undotree](https://github.com/mbbill/undotree)
 - [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 - [vim-jade](https://github.com/digitaltoad/vim-jade)
+- [vim-vinegar](https://github.com/tpope/vim-vinegar)
 - [vimtex](https://github.com/lervag/vimtex)
 - [yajs.vim](https://github.com/leomao/yajs.vim)
 
@@ -103,9 +103,6 @@ let g:cpp_compile_options = '-O2 -std=c++11 -Wall -Wshadow'
 $pdflatex = 'xelatex -synctex=1 -interaction=nonstopmode --shell-escape %O %S';
 ```
 in  `~/.latexmkrc`.
-
-### NERDTree
-- Toggle NERDTree `<leader>nt`
 
 ### TagBar
 - Generate tags (ctags) `<F12>` (default: for C++ and python only)

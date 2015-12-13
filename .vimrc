@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 3.2.0
+" Version: 3.3.0
 "
 " Sections:
 "    -> General
@@ -52,9 +52,7 @@ if &term =~ '^screen' && exists('$TMUX')
 endif
 
 " Enable filetype plugin
-filetype on
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -121,13 +119,6 @@ set tm=500
 
 set mouse=a
 set ttymouse=xterm2
-
-" Paren highlight
-" au Filetype cpp,c,python call Paren_highlight()
-" function! Paren_highlight()
-" syn match Parens display "[][{}()]"
-" hi def link Parens Delimiter
-" endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
@@ -356,9 +347,9 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'mbbill/undotree'
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/OmniCppComplete', { 'for': 'cpp' }
 
 "include custom plugin
@@ -367,16 +358,15 @@ runtime .vimrc_plugin
 execute plug#end()
 " }}}
 
+" --- netrw plugin (built-in) --- {{{
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+" }}}
+
 " --- Buffer plugin --- {{{
 let g:bufExplorerSortBy = 'name'
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerShowNoName = 1
-" }}}
-
-" --- NerdTree plugin --- {{{
-nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
-let g:NERDTreeWinPos = "right"
-let g:NERDTreeWinSize = 25
 " }}}
 
 " --- Tagbar plugin --- {{{
