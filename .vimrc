@@ -34,6 +34,34 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" => General {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sets how many lines of history VIM has to remember
+set history=500
+" not compatible with the old-fashion vi mode
+set nocompatible
+" shell
+set shell=$SHELL
+
+" set term inside tmux for xterm-key on
+if &term =~ '^screen' && exists('$TMUX')
+  if &term =~ '256color'
+    set term=xterm-256color
+  else
+    set term=xterm
+  endif
+endif
+
+" Enable filetype plugin
+"filetype plugin indent on
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Clear auto cmd for reload vimrc
+autocmd!
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 " => Map leader settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set map leader to " "
@@ -170,34 +198,6 @@ let g:lightline_pika_patchfont = {
       \ }
 " }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" }}}
-" => General {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
-set history=500
-" not compatible with the old-fashion vi mode
-set nocompatible
-" shell
-set shell=$SHELL
-
-" set term inside tmux for xterm-key on
-if &term =~ '^screen' && exists('$TMUX')
-  if &term =~ '256color'
-    set term=xterm-256color
-  else
-    set term=xterm
-  endif
-endif
-
-" Enable filetype plugin
-filetype plugin indent on
-
-" Set to auto read when a file is changed from the outside
-set autoread
-
-" Clear auto cmd for reload vimrc
-autocmd!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => VIM UI {{{
