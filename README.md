@@ -12,7 +12,7 @@ This configuration is only tested on Archlinux.
 
 ### Dependencies
 
-- vim 7.4+
+- vim 7.4+ (or [neovim][neovim])
 - g++
 - ctags
 - xelatex compiler (for latex usage)
@@ -156,3 +156,5 @@ To change settings of some plugins or other things, create a file named
 that file.
 
 For the detail settings, please refer to docs of each plugin and the `.vimrc`.
+
+[neovim]: https://github.com/neovim/neovim

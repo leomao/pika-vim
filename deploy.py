@@ -15,7 +15,9 @@ linkp = subparsers.add_parser('link',
 updatep = subparsers.add_parser('update',
                                 help='update the configuration.')
 parser.add_argument('-k', '--keep', action='store_true',
-                    help='keep old files (for deploy and link)')
+                    help='keep old files (for deploy and link).')
+parser.add_argument('--nvim', action='store_true',
+                    help='deploy config files for nvim.')
 
 FILE_PATH = os.path.dirname(os.path.realpath(__file__))
 CMD_LN = 'ln -srfT {} {}'
@@ -41,11 +43,15 @@ def task_link(maps, keep):
     for f, t in maps.items():
         run_cmd(CMD_LN.format(f, t))
 
-def task_vim(keep):
+def task_vim(keep, nvim):
     vimmap = {
         FILE_PATH: '~/.vim',
         '~/.vim/.vimrc': '~/.vimrc',
     }
+    if nvim:
+        vimmap = {
+            FILE_PATH: '~/.config/nvim',
+        }
     task_link(vimmap, keep)
 
 def init():
@@ -58,16 +64,16 @@ def init():
 
 def update():
     run_cmd('git pull')
-    run_cmd('vim +PlugUpdate +PlugUpgrade +qall')
+    run_cmd('vim +PlugUpdate +qall')
 
 if __name__ == '__main__':
     args = parser.parse_args()
     if args.command == 'link':
-        task_vim(args.keep)
+        task_vim(args.keep, args.nvim)
     elif args.command == 'update':
         update()
     else:
         init()
-        task_vim(args.keep)
+        task_vim(args.keep, args.nvim)
         run_cmd('vim +PlugInstall +qall')
 
