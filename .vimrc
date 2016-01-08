@@ -399,9 +399,7 @@ nnoremap - <C-x>
 
 set clipboard+=unnamed
 
-" Move a line of text using CTRL+[jk]
-nnoremap <C-j> mz:m+<CR>`z:echo "move line down"<CR>
-nnoremap <C-k> mz:m-2<CR>`z:echo "move line up"<CR>
+" Move lines of text using CTRL+[jk]
 vnoremap <C-j> :m'>+<CR>:echo "move block down"<CR>gv
 vnoremap <C-k> :m'<-2<CR>:echo "move block up"<CR>gv
 
@@ -419,8 +417,11 @@ vnoremap <C-\> <ESC>:q!<CR>
 
 noremap <silent><F9> <ESC>:wa!<CR>:make<CR><CR>:cw<CR>
 
+nnoremap <leader>fi <ESC>:FZF<CR>
+nnoremap <leader>fb <ESC>:Buffers<CR>
+
 " check the syntax group under the cursor
-map <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+noremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
