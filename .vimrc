@@ -116,6 +116,11 @@ let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 " }}}
 
+" --- fzf plugin --- {{{
+nnoremap <leader>ff <ESC>:FZF<CR>
+nnoremap <leader>bf <ESC>:Buffers<CR>
+" }}}
+
 " --- Buffer plugin --- {{{
 let g:bufExplorerSortBy = 'name'
 let g:bufExplorerShowRelativePath = 1
@@ -416,9 +421,6 @@ inoremap <C-\> <ESC>:q!<CR>
 vnoremap <C-\> <ESC>:q!<CR>
 
 noremap <silent><F9> <ESC>:wa!<CR>:make<CR><CR>:cw<CR>
-
-nnoremap <leader>fi <ESC>:FZF<CR>
-nnoremap <leader>fb <ESC>:Buffers<CR>
 
 " check the syntax group under the cursor
 noremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
