@@ -100,7 +100,9 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'mbbill/undotree'
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/OmniCppComplete', { 'for': 'cpp' }
@@ -136,8 +138,6 @@ let g:tagbar_autoclose = 0
 " }}}
 
 " --- vimtex --- {{{
-let g:tex_flavor = "latex"
-let g:tex_fast = "Mm"
 let g:vimtex_fold_enabled = 0
 let g:vimtex_imaps_leader = ';'
 let g:vimtex_quickfix_ignored_warnings = [
@@ -467,6 +467,13 @@ noremap <silent> <leader>cp :cp<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --- python --- {{{
 let python_highlight_all = 1
+" }}}
+" --- latex --- {{{
+let g:tex_flavor = "latex"
+let g:tex_fast = "Mm"
+" }}}
+" --- bison/yacc --- {{{
+let g:yacc_uses_cpp = 1
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
