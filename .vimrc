@@ -93,12 +93,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'leomao/lightline-pika'
-Plug 'leomao/yajs.vim', { 'for': 'javascript' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'mbbill/undotree'
 Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'

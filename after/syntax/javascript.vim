@@ -1,7 +1,6 @@
 " Vim syntax file
-" Language:	JS syntax customization
+" Language:	JS syntax customization for yajs.vim
 " Maintainer:	LeoMao
-"
 
 " syntax sync minlines=200
 
@@ -58,7 +57,7 @@ hi link javascriptNumber               Number
 hi link javascriptBoolean              Boolean
 hi link javascriptObjectLabel          javascriptLabel
 hi link javascriptObjectLabelColon     Operator
-hi link javascriptObjectComma          Operator
+hi link javascriptComma                Operator
 hi link javascriptLabel                Normal
 hi link javascriptPropertyName         String
 hi link javascriptProperty             Operator
@@ -69,10 +68,6 @@ hi link javascriptTry                  Exception
 hi link javascriptExceptions           Exception
 
 hi link javascriptMethodName           Function
-hi link javascriptHeadersMethod        Function
-hi link javascriptBOMLocationMethod    Function
-hi link javascriptArrayMethod          Function
-hi link javascriptConsoleMethod        Function
 hi link javascriptMethodAccessor       Operator
 hi link javascriptDotNotation          Operator
 
@@ -82,7 +77,6 @@ hi link javascriptArrowFunc            Function
 hi link javascriptFuncName             Normal
 hi link javascriptFuncArg              Normal
 hi link javascriptArrowFuncArg         javascriptFuncArg
-hi link javascriptFuncComma            Operator
 
 hi link javascriptClassKeyword         Type
 hi link javascriptClassExtends         Statement
@@ -93,7 +87,6 @@ hi link javascriptClassSuper           Identifier
 hi link javascriptDOMStorageProp       Normal
 hi link javascriptDOMElemProp          Normal
 
-hi link javascriptGlobalJSONDot        javascriptDotNotation
 hi link javascriptEndColons            Operator
 hi link javascriptOpSymbol             Operator
 hi link javascriptOpSymbols            Operator
@@ -103,7 +96,61 @@ hi link javascriptPropertyBrackets     javascriptBrackets
 hi link javascriptBrackets             Operator
 hi link javascriptParens               Operator
 
-hi link javascriptJSONStaticMethod     Function
-hi link javascriptDOMStorageMethod     Function
-hi link javascriptDOMDocMethod         Function
-hi link javascriptCacheMethod          Function
+hi link javascriptGlobalObjectDot      javascriptDotNotation
+hi link javascriptGlobalNumberDot      javascriptDotNotation
+hi link javascriptGlobalURLDot         javascriptDotNotation
+hi link javascriptGlobalJSONDot        javascriptDotNotation
+hi link javascriptGlobalSymbolDot      javascriptDotNotation
+hi link javascriptGlobalPromiseDot     javascriptDotNotation
+hi link javascriptGlobalRegExpDot      javascriptDotNotation
+hi link javascriptGlobalMathDot        javascriptDotNotation
+hi link javascriptGlobalArrayDot       javascriptDotNotation
+hi link javascriptGlobalDateDot        javascriptDotNotation
+hi link javascriptGlobalStringDot      javascriptDotNotation
+
+hi link javascriptArrayMethod          javascriptMethodName
+hi link javascriptArrayStaticMethod    javascriptMethodName
+hi link javascriptBOMHistoryMethod     javascriptMethodName
+hi link javascriptBOMLocationMethod    javascriptMethodName
+hi link javascriptBOMNavigatorMethod   javascriptMethodName
+hi link javascriptBOMWindowMethod      javascriptMethodName
+hi link javascriptBlobMethod           javascriptMethodName
+hi link javascriptCacheMethod          javascriptMethodName
+hi link javascriptConsoleMethod        javascriptMethodName
+hi link javascriptCryptoMethod         javascriptMethodName
+hi link javascriptDOMDocMethod         javascriptMethodName
+hi link javascriptDOMElemMethod        javascriptMethodName
+hi link javascriptDOMEventMethod       javascriptMethodName
+hi link javascriptDOMEventTargetMethod javascriptMethodName
+hi link javascriptDOMNodeMethod        javascriptMethodName
+hi link javascriptDOMStorageMethod     javascriptMethodName
+hi link javascriptDateMethod           javascriptMethodName
+hi link javascriptDateStaticMethod     javascriptMethodName
+hi link javascriptES6MapMethod         javascriptMethodName
+hi link javascriptES6SetMethod         javascriptMethodName
+hi link javascriptFileListMethod       javascriptMethodName
+hi link javascriptFileMethod           javascriptMethodName
+hi link javascriptFileReaderMethod     javascriptMethodName
+hi link javascriptFunctionMethod       javascriptMethodName
+hi link javascriptGlobalMethod         javascriptMethodName
+hi link javascriptHeadersMethod        javascriptMethodName
+hi link javascriptIntlMethod           javascriptMethodName
+hi link javascriptJSONStaticMethod     javascriptMethodName
+hi link javascriptMathStaticMethod     javascriptMethodName
+hi link javascriptMethod               javascriptMethodName
+hi link javascriptNumberMethod         javascriptMethodName
+hi link javascriptNumberStaticMethod   javascriptMethodName
+hi link javascriptObjectMethod         javascriptMethodName
+hi link javascriptObjectStaticMethod   javascriptMethodName
+hi link javascriptPromiseMethod        javascriptMethodName
+hi link javascriptPromiseStaticMethod  javascriptMethodName
+hi link javascriptRegExpMethod         javascriptMethodName
+hi link javascriptRequestMethod        javascriptMethodName
+hi link javascriptResponseMethod       javascriptMethodName
+hi link javascriptServiceWorkerMethod  javascriptMethodName
+hi link javascriptStringMethod         javascriptMethodName
+hi link javascriptStringStaticMethod   javascriptMethodName
+hi link javascriptSubtleCryptoMethod   javascriptMethodName
+hi link javascriptSymbolStaticMethod   javascriptMethodName
+hi link javascriptURLStaticMethod      javascriptMethodName
+hi link javascriptXHRMethod            javascriptMethodName
