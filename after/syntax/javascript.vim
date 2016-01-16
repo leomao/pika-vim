@@ -84,8 +84,6 @@ hi link javascriptClassName            Normal
 hi link javascriptClassSuperName       Normal
 hi link javascriptClassStatic          StorageClass
 hi link javascriptClassSuper           Identifier
-hi link javascriptDOMStorageProp       Normal
-hi link javascriptDOMElemProp          Normal
 
 hi link javascriptEndColons            Operator
 hi link javascriptOpSymbol             Operator
@@ -95,6 +93,32 @@ hi link javascriptBraces               Operator
 hi link javascriptPropertyBrackets     javascriptBrackets
 hi link javascriptBrackets             Operator
 hi link javascriptParens               Operator
+
+hi link javascriptProp                 Normal
+hi link javascriptBOMHistoryProp       javascriptProp
+hi link javascriptBOMLocationProp      javascriptProp
+hi link javascriptBOMNavigatorProp     javascriptProp
+hi link javascriptBOMWindowProp        javascriptProp
+hi link javascriptComputedProp         javascriptProp
+hi link javascriptCryptoProp           javascriptProp
+hi link javascriptDOMDocProp           javascriptProp
+hi link javascriptDOMElemProp          javascriptProp
+hi link javascriptDOMEventProp         javascriptProp
+hi link javascriptDOMNodeProp          javascriptProp
+hi link javascriptDOMStorageProp       javascriptProp
+hi link javascriptES6MapProp           javascriptProp
+hi link javascriptES6SetProp           javascriptProp
+hi link javascriptFileReaderProp       javascriptProp
+hi link javascriptMathStaticProp       javascriptProp
+hi link javascriptNumberStaticProp     javascriptProp
+hi link javascriptRegExpProp           javascriptProp
+hi link javascriptRegExpStaticProp     javascriptProp
+hi link javascriptRequestProp          javascriptProp
+hi link javascriptResponseProp         javascriptProp
+hi link javascriptServiceWorkerProp    javascriptProp
+hi link javascriptSymbolStaticProp     javascriptProp
+hi link javascriptURLUtilsProp         javascriptProp
+hi link javascriptXHRProp              javascriptProp
 
 hi link javascriptGlobalObjectDot      javascriptDotNotation
 hi link javascriptGlobalNumberDot      javascriptDotNotation
