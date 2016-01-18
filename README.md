@@ -14,7 +14,7 @@ This configuration is only tested on Archlinux.
 
 - vim 7.4+ (or [neovim][neovim])
 - g++
-- ctags
+- ctags (for tags generation)
 - xelatex compiler (for latex usage)
 
 ### Optional Dependencies
@@ -54,9 +54,9 @@ $ ./deploy.py # deploy the configuration
 ## Plugins for general usage:
 - [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)
 - [FZF](https://github.com/junegunn/fzf)
-- [fzf.vim](https://github.com/junegunn/fzf.vim)
 - [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
 - [TagBar](https://github.com/majutsushi/tagbar)
+- [fzf.vim](https://github.com/junegunn/fzf.vim)
 - [lightline-pika](https://github.com/leomao/lightline-pika)
 - [lightline.vim](https://github.com/itchyny/lightline.vim)
 - [undotree](https://github.com/mbbill/undotree)
@@ -64,6 +64,7 @@ $ ./deploy.py # deploy the configuration
 - [vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [vim-repeat](https://github.com/tpope/vim-repeat)
 - [vim-surround](https://github.com/tpope/vim-surround)
+- [vim-tags](https://github.com/szw/vim-tags)
 - [vim-vinegar](https://github.com/tpope/vim-vinegar)
 
 # Common Shortcut
@@ -85,8 +86,6 @@ $ ./deploy.py # deploy the configuration
 " cpp ftplugin settings
 let g:cpp_astyle_mapping = '<F3>'
 let g:cpp_astyle_options = '-A8KpHUyk1qs2 -xG'
-let g:cpp_ctags_mapping = '<F12>'
-let g:cpp_ctags_options = '-R --c++-kinds=+pl --fields=+iaS --extra=+q'
 let g:cpp_compile_options = '-O2 -std=c++11 -Wall -Wshadow'
 ```
 
@@ -113,8 +112,10 @@ $pdflatex = 'xelatex -synctex=1 -interaction=nonstopmode --shell-escape %O %S';
 in  `~/.latexmkrc`.
 
 ### TagBar
-- Generate tags (ctags) `<F12>` (default: for C++ and python only)
 - toggle TagBar `<leader>tb`
+
+### vim tags
+- Generate tags for the project (ctags) `<F12>`
 
 ### undotree
 - toggle undotree panel `<F5>`

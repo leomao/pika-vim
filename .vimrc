@@ -101,6 +101,7 @@ Plug 'mbbill/undotree'
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'scrooloose/nerdcommenter'
+Plug 'szw/vim-tags'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -139,6 +140,15 @@ let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 0
 " }}}
 
+" --- vim tags plugin --- {{{
+let g:vim_tags_use_language_field = 1
+let g:vim_tags_project_tags_command = '{CTAGS}
+      \ -R --c++-kinds=+pl --fields=+iaS --extra=+q
+      \ {OPTIONS} {DIRECTORY} 2>/dev/null'
+
+noremap <F12> <ESC>:TagsGenerate!<CR>
+" }}}
+
 " --- vimtex --- {{{
 let g:vimtex_fold_enabled = 0
 let g:vimtex_imaps_leader = ';'
@@ -165,7 +175,7 @@ noremap <silent><F5> <ESC>:UndotreeToggle<CR>
 " }}}
 
 " --- Omni complete functions --- {{{
-set completeopt=menuone,longest
+set completeopt=menuone
 set omnifunc=syntaxcomplete#Complete
 
 let OmniCpp_NamespaceSearch = 1
