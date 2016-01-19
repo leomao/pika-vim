@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 3.3.2
+" Version: 3.4.0
 "
 " Sections:
 "    -> Map leader settings
@@ -52,7 +52,7 @@ if &term =~ '^screen' && exists('$TMUX')
   endif
 endif
 
-" Enable filetype plugin
+" Enable filetype plugin (called by vim-plug)
 "filetype plugin indent on
 
 " Set to auto read when a file is changed from the outside
@@ -73,15 +73,16 @@ runtime .vimrc_leader
 " }}}
 " => Plugin settings {{{
 """"""""""""""""""""""""""""""
-runtime macros/matchit.vim " include matchit plugins in vim
+" include matchit plugins in vim
+if !exists('g:loaded_matchit')
+  runtime macros/matchit.vim
+endif
 
 " --- vim-plug plugin --- {{{
 execute plug#begin()
 
 " NOTE:
 " - leomao/lightline-pika is my personal settings.
-" - leomao/yajs.vim is fork from othree/yajs.vim.
-"   use it for some fixes which are not merged yet.
 
 Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
@@ -106,6 +107,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/OmniCppComplete', { 'for': 'cpp' }
+Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 
 "include custom plugin
 runtime .vimrc_plugin
@@ -225,10 +227,11 @@ if has("gui_running")
   set guioptions-=r "remove scrollbar
 endif
 
-set cursorline "highlight current line *Slow*
+" line number will be highlighted if set rnu
+"set cursorline "highlight current line *Slow*
 set cmdheight=1 "The commandbar height
-" set showcmd "display what command was typed
-set showmode "display current mode
+"set showcmd "display what command was typed
+set noshowmode "display current mode
 
 set nu "line number
 set rnu "line number (relative number)
@@ -278,8 +281,9 @@ endif
 set fileencodings=utf8
 set encoding=utf8
 " format options
-set fo+=Mm
+set fo+=Mm " for multi btye character
 set fo+=crql
+set fo-=t
 set ffs=unix,dos,mac " Default file types
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
@@ -308,7 +312,6 @@ set smarttab
 set cino+=g0.5s,h0.5s,(0,W2s
 
 " line break on 80 characters
-set fo-=t
 set tw=80
 " color column after 'textwidth'
 set colorcolumn=+1
@@ -324,17 +327,11 @@ set wrap " Wrap lines
 set foldenable
 set foldlevelstart=10
 set fdm=syntax
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Visual mode related {{{
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Really useful!
-" substitude word
-nnoremap <leader>sw :%s/<C-R><C-W>//ge<left><left><left>
-" substitude current word in selection
-vnoremap <leader>sw <ESC>"syiwgv:s/<C-R>s//ge<left><left><left>
-" substitude selection
-vnoremap <leader>ss "sy<ESC>:%s/<C-R>s//ge<left><left><left>
 " In visual mode when you press * or # to search for the current selection
 function! s:VSetSearch(cmdtype)
   let temp = @s
@@ -350,9 +347,6 @@ vnoremap <silent> # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set current path when vim start
 autocmd VimEnter * cd %:p:h
-
-" When pressing <leader>cd switch to the directory of the open buffer
-noremap <leader>cd :cd %:p:h<CR>:echo CurDir()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Moving around, windows, tabs and buffers {{{
@@ -363,14 +357,14 @@ nnoremap k gk
 
 inoremap <C-l> <Del>
 
-nnoremap <C-Down>  <C-W>j
-nnoremap <C-Left>  <C-W>h
-nnoremap <C-Right> <C-W>l
-nnoremap <C-Up>    <C-W>k
+nnoremap <C-down>  <C-w>j
+nnoremap <C-left>  <C-w>h
+nnoremap <C-right> <C-w>l
+nnoremap <C-up>    <C-w>k
 
-noremap <leader>bd :bd<CR>
-noremap <leader>bk :bp<CR>
-noremap <leader>bj :bn<CR>
+nnoremap <leader>bd :bd<CR>
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>bn :bn<CR>
 
 " don't jump to the begin of the line
 set nosol
@@ -405,25 +399,31 @@ nnoremap - <C-x>
 set clipboard+=unnamed
 
 " Move lines of text using CTRL+[jk]
+nnoremap <C-j> :m+<CR>:echo "move line down"<CR>
+nnoremap <C-k> :m-2<CR>:echo "move line up"<CR>
 vnoremap <C-j> :m'>+<CR>:echo "move block down"<CR>gv
 vnoremap <C-k> :m'<-2<CR>:echo "move block up"<CR>gv
 
-nnoremap <leader>/ :nohl<CR>
+nnoremap <silent><leader>/ :nohl<CR>
+
+" left hand esc
+nnoremap <C-e> <ESC>
+inoremap <C-e> <ESC>
+vnoremap <C-e> <ESC>
+
+" smarter command line
+cnoremap <c-n>  <down>
+cnoremap <c-p>  <up>
 
 " Fast saving
 nnoremap <leader>w :w!<CR>
 " save with sudo
 command! -nargs=0 Wsudo :w !sudo tee > /dev/null %
 
-" Fast quit
-nnoremap <C-\> :q!<CR>
-inoremap <C-\> <ESC>:q!<CR>
-vnoremap <C-\> <ESC>:q!<CR>
-
 noremap <silent><F9> <ESC>:wa!<CR>:make<CR><CR>:cw<CR>
 
 " check the syntax group under the cursor
-noremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
@@ -432,7 +432,7 @@ noremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 " => Cope {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Do :help cope if you are unsure what cope is. It's super useful!
-noremap <F8> <ESC>:call QFSwitch()<CR>
+noremap <silent><F8> <ESC>:call QFSwitch()<CR>
 function! QFSwitch()
   redir => ls_output
   execute ':silent! ls'
@@ -446,21 +446,9 @@ function! QFSwitch()
   endif
 endfunction
 
-noremap <silent> <leader>cn :cn<CR>
-noremap <silent> <leader>cp :cp<CR>
+noremap <silent><leader>cn :cn<CR>
+noremap <silent><leader>cp :cp<CR>
 
-""""""""""""""""""""""""""""""
-" }}}
-" => Spell checking {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pressing ,ss will toggle and untoggle spell checking
-" map <leader>ss :setlocal spell!<CR>
-
-" Shortcuts using <leader>
-" map <leader>sn ]s
-" map <leader>sp [s
-" map <leader>sa zg
-" map <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Language section {{{
@@ -477,22 +465,8 @@ let g:yacc_uses_cpp = 1
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
-" => Vim grep {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated .git'
-set grepprg=grep\ -nH\ $*
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" }}}
-" => MISC {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remove the Windows ^M - when the encodings gets messed up
-nnoremap <silent><leader>m :%s/<C-V><CR>//ge<CR>``
-" Remove trailing spaces
-nnoremap <silent><leader>s :%s/\s\+$//ge<CR>``:nohl<CR>
-" }}}
 " => Load custom settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 runtime .vimrc_custom
 " }}}
 " vim:fdm=marker:foldlevel=0
-

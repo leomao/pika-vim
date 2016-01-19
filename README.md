@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 3.3.2
+Version: 3.4.0
 
 My Pika vim configuration
 
@@ -37,36 +37,44 @@ $ ./deploy.py # deploy the configuration
 - use `:PlugUpdate` and `:PlugUpgrade` to update the plugins.
 
 # Included Plugins:
-- [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)
-- [Emmet](https://github.com/mattn/emmet-vim)
-- [FZF](https://github.com/junegunn/fzf)
-- [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
-- [OmnicppComplete](https://github.com/vim-scripts/OmniCppComplete)
+
+## Plugins for filetypes:
 - [Python pep8 indent](https://github.com/hynek/vim-python-pep8-indent)
-- [Surround](https://github.com/tpope/vim-surround)
-- [TagBar](https://github.com/majutsushi/tagbar)
-- [fugitive.vim](https://github.com/tpope/vim-fugitive)
-- [html5.vim](https://github.com/othree/html5.vim)
-- [lightline-pika](https://github.com/leomao/lightline-pika)
-- [lightline.vim](https://github.com/itchyny/lightline.vim)
 - [python syntax](https://github.com/hdima/python-syntax)
+- [vimtex](https://github.com/lervag/vimtex)
 - [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
-- [undotree](https://github.com/mbbill/undotree)
+- [vim-stylus](https://github.com/wavded/vim-stylus)
+- [yajs.vim](https://github.com/leomao/yajs.vim)
 - [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 - [vim-jade](https://github.com/digitaltoad/vim-jade)
+- [html5.vim](https://github.com/othree/html5.vim)
+- [Emmet](https://github.com/mattn/emmet-vim)
+- [OmnicppComplete](https://github.com/vim-scripts/OmniCppComplete)
+
+## Plugins for general usage:
+- [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)
+- [FZF](https://github.com/junegunn/fzf)
+- [fzf.vim](https://github.com/junegunn/fzf.vim)
+- [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
+- [TagBar](https://github.com/majutsushi/tagbar)
+- [lightline-pika](https://github.com/leomao/lightline-pika)
+- [lightline.vim](https://github.com/itchyny/lightline.vim)
+- [undotree](https://github.com/mbbill/undotree)
+- [vim-abolish](https://github.com/tpope/vim-abolish)
+- [vim-fugitive](https://github.com/tpope/vim-fugitive)
+- [vim-repeat](https://github.com/tpope/vim-repeat)
+- [vim-surround](https://github.com/tpope/vim-surround)
 - [vim-vinegar](https://github.com/tpope/vim-vinegar)
-- [vimtex](https://github.com/lervag/vimtex)
-- [yajs.vim](https://github.com/leomao/yajs.vim)
 
 # Common Shortcut
 ## General
 - Save file `<leader>w`
-- next buffer `<leader>bj`
-- previous buffer `<leader>bk`
+- next buffer `<leader>bn`
+- previous buffer `<leader>bp`
 - close buffer `<leader>bd`
 - make `<F9>`
 - Toggle QuickFix `<F8>`
-- Quit `<C-\>` (or give built-in mapping `ZQ` a try!)
+- Alternative escape `<C-e>` (`<C-c>` is not equivalent to escape!)
 
 ## Programming Language
 ### C/C++
@@ -107,6 +115,9 @@ in  `~/.latexmkrc`.
 ### TagBar
 - Generate tags (ctags) `<F12>` (default: for C++ and python only)
 - toggle TagBar `<leader>tb`
+
+### undotree
+- toggle undotree panel `<F5>`
 
 ### Emmet
 - Emmet Prefix `<C-y>`
