@@ -31,7 +31,7 @@ execute 'noremap <buffer>' . g:cpp_astyle_mapping .
 
 " tag generation mappings (need ctags)
 execute 'noremap <buffer>' . g:cpp_ctags_mapping .
-      \ ' <ESC>:!ctags ' . g:cpp_ctags_options . '%:p:h <CR><CR>'
+      \ ' <ESC>:!ctags ' . g:cpp_ctags_options . ' %:p:h <CR><CR>'
 
 " compile mappings (need g++)
 noremap <buffer><C-F9> <ESC>:call SingleCompile()<CR>:echo "Single Compile On"<CR>
