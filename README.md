@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 3.4.0
+Version: 3.5.0
 
 My Pika vim configuration
 
@@ -25,7 +25,7 @@ For fzf:
 
 ### Deploy
 To use this configuration, run following commands:
-```bash
+```console
 $ git clone https://github.com/leomao/pika-vim.git
 $ cd pika-vim
 $ ./deploy.py -h # check help (need python3)
