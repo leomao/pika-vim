@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 3.5.0
+" Version: 3.5.1
 "
 " Sections:
 "    -> Map leader settings
@@ -192,7 +192,7 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=python3complete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " }}}
@@ -392,7 +392,7 @@ set laststatus=2
 " }}}
 " => Tags {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au Filetype cpp,c setl tags+=~/.vim/tags/cpptags
+au Filetype cpp setl tags+=~/.vim/tags/cpptags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Key mappings {{{

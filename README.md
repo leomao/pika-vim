@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 3.5.0
+Version: 3.5.1
 
 My Pika vim configuration
 
@@ -12,16 +12,17 @@ This configuration is only tested on Archlinux.
 
 ### Dependencies
 
-- vim 7.4+ (or [neovim][neovim])
-- g++
-- ctags (for tags generation)
-- xelatex compiler (for latex usage)
+- vim 7.4+ (or latest [neovim][neovim])
 
 ### Optional Dependencies
 
-For fzf:
-- tmux
-- [ag (the\_silver\_searcher)](https://github.com/ggreer/the_silver_searcher)
+These are needed if you want to use all features.
+
+- g++ (for compile c++ programs)
+- python3 and python3 support (for python omni completion)
+- [ag (the\_silver\_searcher)](https://github.com/ggreer/the_silver_searcher) (for fzf.vim)
+- ctags (for tags generation)
+- xelatex compiler (for latex usage)
 
 ### Deploy
 To use this configuration, run following commands:
@@ -34,7 +35,7 @@ $ ./deploy.py # deploy the configuration
 
 ### Update Plugins
 - use `:PlugClean` to clean old plugins.
-- use `:PlugUpdate` and `:PlugUpgrade` to update the plugins.
+- use `:PlugUpdate` to update the plugins.
 
 # Included Plugins:
 
@@ -104,6 +105,7 @@ let g:cpp_compile_options = '-O2 -std=c++11 -Wall -Wshadow'
 ### vim-latex
 - Compile `<leader>ll`
 - View `<leader>lv`
+- View error `<leader>le`
 - set main file: add `%! TEX root=MAINFILE_RELATIVEPATH` at the top of your file
 - you may want to add
 ```
