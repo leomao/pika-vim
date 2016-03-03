@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 3.5.1
+" Version: 3.6.0
 "
 " Sections:
 "    -> Map leader settings
@@ -85,13 +85,14 @@ execute plug#begin()
 " - leomao/lightline-pika is my personal settings.
 
 Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
-Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
+Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/gv.vim'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'leomao/lightline-pika'
 Plug 'lervag/vimtex', { 'for': 'tex' }
