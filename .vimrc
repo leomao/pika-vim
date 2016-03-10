@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 3.6.0
+" Version: 3.6.1
 "
 " Sections:
 "    -> Map leader settings
@@ -38,17 +38,18 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=500
-" not compatible with the old-fashion vi mode
-set nocompatible
 " shell
 set shell=$SHELL
-
-" set term inside tmux for xterm-key on
-if &term =~ '^screen' && exists('$TMUX')
-  if &term =~ '256color'
-    set term=xterm-256color
-  else
-    set term=xterm
+" not compatible with the old-fashion vi mode
+if !has('nvim')
+  set nocompatible
+  " set term inside tmux for xterm-key on (nvim doesn't need this)
+  if &term =~ '^screen' && exists('$TMUX')
+    if &term =~ '256color'
+      set term=xterm-256color
+    else
+      set term=xterm
+    endif
   endif
 endif
 
@@ -64,11 +65,11 @@ autocmd!
 " }}}
 " => Map leader settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set map leader to " "
-let mapleader = " "
-let maplocalleader = " "
-let g:mapleader = " "
-let g:maplocalleader = " "
+" Set map leader to ' '
+let mapleader = ' '
+let maplocalleader = ' '
+let g:mapleader = ' '
+let g:maplocalleader = ' '
 runtime .vimrc_leader
 " }}}
 " => Plugin settings {{{
@@ -188,7 +189,6 @@ let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
 let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -203,7 +203,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 let g:user_emmet_install_global = 0
 au Filetype html,css EmmetInstall
 " }}}
-
+"
 " --- lightline pika --- {{{
 let g:lightline_pika_patchfont = {
       \ 'leftsep': "\ue0b0",
@@ -232,7 +232,7 @@ set wildignore=*.o,*.obj,*~,*.synctex.gz,*.pdf
 set winaltkeys=no
 set ruler "Always show current position
 
-if has("gui_running")
+if has('gui_running')
   set guioptions-=T "remove toolbar
   set guioptions-=m "remove menubar
   set guioptions-=r "remove scrollbar
@@ -267,11 +267,11 @@ set ttimeoutlen=10
 " No sound on errors
 set novisualbell
 set noerrorbells
-set t_vb=
 set tm=500
 
 set mouse=a
 if !has('nvim')
+  set t_vb=
   set ttymouse=xterm2
 endif
 
@@ -282,8 +282,8 @@ endif
 syntax on " Enable syntax highlight
 colorscheme pika
 " Set font according to system
-if has("gui_running")
-  if has("win32") || has("win64")
+if has('gui_running')
+  if has('win32') || has('win64')
     set gfn=Consolas:h16
   else
     set gfn=Monospace\ 16
@@ -306,7 +306,7 @@ set nowb
 set noswapfile
 
 " Persistent undo
-if has("persistent_undo")
+if has('persistent_undo')
   set undodir=$HOME/.vim/.undodir
   set undofile
 endif
@@ -434,9 +434,9 @@ command! -nargs=0 Wsudo :w !sudo tee > /dev/null %
 noremap <silent><F9> <ESC>:wa!<CR>:make<CR><CR>:cw<CR>
 
 " check the syntax group under the cursor
-noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+noremap <F7> :echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<'
+\ . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<'
+\ . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
@@ -449,7 +449,7 @@ function! QFSwitch()
   execute ':silent! ls'
   redir END
 
-  let exists = match(ls_output, "[Quickfix List")
+  let exists = match(ls_output, '[Quickfix List')
   if exists == -1
     execute ':copen'
   else
@@ -468,8 +468,8 @@ noremap <silent><leader>cp :cp<CR>
 let python_highlight_all = 1
 " }}}
 " --- latex --- {{{
-let g:tex_flavor = "latex"
-let g:tex_fast = "Mm"
+let g:tex_flavor = 'latex'
+let g:tex_fast = 'Mm'
 " }}}
 " --- bison/yacc --- {{{
 let g:yacc_uses_cpp = 1
