@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 3.5.1
+Version: 3.6.0
 
 My Pika vim configuration
 
@@ -58,6 +58,7 @@ $ ./deploy.py # deploy the configuration
 - [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
 - [TagBar](https://github.com/majutsushi/tagbar)
 - [fzf.vim](https://github.com/junegunn/fzf.vim)
+- [gv.vim](https://github.com/junegunn/gv.vim)
 - [lightline-pika](https://github.com/leomao/lightline-pika)
 - [lightline.vim](https://github.com/itchyny/lightline.vim)
 - [undotree](https://github.com/mbbill/undotree)
