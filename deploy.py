@@ -64,7 +64,7 @@ def init():
 
 def update():
     run_cmd('git pull')
-    run_cmd('vim +PlugUpdate +qall')
+    run_cmd('vim +PlugClean +PlugUpdate +qall')
 
 if __name__ == '__main__':
     args = parser.parse_args()

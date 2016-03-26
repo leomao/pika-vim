@@ -1,9 +1,9 @@
 .netrwhist
 *.pyc
 *.pyo
-.vimrc_plugin
-.vimrc_leader
-.vimrc_custom
+.vimrc.plugin
+.vimrc.leader
+.vimrc.local
 .undodir
 plugged
 *.old

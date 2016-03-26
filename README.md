@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 3.6.0
+Version: 3.7.0
 
 My Pika vim configuration
 
@@ -40,17 +40,17 @@ $ ./deploy.py # deploy the configuration
 # Included Plugins:
 
 ## Plugins for filetypes:
-- [Python pep8 indent](https://github.com/hynek/vim-python-pep8-indent)
-- [python syntax](https://github.com/hdima/python-syntax)
-- [vimtex](https://github.com/lervag/vimtex)
-- [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
-- [vim-stylus](https://github.com/wavded/vim-stylus)
-- [yajs.vim](https://github.com/leomao/yajs.vim)
-- [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
-- [vim-jade](https://github.com/digitaltoad/vim-jade)
-- [html5.vim](https://github.com/othree/html5.vim)
 - [Emmet](https://github.com/mattn/emmet-vim)
 - [OmnicppComplete](https://github.com/vim-scripts/OmniCppComplete)
+- [Python pep8 indent](https://github.com/hynek/vim-python-pep8-indent)
+- [html5.vim](https://github.com/othree/html5.vim)
+- [python syntax](https://github.com/hdima/python-syntax)
+- [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
+- [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
+- [vim-jade](https://github.com/digitaltoad/vim-jade)
+- [vim-stylus](https://github.com/wavded/vim-stylus)
+- [vimtex](https://github.com/lervag/vimtex)
+- [yajs.vim](https://github.com/leomao/yajs.vim)
 
 ## Plugins for general usage:
 - [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)
@@ -77,7 +77,7 @@ $ ./deploy.py # deploy the configuration
 - close buffer `<leader>bd`
 - make `<F9>`
 - Toggle QuickFix `<F8>`
-- Alternative escape `<C-e>` (`<C-c>` is not equivalent to escape!)
+- Alternative escape `<C-e>` (tips: `<C-c>` is not equivalent to escape.)
 
 ## Programming Language
 ### C/C++
@@ -128,12 +128,11 @@ in  `~/.latexmkrc`.
 
 ### lightline pika
 - To disable it:  
-  add `let g:disable_lightline_pika = 1` to `.vimrc_custom`
+  add `let g:disable_lightline_pika = 1` to `.vimrc.local`
 - To disable the patch font:  
-  add `unlet g:lightline_pika_patchfont` to
-  `.vimrc_custom`
+  add `unlet g:lightline_pika_patchfont` to `.vimrc.local`
 - To change the patch font:  
-  change the unicode add the following to `.vimrc_custom`:
+  change the unicode add the following to `.vimrc.local`:
 ```vim
 let g:lightline_pika_patchfont = {
       \ 'leftsep': "\ue0b0",
@@ -147,18 +146,18 @@ let g:lightline_pika_patchfont = {
 ```
 
 # Customization:
-To change the leader key `<leader>`, create a file named `.vimrc_leader`
+To change the leader key `<leader>`, create a file named `.vimrc.leader`
 in the directory of this repo and add following in the file:
 ```vim
-" change your leader to ","
-let mapleader = ","
-let maplocalleader = ","
-let g:mapleader = ","
-let g:maplocalleader = ","
+" change your leader to ','
+let mapleader = ','
+let maplocalleader = ','
+let g:mapleader = ','
+let g:maplocalleader = ','
 ```
 Use your favorite key to substitute `,`.  
 
-To add more plugin via vim-plug, , create a file named `.vimrc_plugin`
+To add more plugin via vim-plug, create a file named `.vimrc.plugin`
 in the directory of this repo and add something like following:
 ```vim
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
@@ -167,9 +166,9 @@ Please refer to [vim-plug](https://github.com/junegunn/vim-plug)
 documentation.
 
 To change settings of some plugins or other things, create a file named
-`.vimrc_custom` in the directory of this repo and add what you need in
+`.vimrc.local` in the directory of this repo and add what you need in
 that file.
 
-For the detail settings, please refer to docs of each plugin and the `.vimrc`.
+For detail settings, please refer to docs of each plugin and the `.vimrc`.
 
 [neovim]: https://github.com/neovim/neovim

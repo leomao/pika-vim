@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 3.6.1
+" Version: 3.7.0
 "
 " Sections:
 "    -> Map leader settings
@@ -70,7 +70,7 @@ let mapleader = ' '
 let maplocalleader = ' '
 let g:mapleader = ' '
 let g:maplocalleader = ' '
-runtime .vimrc_leader
+runtime .vimrc.leader
 " }}}
 " => Plugin settings {{{
 """"""""""""""""""""""""""""""
@@ -113,7 +113,7 @@ Plug 'vim-scripts/OmniCppComplete', { 'for': 'cpp' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 
 "include custom plugin
-runtime .vimrc_plugin
+runtime .vimrc.plugin
 
 execute plug#end()
 " }}}
@@ -478,6 +478,6 @@ let g:yacc_uses_cpp = 1
 " }}}
 " => Load custom settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-runtime .vimrc_custom
+runtime .vimrc.custom
 " }}}
 " vim:fdm=marker:foldlevel=0
