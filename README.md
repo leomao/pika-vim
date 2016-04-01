@@ -45,6 +45,7 @@ $ ./deploy.py # deploy the configuration
 - [Python pep8 indent](https://github.com/hynek/vim-python-pep8-indent)
 - [html5.vim](https://github.com/othree/html5.vim)
 - [python syntax](https://github.com/hdima/python-syntax)
+- [rust.vim](https://github.com/rust-lang/rust.vim)
 - [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
 - [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 - [vim-jade](https://github.com/digitaltoad/vim-jade)
@@ -169,6 +170,6 @@ To change settings of some plugins or other things, create a file named
 `.vimrc.local` in the directory of this repo and add what you need in
 that file.
 
-For detail settings, please refer to docs of each plugin and the `.vimrc`.
+For detail settings, please refer to docs of each plugin and the `vimrc`.
 
 [neovim]: https://github.com/neovim/neovim

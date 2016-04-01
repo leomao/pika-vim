@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 3.7.0
+" Version: 3.8.0
 "
 " Sections:
 "    -> Map leader settings
@@ -93,13 +93,13 @@ Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/gv.vim'
+Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'leomao/lightline-pika'
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'scrooloose/nerdcommenter'
@@ -109,6 +109,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'vim-scripts/OmniCppComplete', { 'for': 'cpp' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 

@@ -46,7 +46,7 @@ def task_link(maps, keep):
 def task_vim(keep, nvim):
     vimmap = {
         FILE_PATH: '~/.vim',
-        '~/.vim/.vimrc': '~/.vimrc',
+        '~/.vim/vimrc': '~/.vimrc',
     }
     if nvim:
         vimmap = {
