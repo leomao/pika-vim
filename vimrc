@@ -344,15 +344,22 @@ set fdm=syntax
 " => Visual mode related {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Really useful!
-" In visual mode when you press * or # to search for the current selection
 function! s:VSetSearch(cmdtype)
   let temp = @s
   norm! gv"sy
   let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
   let @s = temp
 endfunction
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 vnoremap <silent> * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+vnoremap <silent> @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Command mode related {{{
@@ -422,6 +429,7 @@ nnoremap <silent><leader>/ :nohl<CR>
 nnoremap <C-e> <ESC>
 inoremap <C-e> <ESC>
 vnoremap <C-e> <ESC>
+snoremap <C-e> <ESC>
 
 " smarter command line
 cnoremap <c-n>  <down>
