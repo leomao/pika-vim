@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	Python syntax extensions
 " Maintainer:	LeoMao
-" Last Change:	2014/8/18
+" Last Change:	2016/4/9
 "
 
 syn keyword pythonConstant None self
@@ -25,12 +25,15 @@ syn match pyOperator	"<<\|>>"
 syn match pyOperator	"[.!?:~*&%<>^|=,+-/]"
 syn match pyOperator    "&&\|||"
 
+hi link pyOperator Operator
+
 " Delimiters
 syn match pyDelimiter    "[;\\]"
-syn match pyBraces display "[][(){}]"
+syn match pyParens display "[()]"
+syn match pyBraces display "[{}]"
+syn match pyBrackets display "[][]"
 
-hi def link pyOperator Operator
-hi def link pyDelimiter Delimiter
-hi def link pyBraces Delimiter
-" foldmethod=syntax fix, courtesy of Ivan Freitas
-
+hi link pyParens     pyDelimiter
+hi link pyBraces     pyDelimiter
+hi link pyBrackets   pyDelimiter
+hi link pyDelimiter  Delimiter

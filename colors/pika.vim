@@ -18,17 +18,17 @@ let ruby_operators = 1
 if has("gui_running")
 
   " -> Text; Miscellaneous
-  hi Normal         guibg=#1F1F1F guifg=#D0D0D0 gui=none
-  hi SpecialKey     guibg=#1F1F1F guifg=#E88CFF gui=none
-  hi VertSplit      guibg=#1F1F1F guifg=#FFEE68 gui=none
-  hi SignColumn     guibg=#1F1F1F guifg=#BF81FA gui=none
-  hi NonText        guibg=#1F1F1F guifg=#FC6984 gui=none
-  hi Directory      guibg=#1F1F1F guifg=#FFEE68 gui=none
-  hi Title          guibg=#1F1F1F guifg=#D78700 gui=bold
+  hi Normal         guibg=#1c1c1c guifg=#e4e4e4 gui=none
+  hi SpecialKey     guibg=#1c1c1c guifg=#E88CFF gui=none
+  hi VertSplit      guibg=#1c1c1c guifg=#FFEE68 gui=none
+  hi SignColumn     guibg=#1c1c1c guifg=#BF81FA gui=none
+  hi NonText        guibg=#1c1c1c guifg=#FC6984 gui=none
+  hi Directory      guibg=#1c1c1c guifg=#FFEE68 gui=none
+  hi Title          guibg=#1c1c1c guifg=#D78700 gui=bold
 
   " -> Cursor
-  hi Cursor         guibg=#D0D0D0 guifg=#1F1F1F gui=none
-  hi CursorIM       guibg=#D0D0D0 guifg=#1F1F1F gui=none
+  hi Cursor         guibg=#e4e4e4 guifg=#1c1c1c gui=none
+  hi CursorIM       guibg=#e4e4e4 guifg=#1c1c1c gui=none
   hi CursorColumn   guibg=#000000               gui=none
   hi CursorLine     guibg=#303030               gui=none
   hi CursorLineNR   guibg=#000000 guifg=#FFFF00 gui=bold
@@ -44,11 +44,11 @@ if has("gui_running")
   hi ColorColumn    guibg=#404040               gui=none
 
   " -> Messages
-  hi ErrorMsg       guibg=#A32024 guifg=#D0D0D0 gui=none
-  hi Question       guibg=#1F1F1F guifg=#FFA500 gui=none
+  hi ErrorMsg       guibg=#A32024 guifg=#e4e4e4 gui=none
+  hi Question       guibg=#1c1c1c guifg=#FFA500 gui=none
   hi WarningMsg     guibg=#FFA500 guifg=#000000 gui=none
-  hi MoreMsg        guibg=#1F1F1F guifg=#FFA500 gui=none
-  hi ModeMsg        guibg=#1F1F1F guifg=#FFA500 gui=none
+  hi MoreMsg        guibg=#1c1c1c guifg=#FFA500 gui=none
+  hi ModeMsg        guibg=#1c1c1c guifg=#FFA500 gui=none
 
   " -> Search
   hi Search         guibg=#696567 guifg=#FFEE68 gui=none
@@ -68,50 +68,50 @@ if has("gui_running")
   hi PmenuSel       guibg=#F17A00 guifg=#4C0200 gui=none
 
   " -> Tabs
-  hi TabLine        guibg=#141414 guifg=#1F1F1F gui=none
+  hi TabLine        guibg=#141414 guifg=#1c1c1c gui=none
   hi TabLineFill    guibg=#000000               gui=none
-  hi TabLineSel     guibg=#1F1F1F guifg=#D0D0D0 gui=bold
+  hi TabLineSel     guibg=#1c1c1c guifg=#e4e4e4 gui=bold
   "
   " -> Visual Mode
   hi Visual         guibg=#404040               gui=none
   hi VisualNOS      guibg=#404040               gui=none
 
   " -> Code
-  hi Include        guibg=#1F1F1F guifg=#00AF00 gui=none
-  hi Number         guibg=#1F1F1F guifg=#AF00FF gui=none
-  hi Comment        guibg=#1F1F1F guifg=#696567 gui=none
-  hi Constant       guibg=#1F1F1F guifg=#D75F00 gui=none
-  hi Character      guibg=#1F1F1F guifg=#FFB539 gui=none
-  hi String         guibg=#1F1F1F guifg=#FFB539 gui=none
-  hi Error          guibg=#1F1F1F guifg=#FC4234 gui=none
-  hi Identifier     guibg=#1F1F1F guifg=#D78700 gui=none
-  hi Function       guibg=#1F1F1F guifg=#61D7FF gui=none
-  hi Ignore         guibg=#1F1F1F guifg=#1F1F1F gui=none
+  hi Number         guibg=#1c1c1c guifg=#af00ff gui=none
+  hi Constant       guibg=#1c1c1c guifg=#d75f00 gui=none
+  hi Character      guibg=#1c1c1c guifg=#ffaf5f gui=none
+  hi String         guibg=#1c1c1c guifg=#ffaf5f gui=none
+  hi Identifier     guibg=#1c1c1c guifg=#d78700 gui=none
+  hi Function       guibg=#1c1c1c guifg=#5fffd7 gui=none
+  hi Special        guibg=#1c1c1c guifg=#d75f00 gui=none
+  hi Type           guibg=#1c1c1c guifg=#ffd75f gui=none
+  hi Decorator      guibg=#1c1c1c guifg=#af5fff gui=none
+  hi Operator       guibg=#1c1c1c guifg=#d7005f gui=none
+  hi Delimiter      guibg=#1c1c1c guifg=#d7005f gui=none
+  hi Statement      guibg=#1c1c1c guifg=#00afff gui=none
+  hi Exception      guibg=#1c1c1c guifg=#5fff00 gui=none
+  hi Include        guibg=#1c1c1c guifg=#87d700 gui=none
+  hi PreProc        guibg=#1c1c1c guifg=#af87ff gui=none
+  hi Ignore         guibg=#1c1c1c guifg=#1c1c1c gui=none
+  hi Comment        guibg=#1c1c1c guifg=#626262 gui=none
+  hi Todo           guibg=#1c1c1c guifg=#ff5f5f gui=bold
+  hi Error          guibg=#1c1c1c guifg=#ff5f5f gui=none
   hi MatchParen     guibg=#585858
-  hi PreProc        guibg=#1F1F1F guifg=#AF5FFF gui=none
-  hi Decorator      guibg=#1F1F1F guifg=#AF5FFF gui=none
-  hi Special        guibg=#1F1F1F guifg=#D75F00 gui=none
-  hi Todo           guibg=#1F1F1F guifg=#FC4234 gui=bold
-  hi Underlined     guibg=#1F1F1F guifg=#FC4234 gui=underline
-  hi Statement      guibg=#1F1F1F guifg=#0E90FF gui=none
-  hi Operator       guibg=#1F1F1F guifg=#D70000 gui=none
-  hi Delimiter      guibg=#1F1F1F guifg=#D70000 gui=none
-  hi Type           guibg=#1F1F1F guifg=#FFDF5F gui=none
-  hi Exception      guibg=#1F1F1F guifg=#5FD700 gui=none
+  hi Underlined     guibg=#1c1c1c guifg=#ff5f5f gui=underline
 
   " -> HTML-specific
-  hi htmlBold                 guibg=#1F1F1F guifg=#D0D0D0 gui=bold
-  hi htmlBoldItalic           guibg=#1F1F1F guifg=#D0D0D0 gui=bold,italic
-  hi htmlBoldUnderline        guibg=#1F1F1F guifg=#D0D0D0 gui=bold,underline
-  hi htmlBoldUnderlineItalic  guibg=#1F1F1F guifg=#D0D0D0 gui=bold,underline,italic
-  hi htmlItalic               guibg=#1F1F1F guifg=#D0D0D0 gui=italic
-  hi htmlUnderline            guibg=#1F1F1F guifg=#D0D0D0 gui=underline
-  hi htmlUnderlineItalic      guibg=#1F1F1F guifg=#D0D0D0 gui=underline,italic
+  hi htmlBold                 guibg=#1c1c1c guifg=#e4e4e4 gui=bold
+  hi htmlBoldItalic           guibg=#1c1c1c guifg=#e4e4e4 gui=bold,italic
+  hi htmlBoldUnderline        guibg=#1c1c1c guifg=#e4e4e4 gui=bold,underline
+  hi htmlBoldUnderlineItalic  guibg=#1c1c1c guifg=#e4e4e4 gui=bold,underline,italic
+  hi htmlItalic               guibg=#1c1c1c guifg=#e4e4e4 gui=italic
+  hi htmlUnderline            guibg=#1c1c1c guifg=#e4e4e4 gui=underline
+  hi htmlUnderlineItalic      guibg=#1c1c1c guifg=#e4e4e4 gui=underline,italic
 
 elseif &t_Co == 256
 
   " -> Text; Miscellaneous
-  hi Normal         ctermbg=none ctermfg=252  cterm=none
+  hi Normal         ctermbg=none ctermfg=254  cterm=none
   hi SpecialKey     ctermbg=none ctermfg=177  cterm=none
   hi VertSplit      ctermbg=none ctermfg=227  cterm=none
   hi SignColumn     ctermbg=none ctermfg=141  cterm=none
@@ -170,36 +170,36 @@ elseif &t_Co == 256
   hi VisualNOS      ctermbg=238               cterm=none
 
   " -> Code
-  hi Include        ctermbg=none ctermfg=34   cterm=none
   hi Number         ctermbg=none ctermfg=129  cterm=none
-  hi Comment        ctermbg=none ctermfg=241  cterm=none
   hi Constant       ctermbg=none ctermfg=166  cterm=none
   hi Character      ctermbg=none ctermfg=215  cterm=none
   hi String         ctermbg=none ctermfg=215  cterm=none
-  hi Error          ctermbg=none ctermfg=203  cterm=none
   hi Identifier     ctermbg=none ctermfg=172  cterm=none
-  hi Function       ctermbg=none ctermfg=81   cterm=none
-  hi Ignore         ctermbg=none ctermfg=none cterm=none
-  hi MatchParen     ctermbg=240
-  hi PreProc        ctermbg=none ctermfg=135  cterm=none
-  hi Decorator      ctermbg=none ctermfg=135  cterm=none
+  hi Function       ctermbg=none ctermfg=86   cterm=none
   hi Special        ctermbg=none ctermfg=166  cterm=none
-  hi Todo           ctermbg=none ctermfg=203  cterm=bold
-  hi Underlined     ctermbg=none ctermfg=203  cterm=underline
-  hi Statement      ctermbg=none ctermfg=33   cterm=none
-  hi Operator       ctermbg=none ctermfg=160  cterm=none
-  hi Delimiter      ctermbg=none ctermfg=160  cterm=none
   hi Type           ctermbg=none ctermfg=221  cterm=none
-  hi Exception      ctermbg=none ctermfg=76   cterm=none
+  hi Decorator      ctermbg=none ctermfg=135  cterm=none
+  hi Operator       ctermbg=none ctermfg=161  cterm=none
+  hi Delimiter      ctermbg=none ctermfg=161  cterm=none
+  hi Statement      ctermbg=none ctermfg=39   cterm=none
+  hi Exception      ctermbg=none ctermfg=82   cterm=none
+  hi Include        ctermbg=none ctermfg=112  cterm=none
+  hi PreProc        ctermbg=none ctermfg=141  cterm=none
+  hi Ignore         ctermbg=none ctermfg=none cterm=none
+  hi Comment        ctermbg=none ctermfg=241  cterm=none
+  hi Todo           ctermbg=none ctermfg=203  cterm=bold
+  hi Error          ctermbg=none ctermfg=203  cterm=none
+  hi MatchParen     ctermbg=240
+  hi Underlined     ctermbg=none ctermfg=203  cterm=underline
 
   " -> HTML-specific
-  hi htmlBold                 ctermbg=none ctermfg=252 cterm=bold
-  hi htmlBoldItalic           ctermbg=none ctermfg=252 cterm=bold,italic
-  hi htmlBoldUnderline        ctermbg=none ctermfg=252 cterm=bold,underline
-  hi htmlBoldUnderlineItalic  ctermbg=none ctermfg=252 cterm=bold,underline,italic
-  hi htmlItalic               ctermbg=none ctermfg=252 cterm=italic
-  hi htmlUnderline            ctermbg=none ctermfg=252 cterm=underline
-  hi htmlUnderlineItalic      ctermbg=none ctermfg=252 cterm=underline,italic
+  hi htmlBold                 ctermbg=none ctermfg=254 cterm=bold
+  hi htmlBoldItalic           ctermbg=none ctermfg=254 cterm=bold,italic
+  hi htmlBoldUnderline        ctermbg=none ctermfg=254 cterm=bold,underline
+  hi htmlBoldUnderlineItalic  ctermbg=none ctermfg=254 cterm=bold,underline,italic
+  hi htmlItalic               ctermbg=none ctermfg=254 cterm=italic
+  hi htmlUnderline            ctermbg=none ctermfg=254 cterm=underline
+  hi htmlUnderlineItalic      ctermbg=none ctermfg=254 cterm=underline,italic
 
 endif
 
