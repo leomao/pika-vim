@@ -1,10 +1,10 @@
 # pika-vim
 
-Version: 3.7.0
+Version: 4.0.0
 
 My Pika vim configuration
 
-Use [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins.
+Use [vim-plug][vim-plug] to manage plugins.
 
 This configuration is only tested on Archlinux.
 
@@ -20,9 +20,10 @@ These are needed if you want to use all features.
 
 - g++ (for compile c++ programs)
 - python3 and python3 support (for python omni completion)
-- [ag (the\_silver\_searcher)](https://github.com/ggreer/the_silver_searcher) (for fzf.vim)
+- [ag (the\_silver\_searcher)](https://github.com/ggreer/the_silver_searcher)
+  (see [fzf.vim](https://github.com/junegunn/fzf.vim))
 - ctags (for tags generation)
-- xelatex compiler (for latex usage)
+- (xe)latex compiler (for latex usage)
 
 ### Deploy
 To use this configuration, run following commands:
@@ -48,10 +49,10 @@ $ ./deploy.py # deploy the configuration
 - [rust.vim](https://github.com/rust-lang/rust.vim)
 - [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
 - [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
-- [vim-jade](https://github.com/digitaltoad/vim-jade)
+- [vim-pug](https://github.com/digitaltoad/vim-pug)
 - [vim-stylus](https://github.com/wavded/vim-stylus)
 - [vimtex](https://github.com/lervag/vimtex)
-- [yajs.vim](https://github.com/leomao/yajs.vim)
+- [yajs.vim](https://github.com/othree/yajs.vim)
 
 ## Plugins for general usage:
 - [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)
@@ -76,18 +77,21 @@ $ ./deploy.py # deploy the configuration
 - next buffer `<leader>bn`
 - previous buffer `<leader>bp`
 - close buffer `<leader>bd`
-- make `<F9>`
+- `:nohl` `<leader>/`
+- Toggle paste mode `<F2>`
+- Toggle wrap mode `<F3>`
 - Toggle QuickFix `<F8>`
+- make `<F9>`
 - Alternative escape `<C-e>` (tips: `<C-c>` is not equivalent to escape.)
 
 ## Programming Language
 ### C/C++
 - SingleCompile (let "make" compile single cpp file) `<C-F9>`
-- astyle formatting `<F3>` (need astyle installed)
+- astyle formatting `<F10>` (need astyle installed)
 - customization: (see [Customization](#customization))
 ```vim
 " cpp ftplugin settings
-let g:cpp_astyle_mapping = '<F3>'
+let g:cpp_astyle_mapping = '<F10>'
 let g:cpp_astyle_options = '-A8KpHUyk1qs2 -xG'
 let g:cpp_compile_options = '-O2 -std=c++11 -Wall -Wshadow'
 ```
@@ -163,7 +167,7 @@ in the directory of this repo and add something like following:
 ```vim
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 ```
-Please refer to [vim-plug](https://github.com/junegunn/vim-plug)
+Please refer to [vim-plug][vim-plug]
 documentation.
 
 To change settings of some plugins or other things, create a file named
@@ -173,3 +177,4 @@ that file.
 For detail settings, please refer to docs of each plugin and the `vimrc`.
 
 [neovim]: https://github.com/neovim/neovim
+[vim-plug]: https://github.com/junegunn/vim-plug

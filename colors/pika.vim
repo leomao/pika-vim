@@ -19,23 +19,23 @@ if has("gui_running")
 
   " -> Text; Miscellaneous
   hi Normal         guibg=#1c1c1c guifg=#e4e4e4 gui=none
-  hi SpecialKey     guibg=#1c1c1c guifg=#E88CFF gui=none
-  hi VertSplit      guibg=#1c1c1c guifg=#FFEE68 gui=none
-  hi SignColumn     guibg=#1c1c1c guifg=#BF81FA gui=none
-  hi NonText        guibg=#1c1c1c guifg=#FC6984 gui=none
-  hi Directory      guibg=#1c1c1c guifg=#FFEE68 gui=none
-  hi Title          guibg=#1c1c1c guifg=#D78700 gui=bold
+  hi SpecialKey     guibg=#1c1c1c guifg=#d787ff gui=none
+  hi VertSplit      guibg=#1c1c1c guifg=#ffee68 gui=none
+  hi SignColumn     guibg=#1c1c1c guifg=#bf81fa gui=none
+  hi NonText        guibg=#1c1c1c guifg=#fc6984 gui=none
+  hi Directory      guibg=#1c1c1c guifg=#ffee68 gui=none
+  hi Title          guibg=#1c1c1c guifg=#d78700 gui=bold
 
   " -> Cursor
   hi Cursor         guibg=#e4e4e4 guifg=#1c1c1c gui=none
   hi CursorIM       guibg=#e4e4e4 guifg=#1c1c1c gui=none
   hi CursorColumn   guibg=#000000               gui=none
   hi CursorLine     guibg=#303030               gui=none
-  hi CursorLineNR   guibg=#000000 guifg=#FFFF00 gui=bold
+  hi CursorLineNR   guibg=#000000 guifg=#ffff00 gui=bold
 
   " -> Folding
-  hi FoldColumn     guibg=#001336 guifg=#003DAD gui=none
-  hi Folded         guibg=#001336 guifg=#003DAD gui=none
+  hi FoldColumn     guibg=#001336 guifg=#003dad gui=none
+  hi Folded         guibg=#001336 guifg=#003dad gui=none
 
   " -> Line info
   hi LineNr         guibg=#000000 guifg=#696567 gui=none
@@ -44,28 +44,28 @@ if has("gui_running")
   hi ColorColumn    guibg=#404040               gui=none
 
   " -> Messages
-  hi ErrorMsg       guibg=#A32024 guifg=#e4e4e4 gui=none
-  hi Question       guibg=#1c1c1c guifg=#FFA500 gui=none
-  hi WarningMsg     guibg=#FFA500 guifg=#000000 gui=none
-  hi MoreMsg        guibg=#1c1c1c guifg=#FFA500 gui=none
-  hi ModeMsg        guibg=#1c1c1c guifg=#FFA500 gui=none
+  hi ErrorMsg       guibg=#a32024 guifg=#e4e4e4 gui=none
+  hi Question       guibg=#1c1c1c guifg=#ffa500 gui=none
+  hi WarningMsg     guibg=#ffa500 guifg=#000000 gui=none
+  hi MoreMsg        guibg=#1c1c1c guifg=#ffa500 gui=none
+  hi ModeMsg        guibg=#1c1c1c guifg=#ffa500 gui=none
 
   " -> Search
-  hi Search         guibg=#696567 guifg=#FFEE68 gui=none
-  hi IncSearch      guibg=#696567 guifg=#FFEE68 gui=none
+  hi Search         guibg=#696567 guifg=#ffee68 gui=none
+  hi IncSearch      guibg=#696567 guifg=#ffee68 gui=none
 
   " -> Diff
-  hi DiffAdd        guibg=#006124 guifg=#ED9000 gui=none
-  hi DiffChange     guibg=#0B294A guifg=#A36000 gui=none
-  hi DiffDelete     guibg=#081F38 guifg=#ED9000 gui=none
-  hi DiffText       guibg=#12457D guifg=#ED9000 gui=underline
+  hi DiffAdd        guibg=#006124 guifg=#ed9000 gui=none
+  hi DiffChange     guibg=#0b294a guifg=#a36000 gui=none
+  hi DiffDelete     guibg=#081f38 guifg=#ed9000 gui=none
+  hi DiffText       guibg=#12457d guifg=#ed9000 gui=underline
 
   " -> Menu
   hi Pmenu          guibg=#140100 guifg=#660300 gui=none
-  hi PmenuSel       guibg=#F17A00 guifg=#4C0200 gui=none
+  hi PmenuSel       guibg=#f17a00 guifg=#4c0200 gui=none
   hi PmenuSbar      guibg=#430300               gui=none
   hi PmenuThumb     guibg=#720300               gui=none
-  hi PmenuSel       guibg=#F17A00 guifg=#4C0200 gui=none
+  hi PmenuSel       guibg=#f17a00 guifg=#4c0200 gui=none
 
   " -> Tabs
   hi TabLine        guibg=#141414 guifg=#1c1c1c gui=none

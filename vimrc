@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 3.8.0
+" Version: 4.0.0
 "
 " Sections:
 "    -> Map leader settings
@@ -240,17 +240,20 @@ if has('gui_running')
 endif
 
 " line number will be highlighted if set rnu
-"set cursorline "highlight current line *Slow*
-set cmdheight=1 "The commandbar height
-"set showcmd "display what command was typed
-set noshowmode "display current mode
+"set cursorline " highlight current line *Slow*
+set cmdheight=1 " The commandbar height
+"set showcmd " display what command was typed
+set noshowmode " display current mode
 
-set nu "line number
-set rnu "line number (relative number)
-set hid "Change buffer - without saving
+set nu " line number
+set rnu " line number (relative number)
+set hid " Change buffer - without saving
 " Set backspace config
 set backspace=eol,start,indent
 set whichwrap+=<,>,[,]
+" the cursor can be positioned where there is no actual character
+" in the visual mode.
+set virtualedit=block
 
 set ignorecase "Ignore case when searching
 set smartcase
@@ -329,9 +332,10 @@ set tw=80
 set colorcolumn=+1
 
 set ai "Auto indent
-set wrap " Wrap lines
-" set nowrap " don't Wrap lines
-" set si " Set Smart indent
+set wrap " wrap lines
+"set nowrap " don't wrap lines
+" set si " set smart indent
+set listchars=trail:~,precedes:<,extends:>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Fold Settings {{{
@@ -370,9 +374,58 @@ autocmd VimEnter * cd %:p:h
 " }}}
 " => Moving around, windows, tabs and buffers {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remap VIM 0
+noremap 0 ^
+
 " Treat long lines as break lines (useful when moving around in them)
-nnoremap j gj
-nnoremap k gk
+function! ToggleWrap()
+  if &wrap
+    echo "Wrap OFF"
+    setlocal nowrap
+  else
+    echo "Wrap ON"
+    setlocal wrap
+    setlocal display+=lastline
+  endif
+  call SetWrapKeyMapping()
+endfunction
+
+function! SetWrapKeyMapping()
+  if &wrap
+    noremap  <buffer> <silent> k gk
+    noremap  <buffer> <silent> j gj
+    noremap  <buffer> <silent> 0 g^
+    noremap  <buffer> <silent> $ g$
+    noremap  <buffer> <silent> <Up>   gk
+    noremap  <buffer> <silent> <Down> gj
+    noremap  <buffer> <silent> <Home> g<Home>
+    noremap  <buffer> <silent> <End>  g<End>
+    inoremap <buffer> <silent> <Up>   <C-o>gk
+    inoremap <buffer> <silent> <Down> <C-o>gj
+    inoremap <buffer> <silent> <Home> <C-o>g<Home>
+    inoremap <buffer> <silent> <End>  <C-o>g<End>
+    onoremap <buffer> <silent> j gj
+    onoremap <buffer> <silent> k gk
+  else
+    silent! nunmap <buffer> k
+    silent! nunmap <buffer> j
+    silent! nunmap <buffer> 0
+    silent! nunmap <buffer> $
+    silent! nunmap <buffer> <Up>
+    silent! nunmap <buffer> <Down>
+    silent! nunmap <buffer> <Home>
+    silent! nunmap <buffer> <End>
+    silent! iunmap <buffer> <Up>
+    silent! iunmap <buffer> <Down>
+    silent! iunmap <buffer> <Home>
+    silent! iunmap <buffer> <End>
+    silent! ounmap <buffer> j
+    silent! ounmap <buffer> k
+  endif
+endfunction
+
+au BufRead,BufNewFile * call SetWrapKeyMapping()
+noremap <silent><F3> :call ToggleWrap()<CR>
 
 inoremap <C-l> <Del>
 
@@ -396,7 +449,7 @@ set nosol
 set laststatus=2
 
 " Format the statusline
-"set statusline=\ %f%m%r%h\ %w\ %=%y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}\ %4l/%4L:%3c
+"set statusline=\ %f%m%r%h\ %w\ %=%y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}\ %3l/%4L:%3c
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 " => Tags {{{
@@ -407,9 +460,6 @@ au Filetype cpp setl tags+=~/.vim/tags/cpptags
 " => Key mappings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set pastetoggle=<F2>
-
-" Remap VIM 0
-noremap 0 ^
 
 " increase and decrease number under the cursor
 nnoremap + <C-a>
@@ -487,6 +537,6 @@ let g:yacc_uses_cpp = 1
 " }}}
 " => Load custom settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-runtime .vimrc.custom
+runtime .vimrc.local
 " }}}
 " vim:fdm=marker:foldlevel=0

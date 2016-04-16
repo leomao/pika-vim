@@ -6,7 +6,7 @@
 setl cindent
 
 if !exists('g:cpp_astyle_mapping')
-  let g:cpp_astyle_mapping = '<F3>'
+  let g:cpp_astyle_mapping = '<F10>'
 endif
 
 if !exists('g:cpp_astyle_options')
