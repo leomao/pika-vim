@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 4.0.0
+" Version: 4.0.1
 "
 " Sections:
 "    -> Map leader settings
@@ -168,6 +168,9 @@ let g:vimtex_quickfix_ignored_warnings = [
 let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 0
 let g:NERDRemoveExtraSpaces = 1
+let g:NERDCustomDelimiters = {
+      \ 'pug': { 'left': '//-', 'leftAlt': '//' },
+      \ }
 map <leader>cc <plug>NERDCommenterComment
 map <leader>cu <plug>NERDCommenterUncomment
 map <leader>c<space> <plug>NERDCommenterToggle
