@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 4.0.1
+Version: 4.1.0
 
 My Pika vim configuration
 
@@ -49,10 +49,10 @@ $ ./deploy.py # deploy the configuration
 - [rust.vim](https://github.com/rust-lang/rust.vim)
 - [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
 - [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
+- [vim-javscript](https://github.com/pangloss/vim-javscript)
 - [vim-pug](https://github.com/digitaltoad/vim-pug)
 - [vim-stylus](https://github.com/wavded/vim-stylus)
 - [vimtex](https://github.com/lervag/vimtex)
-- [yajs.vim](https://github.com/othree/yajs.vim)
 
 ## Plugins for general usage:
 - [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)
