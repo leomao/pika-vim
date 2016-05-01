@@ -146,7 +146,7 @@ let g:tagbar_autoclose = 0
 " --- vim tags plugin --- {{{
 let g:vim_tags_use_language_field = 1
 let g:vim_tags_project_tags_command = '{CTAGS}
-      \ -R --c++-kinds=+pl --fields=+iaS --extra=+q
+      \ -R --c++-kinds=+pl --python-kinds=-i --fields=+iaS --extra=+q
       \ {OPTIONS} {DIRECTORY} 2>/dev/null'
 
 noremap <F12> <ESC>:TagsGenerate!<CR>
