@@ -87,7 +87,7 @@ execute plug#begin()
 
 Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
-Plug 'hdima/python-syntax', { 'for': 'python' }
+"Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'

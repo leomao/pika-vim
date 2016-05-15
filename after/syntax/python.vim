@@ -4,31 +4,29 @@
 " Last Change:	2016/4/9
 "
 
-syn keyword pythonConstant None self
+syn keyword pythonConstant None True False self
 hi def link pythonConstant Constant
-hi def link Boolean Constant
 
-hi link pythonImport Statement
+hi link pythonInclude Statement
+hi link pythonDecorator   Decorator
 
 syn keyword pythonClass class
 " syn match   pythonClass    "[a-zA-Z_][a-zA-Z0-9_]*" display contained
 hi def link pythonClass Type
 
-hi link pythonDecorator   Decorator
-hi link pythonRun         Comment
-hi link pythonDottedName  Function
-hi link pythonDot         Operator
+syn match pythonDot "\." containedin=pythonFunction
+hi link pythonDot       Delimiter
 
 " Operators
-syn match pyOperator	"\(<<\|>>\|[-+*/%&^|<>!=]\)="
-syn match pyOperator	"<<\|>>"
-syn match pyOperator	"[.!?:~*&%<>^|=,+-/]"
-syn match pyOperator    "&&\|||"
+syn match pyOperator  "\(<<\|>>\|[+\-*/&%\^|<>~!=]\)="
+syn match pyOperator  "<<\|>>"
+syn match pyOperator  "[+\-*/&%\^|<>~!=]"
+syn match pyOperator  "&&\|||"
 
 hi link pyOperator Operator
 
 " Delimiters
-syn match pyDelimiter    "[;\\]"
+syn match pyDelimiter    "[:,;\\]"
 syn match pyParens display "[()]"
 syn match pyBraces display "[{}]"
 syn match pyBrackets display "[][]"
