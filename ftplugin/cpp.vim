@@ -14,7 +14,7 @@ if !exists('g:cpp_astyle_options')
 endif
 
 if !exists('g:cpp_compile_options')
-  let g:cpp_compile_options = '-O2 -std=c++11 -Wall -Wshadow'
+  let g:cpp_compile_options = '-O2 -Wall -Wshadow'
 endif
 
 "styling mappings (need astyle)
