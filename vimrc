@@ -103,6 +103,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'mxw/vim-jsx', { 'for': [ 'javascript', 'javascript.jsx' ] }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'javascript.jsx' ] }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'szw/vim-tags'
 Plug 'tpope/vim-abolish'
@@ -110,7 +111,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'vim-scripts/OmniCppComplete', { 'for': 'cpp' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 

@@ -8,7 +8,7 @@ Use [vim-plug][vim-plug] to manage plugins.
 
 This configuration is only tested on Archlinux.
 
-## How to use
+## How to Use
 
 ### Dependencies
 
@@ -50,6 +50,7 @@ $ ./deploy.py # deploy the configuration
 - [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
 - [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 - [vim-javscript](https://github.com/pangloss/vim-javscript)
+- [vim-jsx](https://github.com/mxw/vim-jsx)
 - [vim-pug](https://github.com/digitaltoad/vim-pug)
 - [vim-stylus](https://github.com/wavded/vim-stylus)
 - [vimtex](https://github.com/lervag/vimtex)
@@ -93,7 +94,7 @@ $ ./deploy.py # deploy the configuration
 " cpp ftplugin settings
 let g:cpp_astyle_mapping = '<F10>'
 let g:cpp_astyle_options = '-A8KpHUyk1qs2 -xG'
-let g:cpp_compile_options = '-O2 -std=c++11 -Wall -Wshadow'
+let g:cpp_compile_options = '-O2 -Wall -Wshadow'
 ```
 
 ### Python
@@ -101,14 +102,12 @@ let g:cpp_compile_options = '-O2 -std=c++11 -Wall -Wshadow'
 
 ## Plugin:
 ### nerdcommenter
-- Toggle line Comment `<leader>c<space>`
-- add line Comment `<leader>cc`
-- remove line Comment `<leader>cu`
+See [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
 
 ### bufexpl
 - open bufexpl `<leader>be`
 
-### vim-latex
+### vimtex
 - Compile `<leader>ll`
 - View `<leader>lv`
 - View error `<leader>le`
@@ -122,7 +121,7 @@ in  `~/.latexmkrc`.
 ### TagBar
 - toggle TagBar `<leader>tb`
 
-### vim tags
+### vim-tags
 - Generate tags for the project (ctags) `<F12>`
 
 ### undotree
@@ -178,3 +177,8 @@ For detail settings, please refer to docs of each plugin and the `vimrc`.
 
 [neovim]: https://github.com/neovim/neovim
 [vim-plug]: https://github.com/junegunn/vim-plug
+
+# Known Issues:
+
+- `<C-Fn>` doesn't work in neovim. See neovim/neovim#4862.
+(But it works in tmux...)
