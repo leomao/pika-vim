@@ -165,15 +165,12 @@ let g:vimtex_quickfix_ignored_warnings = [
 " }}}
 
 " --- NERD Commenter plugin --- {{{
-let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 0
 let g:NERDRemoveExtraSpaces = 1
-let g:NERDCustomDelimiters = {
-      \ 'pug': { 'left': '//-', 'leftAlt': '//' },
-      \ }
-map <leader>cc <plug>NERDCommenterComment
-map <leader>cu <plug>NERDCommenterUncomment
-map <leader>c<space> <plug>NERDCommenterToggle
+"let g:NERDCreateDefaultMappings = 0
+"map <leader>cc <plug>NERDCommenterComment
+"map <leader>cu <plug>NERDCommenterUncomment
+"map <leader>c<space> <plug>NERDCommenterToggle
 " }}}
 
 " --- undotree plugin --- {{{
