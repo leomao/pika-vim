@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 4.1.0
+" Version: 4.2.0
 "
 " Sections:
 "    -> Map leader settings
@@ -87,7 +87,6 @@ execute plug#begin()
 
 Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
-"Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
@@ -96,9 +95,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'leomao/lightline-pika'
+Plug 'leomao/python-syntax', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
+Plug 'mattn/emmet-vim', { 'for': [ 'html', 'css' ] }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'mxw/vim-jsx', { 'for': [ 'javascript', 'javascript.jsx' ] }
 Plug 'othree/html5.vim', { 'for': 'html' }
@@ -526,6 +526,7 @@ noremap <silent><leader>cp :cp<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --- python --- {{{
 let python_highlight_all = 1
+let python_no_parameter_highlight = 1
 " }}}
 " --- latex --- {{{
 let g:tex_flavor = 'latex'

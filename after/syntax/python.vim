@@ -1,13 +1,12 @@
 " Vim syntax file
 " Language:	Python syntax extensions
 " Maintainer:	LeoMao
-" Last Change:	2016/4/9
-"
+" Last Change:	2016/6/23
 
-syn keyword pythonConstant None True False self
+syn keyword pythonConstant None True False
 hi def link pythonConstant Constant
 
-hi link pythonInclude Statement
+hi link pythonInclude     Statement
 hi link pythonDecorator   Decorator
 
 syn keyword pythonClass class
@@ -17,21 +16,12 @@ hi def link pythonClass Type
 syn match pythonDot "\." containedin=pythonFunction
 hi link pythonDot       Delimiter
 
-" Operators
-syn match pyOperator  "\(<<\|>>\|[+\-*/&%\^|<>~!=]\)="
-syn match pyOperator  "<<\|>>"
-syn match pyOperator  "[+\-*/&%\^|<>~!=]"
-syn match pyOperator  "&&\|||"
-
-hi link pyOperator Operator
-
 " Delimiters
-syn match pyDelimiter    "[:,;\\]"
-syn match pyParens display "[()]"
-syn match pyBraces display "[{}]"
-syn match pyBrackets display "[][]"
+syn match pythonDelimiter    "[;\\]"
 
-hi link pyParens     pyDelimiter
-hi link pyBraces     pyDelimiter
-hi link pyBrackets   pyDelimiter
-hi link pyDelimiter  Delimiter
+hi link pythonParens     pythonDelimiter
+hi link pythonBrackets   pythonDelimiter
+hi link pythonBraces     pythonDelimiter
+hi link pythonComma      pythonDelimiter
+hi link pythonColon      pythonDelimiter
+hi link pythonDelimiter  Delimiter
