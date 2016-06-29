@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 4.1.0
+Version: 4.2.0
 
 My Pika vim configuration
 
@@ -19,7 +19,7 @@ This configuration is only tested on Archlinux.
 These are needed if you want to use all features.
 
 - g++ (for compile c++ programs)
-- python3 and python3 support (for python omni completion)
+- python3 and vim with python3 support (for python omni completion)
 - [ag (the\_silver\_searcher)](https://github.com/ggreer/the_silver_searcher)
   (see [fzf.vim](https://github.com/junegunn/fzf.vim))
 - ctags (for tags generation)
@@ -45,7 +45,7 @@ $ ./deploy.py # deploy the configuration
 - [OmnicppComplete](https://github.com/vim-scripts/OmniCppComplete)
 - [Python pep8 indent](https://github.com/hynek/vim-python-pep8-indent)
 - [html5.vim](https://github.com/othree/html5.vim)
-- [python syntax](https://github.com/hdima/python-syntax)
+- [python syntax](https://github.com/leomao/python-syntax)
 - [rust.vim](https://github.com/rust-lang/rust.vim)
 - [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
 - [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
