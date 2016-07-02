@@ -6,10 +6,14 @@
 
 " override plugin's settings
 
+hi link jsClassBraces      jsBraces
+hi link jsClassNoise       jsNoise
+
 hi link jsFuncParens       jsParens
 hi link jsFuncBraces       jsBraces
 hi link jsFuncName         Normal
 hi link jsFuncArgCommas    jsNoise
+hi link jsFuncArgOperator  Operator
 
 hi link jsObjectBraces     jsBraces
 hi link jsObjectSeparator  jsNoise
