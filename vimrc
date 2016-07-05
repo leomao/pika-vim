@@ -108,6 +108,7 @@ execute plug#begin()
 
 Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
+Plug 'fatih/vim-go', { 'for' : 'go' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
@@ -226,7 +227,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 let g:user_emmet_install_global = 0
 au Filetype html,css EmmetInstall
 " }}}
-"
+
 " --- lightline --- {{{
 let g:lightline = {
       \ 'colorscheme': 'pikacode'
@@ -240,6 +241,15 @@ let g:lightline_pika_patchfont = {
       \ 'linecolumn': "\ue0a1",
       \ 'readonly': "\ue0a2",
       \ }
+" }}}
+
+" --- vim-go --- {{{
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
