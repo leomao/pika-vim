@@ -61,11 +61,10 @@ if has("gui_running")
   hi DiffText       guibg=#12457d guifg=#ed9000 gui=underline
 
   " -> Menu
-  hi Pmenu          guibg=#140100 guifg=#660300 gui=none
-  hi PmenuSel       guibg=#f17a00 guifg=#4c0200 gui=none
-  hi PmenuSbar      guibg=#430300               gui=none
-  hi PmenuThumb     guibg=#720300               gui=none
-  hi PmenuSel       guibg=#f17a00 guifg=#4c0200 gui=none
+  hi Pmenu          guibg=#303030 guifg=#bcbcbc gui=none
+  hi PmenuSel       guibg=#444444 guifg=#ffdf00 gui=none
+  hi PmenuSbar      guibg=#5f5fff               gui=none
+  hi PmenuThumb     guibg=#0000d7               gui=none
 
   " -> Tabs
   hi TabLine        guibg=#141414 guifg=#1c1c1c gui=none
@@ -154,11 +153,10 @@ elseif &t_Co == 256
   hi DiffText       ctermbg=24   ctermfg=208  cterm=underline
 
   " -> Menu
-  hi Pmenu          ctermbg=0    ctermfg=52   cterm=none
-  hi PmenuSel       ctermbg=208  ctermfg=52   cterm=none
-  hi PmenuSbar      ctermbg=52                cterm=none
-  hi PmenuThumb     ctermbg=52                cterm=none
-  hi PmenuSel       ctermbg=208  ctermfg=52   cterm=none
+  hi Pmenu          ctermbg=236  ctermfg=250  cterm=none
+  hi PmenuSel       ctermbg=238  ctermfg=220  cterm=none
+  hi PmenuSbar      ctermbg=63                cterm=none
+  hi PmenuThumb     ctermbg=20                cterm=none
 
   " -> Tabs
   hi TabLine        ctermbg=233  ctermfg=none cterm=none
