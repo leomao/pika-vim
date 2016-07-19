@@ -55,15 +55,15 @@ def task_vim(keep, nvim):
     task_link(vimmap, keep)
 
 def init():
-    p = Path(".undodir")
+    p = Path('.undodir')
     if not p.is_dir():
         if p.exists():
-            print("please remove .undodir in this directory!")
+            print('please remove .undodir in this directory!')
         else:
             p.mkdir()
 
 def update():
-    run_cmd('git pull')
+    run_cmd('git pull --rebase --depth=1')
     run_cmd('vim +PlugClean +PlugUpdate +qall')
 
 if __name__ == '__main__':

@@ -28,7 +28,7 @@ These are needed if you want to use all features.
 ### Deploy
 To use this configuration, run following commands:
 ```console
-$ git clone https://github.com/leomao/pika-vim.git
+$ git clone --depth=1 https://github.com/leomao/pika-vim.git
 $ cd pika-vim
 $ ./deploy.py -h # check help (need python3)
 $ ./deploy.py # deploy the configuration
@@ -37,6 +37,7 @@ $ ./deploy.py # deploy the configuration
 ### Update Plugins
 - use `:PlugClean` to clean old plugins.
 - use `:PlugUpdate` to update the plugins.
+- use `./cleanup.sh` to clean up the git history of plugins.
 
 # Included Plugins:
 
