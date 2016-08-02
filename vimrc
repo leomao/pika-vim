@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 4.2.0
+" Version: 4.3.0
 "
 " Sections:
 "    -> Map leader settings
@@ -40,16 +40,37 @@
 set history=500
 " shell
 set shell=$SHELL
-" not compatible with the old-fashion vi mode
-if !has('nvim')
+
+" compatibility for vim and neovim
+" True color support
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "For Neovim 0.1.3 and 0.1.4
+else
   set nocompatible
   " set term inside tmux for xterm-key on (nvim doesn't need this)
-  if &term =~ '^screen' && exists('$TMUX')
+  if &term =~ '^screen\|^tmux' && exists('$TMUX')
     if &term =~ '256color'
       set term=xterm-256color
     else
       set term=xterm
     endif
+  endif
+  if &term =~ '256color'
+    set t_ut=
+  endif
+  if exists('$TMUX')
+    set t_8f=[38;2;%lu;%lu;%lum
+    set t_8b=[48;2;%lu;%lu;%lum
+  endif
+endif
+
+" Neovim >= 0.1.5 and vim >= 7.4.1942
+" reference
+" - https://github.com/vim/vim/issues/804
+" - https://github.com/vim/vim/pull/805
+if has('termguicolors')
+  if has('patch1942') || has('nvim')
+    set termguicolors
   endif
 endif
 
@@ -95,6 +116,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'leomao/lightline-pika'
+Plug 'leomao/pikacode.vim'
 Plug 'leomao/python-syntax', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
@@ -206,7 +228,10 @@ let g:user_emmet_install_global = 0
 au Filetype html,css EmmetInstall
 " }}}
 "
-" --- lightline pika --- {{{
+" --- lightline --- {{{
+let g:lightline = {
+      \ 'colorscheme': 'pikacode'
+      \ }
 let g:lightline_pika_patchfont = {
       \ 'leftsep': "\ue0b0",
       \ 'leftsubsep': "\ue0b1",
@@ -285,7 +310,8 @@ endif
 " => Colors, Fonts, Encoding {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on " Enable syntax highlight
-colorscheme pika
+set background=dark
+colorscheme pikacode
 " Set font according to system
 if has('gui_running')
   if has('win32') || has('win64')

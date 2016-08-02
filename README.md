@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 4.2.0
+Version: 4.3.0
 
 My Pika vim configuration
 
@@ -40,6 +40,9 @@ $ ./deploy.py # deploy the configuration
 - use `./cleanup.sh` to clean up the git history of plugins.
 
 # Included Plugins:
+
+## Colorscheme:
+- [pikacode.vim](https://github.com/leomao/pikacode.vim)
 
 ## Plugins for filetypes:
 - [Emmet](https://github.com/mattn/emmet-vim)
@@ -151,8 +154,9 @@ let g:lightline_pika_patchfont = {
 ```
 
 # Customization:
+
 To change the leader key `<leader>`, create a file named `.vimrc.leader`
-in the directory of this repo and add following in the file:
+in the directory of this repo and add the following to the file:
 ```vim
 " change your leader to ','
 let mapleader = ','
@@ -167,19 +171,25 @@ in the directory of this repo and add something like following:
 ```vim
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 ```
-Please refer to [vim-plug][vim-plug]
-documentation.
+Please refer to [vim-plug][vim-plug] documentation.
 
 To change settings of some plugins or other things, create a file named
 `.vimrc.local` in the directory of this repo and add what you need in
-that file.
+that file. For example, to use other colorschemes, add the following to
+`.vimrc.local`:
+```vim
+colorscheme desert
+let g:lightline.colorscheme = 'wombat'
+```
+Combined with `.vimrc.plugin`, you can use your favorite colorscheme!
 
-For detail settings, please refer to docs of each plugin and the `vimrc`.
+For more detail, please refer to the docs of each plugin and the `vimrc`.
 
 [neovim]: https://github.com/neovim/neovim
 [vim-plug]: https://github.com/junegunn/vim-plug
 
 # Known Issues:
 
-- `<C-Fn>` doesn't work in neovim. See neovim/neovim#4862.
-(But it works in tmux...)
+- `<C-Fn>` doesn't work in neovim. See
+  [neovim/neovim#4862](/neovim/neovim/issues/4862).
+  (But it works in tmux...)
