@@ -61,6 +61,13 @@ def init():
             print('please remove .undodir in this directory!')
         else:
             p.mkdir()
+    p = Path('plugged/pikacode.vim')
+    if not p.is_dir():
+        if p.exists():
+            print('please remove plugged/pikacode.vim')
+        else:
+            run_cmd('git clone --depth=1 https://github.com/leomao/pikacode.vim'
+                    ' plugged/pikacode.vim')
 
 def update():
     run_cmd('git pull --rebase --depth=1')

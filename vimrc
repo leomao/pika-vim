@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 4.3.2
+" Version: 4.3.3
 "
 " Sections:
 "    -> Map leader settings
