@@ -69,7 +69,7 @@ endif
 " - https://github.com/vim/vim/issues/804
 " - https://github.com/vim/vim/pull/805
 if has('termguicolors')
-  if has('patch1942') || has('nvim')
+  if has('patch1942') || has('nvim') || version >= 800
     set termguicolors
   endif
 endif
