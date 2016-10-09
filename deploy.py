@@ -66,7 +66,8 @@ def init():
         if p.exists():
             print('please remove plugged/pikacode.vim')
         else:
-            run_cmd('git clone --depth=1 https://github.com/leomao/pikacode.vim'
+            run_cmd('git clone --depth=1'
+                    ' https://github.com/leomao/pikacode.vim.git'
                     ' plugged/pikacode.vim')
 
 def update():
