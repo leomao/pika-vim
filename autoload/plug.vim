@@ -726,10 +726,14 @@ function! s:prepare(...)
 
   call s:job_abort()
   if s:switch_in()
-    normal q
+    if b:plug_preview == 1
+      pc
+    endif
+    enew
+  else
+    call s:new_window()
   endif
 
-  call s:new_window()
   nnoremap <silent> <buffer> q  :if b:plug_preview==1<bar>pc<bar>endif<bar>bd<cr>
   if a:0 == 0
     call s:finish_bindings()
@@ -809,7 +813,15 @@ function! s:do(pull, force, todo)
       if type == s:TYPE.string
         if spec.do[0] == ':'
           call s:load_plugin(spec)
-          execute spec.do[1:]
+          try
+            execute spec.do[1:]
+          catch
+            let error = v:exception
+          endtry
+          if !s:plug_window_exists()
+            cd -
+            throw 'Warning: vim-plug was terminated by the post-update hook of '.name
+          endif
         else
           let error = s:bang(spec.do)
         endif
@@ -936,7 +948,7 @@ function! s:update_impl(pull, force, args) abort
     call s:warn('echom', '[vim-plug] Update Neovim for parallel installer')
   endif
 
-  let python = (has('python') || has('python3')) && (!s:nvim || has('vim_starting'))
+  let python = (has('python') || has('python3')) && !s:nvim
   let ruby = has('ruby') && !s:nvim && (v:version >= 703 || v:version == 702 && has('patch374')) && !(s:is_win && has('gui_running')) && s:check_ruby()
 
   let s:update = {
@@ -1002,6 +1014,12 @@ function! s:update_impl(pull, force, args) abort
     endtry
   else
     call s:update_vim()
+    while s:nvim && has('vim_starting')
+      sleep 100m
+      if s:update.fin
+        break
+      endif
+    endwhile
   endif
 endfunction
 
@@ -1059,7 +1077,13 @@ function! s:update_finish()
       redraw
     endfor
     silent 4 d _
-    call s:do(s:update.pull, s:update.force, filter(copy(s:update.all), 'index(s:update.errors, v:key) < 0 && has_key(v:val, "do")'))
+    try
+      call s:do(s:update.pull, s:update.force, filter(copy(s:update.all), 'index(s:update.errors, v:key) < 0 && has_key(v:val, "do")'))
+    catch
+      call s:warn('echom', v:exception)
+      call s:warn('echo', '')
+      return
+    endtry
     call s:finish(s:update.pull)
     call setline(1, 'Updated. Elapsed time: ' . split(reltimestr(reltime(s:update.start)))[0] . ' sec.')
     call s:switch_out('normal! gg')
@@ -1200,8 +1224,8 @@ function! s:tick()
 while 1 " Without TCO, Vim stack is bound to explode
   if empty(s:update.todo)
     if empty(s:jobs) && !s:update.fin
-      let s:update.fin = 1
       call s:update_finish()
+      let s:update.fin = 1
     endif
     return
   endif
@@ -1510,10 +1534,10 @@ class Plugin(object):
     return result[-1]
 
   def update(self):
-    match = re.compile(r'git::?@')
-    actual_uri = re.sub(match, '', self.repo_uri())
-    expect_uri = re.sub(match, '', self.args['uri'])
-    if actual_uri != expect_uri:
+    actual_uri = self.repo_uri()
+    expect_uri = self.args['uri']
+    regex = re.compile(r'^(?:\w+://)?(?:[^@/]*@)?([^:/]*(?::[0-9]*)?)[:/](.*?)(?:\.git)?/?$')
+    if regex.match(actual_uri).groups() != regex.match(expect_uri).groups():
       msg = ['',
              'Invalid URI: {0}'.format(actual_uri),
              'Expected     {0}'.format(expect_uri),
@@ -1672,6 +1696,11 @@ function! s:update_ruby()
     end
   end
 
+  def compare_git_uri a, b
+    regex = %r{^(?:\w+://)?(?:[^@/]*@)?([^:/]*(?::[0-9]*)?)[:/](.*?)(?:\.git)?/?$}
+    regex.match(a).to_a.drop(1) == regex.match(b).to_a.drop(1)
+  end
+
   require 'thread'
   require 'fileutils'
   require 'timeout'
@@ -1773,9 +1802,8 @@ function! s:update_ruby()
   main = Thread.current
   threads = []
   watcher = Thread.new {
-    while VIM::evaluate('getchar(1)')
-      sleep 0.1
-    end
+    require 'io/console' # >= Ruby 1.9
+    nil until IO.console.getch == 3.chr
     mtx.synchronize do
       running = false
       threads.each { |t| t.raise Interrupt }
@@ -1813,7 +1841,7 @@ function! s:update_ruby()
                 else
                   [false, [data.chomp, "PlugClean required."].join($/)]
                 end
-              elsif current_uri.sub(/git::?@/, '') != uri.sub(/git::?@/, '')
+              elsif !compare_git_uri(current_uri, uri)
                 [false, ["Invalid URI: #{current_uri}",
                          "Expected:    #{uri}",
                          "PlugClean required."].join($/)]
@@ -1859,9 +1887,15 @@ function! s:progress_bar(line, bar, total)
 endfunction
 
 function! s:compare_git_uri(a, b)
-  let a = substitute(a:a, 'git:\{1,2}@', '', '')
-  let b = substitute(a:b, 'git:\{1,2}@', '', '')
-  return a ==# b
+  " See `git help clone'
+  " https:// [user@] github.com[:port] / junegunn/vim-plug [.git]
+  "          [git@]  github.com[:port] : junegunn/vim-plug [.git]
+  " file://                            / junegunn/vim-plug        [/]
+  "                                    / junegunn/vim-plug        [/]
+  let pat = '^\%(\w\+://\)\='.'\%([^@/]*@\)\='.'\([^:/]*\%(:[0-9]*\)\=\)'.'[:/]'.'\(.\{-}\)'.'\%(\.git\)\=/\?$'
+  let ma = matchlist(a:a, pat)
+  let mb = matchlist(a:b, pat)
+  return ma[1:2] ==# mb[1:2]
 endfunction
 
 function! s:format_message(bullet, name, message)
