@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 4.3.3
+" Version: 4.3.4
 "
 " Sections:
 "    -> Map leader settings
@@ -419,18 +419,18 @@ endfunction
 
 function! SetWrapKeyMapping()
   if &wrap
-    noremap  <buffer> <silent> k gk
-    noremap  <buffer> <silent> j gj
-    noremap  <buffer> <silent> 0 g^
-    noremap  <buffer> <silent> $ g$
-    noremap  <buffer> <silent> <Up>   gk
-    noremap  <buffer> <silent> <Down> gj
-    noremap  <buffer> <silent> <Home> g<Home>
-    noremap  <buffer> <silent> <End>  g<End>
-    inoremap <buffer> <silent> <Up>   <C-o>gk
-    inoremap <buffer> <silent> <Down> <C-o>gj
-    inoremap <buffer> <silent> <Home> <C-o>g<Home>
-    inoremap <buffer> <silent> <End>  <C-o>g<End>
+    nnoremap  <buffer> <silent> k gk
+    nnoremap  <buffer> <silent> j gj
+    nnoremap  <buffer> <silent> 0 g^
+    nnoremap  <buffer> <silent> $ g$
+    nnoremap  <buffer> <silent> <Up>   gk
+    nnoremap  <buffer> <silent> <Down> gj
+    nnoremap  <buffer> <silent> <Home> g<Home>
+    nnoremap  <buffer> <silent> <End>  g<End>
+    inoremap <buffer> <silent> <Up>   <Esc>gka
+    inoremap <buffer> <silent> <Down> <Esc>gja
+    inoremap <buffer> <silent> <Home> <Esc>g<Home>i
+    inoremap <buffer> <silent> <End>  <Esc>g<End>a
     onoremap <buffer> <silent> j gj
     onoremap <buffer> <silent> k gk
   else
