@@ -52,7 +52,6 @@ $ ./deploy.py # deploy the configuration
 - [python syntax](https://github.com/leomao/python-syntax)
 - [rust.vim](https://github.com/rust-lang/rust.vim)
 - [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
-- [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 - [vim-javscript](https://github.com/pangloss/vim-javscript)
 - [vim-jsx](https://github.com/mxw/vim-jsx)
 - [vim-pug](https://github.com/digitaltoad/vim-pug)

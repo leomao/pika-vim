@@ -114,7 +114,6 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'leomao/lightline-pika'
 Plug 'leomao/pikacode.vim'
 Plug 'leomao/python-syntax', { 'for': 'python' }
