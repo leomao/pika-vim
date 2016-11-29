@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 4.3.4
+" Version: 4.3.5
 "
 " Sections:
 "    -> Map leader settings
@@ -121,9 +121,9 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'mattn/emmet-vim', { 'for': [ 'html', 'css' ] }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'mxw/vim-jsx', { 'for': [ 'javascript', 'javascript.jsx' ] }
+Plug 'mxw/vim-jsx', { 'for': [ 'javascript', 'javascript.jsx', 'html' ] }
 Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'javascript.jsx' ] }
+Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'javascript.jsx', 'html' ] }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'szw/vim-tags'

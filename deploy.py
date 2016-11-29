@@ -75,6 +75,7 @@ def update():
     run_cmd('vim +PlugClean +PlugUpdate +qall')
 
 if __name__ == '__main__':
+    os.chdir(FILE_PATH)
     args = parser.parse_args()
     if args.command == 'link':
         task_vim(args.keep, args.nvim)
