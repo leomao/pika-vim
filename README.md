@@ -1,12 +1,12 @@
 # pika-vim
 
-Version: 4.3.5
+Version: 4.4.0
 
 My Pika vim configuration
 
 Use [vim-plug][vim-plug] to manage plugins.
 
-This configuration is only tested on Archlinux.
+This configuration is only tested on my own environments.
 
 ## How to Use
 
@@ -24,6 +24,7 @@ These are needed if you want to use all features.
   (see [fzf.vim](https://github.com/junegunn/fzf.vim))
 - ctags (for tags generation)
 - (xe)latex compiler (for latex usage)
+- go (see the plugin `vim-go`)
 
 ### Deploy
 To use this configuration, run following commands:
@@ -52,7 +53,8 @@ $ ./deploy.py # deploy the configuration
 - [python syntax](https://github.com/leomao/python-syntax)
 - [rust.vim](https://github.com/rust-lang/rust.vim)
 - [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
-- [vim-javscript](https://github.com/pangloss/vim-javscript)
+- [vim-go](https://github.com/fatih/vim-go)
+- [vim-javscript](https://github.com/pangloss/vim-javascript)
 - [vim-jsx](https://github.com/mxw/vim-jsx)
 - [vim-pug](https://github.com/digitaltoad/vim-pug)
 - [vim-stylus](https://github.com/wavded/vim-stylus)
@@ -154,8 +156,11 @@ let g:lightline_pika_patchfont = {
 
 # Customization:
 
-To change the leader key `<leader>`, create a file named `.vimrc.leader`
-in the directory of this repo and add the following to the file:
+All customization files are put in the `custom` directory.
+Please create a `custom` directory in this repo.
+
+To change the leader key `<leader>`, create a file named `leader.vim` in
+in `custom` and add the following to the file:
 ```vim
 " change your leader to ','
 let mapleader = ','
@@ -165,24 +170,23 @@ let g:maplocalleader = ','
 ```
 Use your favorite key to substitute `,`.  
 
-To add more plugin via vim-plug, create a file named `.vimrc.plugin`
-in the directory of this repo and add something like following:
+To add more plugin via vim-plug, create a file named `plugin.vim` in `custom`
+and add something like following:
 ```vim
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 ```
 Please refer to [vim-plug][vim-plug] documentation.
 
 To change settings of some plugins or other things, create a file named
-`.vimrc.local` in the directory of this repo and add what you need in
-that file. For example, to use other colorschemes, add the following to
-`.vimrc.local`:
+`local.vim` in `custom` and add what you need in that file. For example,
+to use other colorschemes, add the following to `local.vim`:
 ```vim
 colorscheme desert
 let g:lightline.colorscheme = 'wombat'
 ```
-Combined with `.vimrc.plugin`, you can use your favorite colorscheme!
+Combined with `plugin.vim`, you can use your favorite colorscheme!
 
-For more detail, please refer to the docs of each plugin and the `vimrc`.
+For more detail, please refer to the docs of each plugin and the `init.vim`.
 
 [neovim]: https://github.com/neovim/neovim
 [vim-plug]: https://github.com/junegunn/vim-plug

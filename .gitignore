@@ -4,6 +4,7 @@
 .vimrc.plugin
 .vimrc.leader
 .vimrc.local
+custom
 .undodir
 plugged
 *.old
