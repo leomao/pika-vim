@@ -13,12 +13,12 @@ syn keyword pythonClass class
 " syn match   pythonClass    "[a-zA-Z_][a-zA-Z0-9_]*" display contained
 hi def link pythonClass Type
 
-syn match pythonDot "\." containedin=pythonFunction
 hi link pythonDot       Delimiter
 
 " Delimiters
 syn match pythonDelimiter    "[;\\]"
 
+hi link pythonFormatBraces pythonBraces
 hi link pythonParens     pythonDelimiter
 hi link pythonBrackets   pythonDelimiter
 hi link pythonBraces     pythonDelimiter
