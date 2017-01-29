@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 4.4.0
+Version: 5.0.0
 
 My Pika vim configuration
 

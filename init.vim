@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 4.4.0
+" Version: 5.0.0
 "
 " Sections:
 "    -> Map leader settings
@@ -87,10 +87,6 @@ let mapleader = ' '
 let maplocalleader = ' '
 let g:mapleader = ' '
 let g:maplocalleader = ' '
-if filereadable('.vimrc.leader')
-  runtime .vimrc.leader
-  echo 'Warning: put settings in .vimrc.leader is deprecated, use custom/leader.vim instead'
-endif
 runtime custom/leader.vim
 " }}}
 " => Plugin settings {{{
@@ -109,7 +105,7 @@ execute plug#begin()
 Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'fatih/vim-go', { 'for' : 'go' }
-Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -137,10 +133,6 @@ Plug 'vim-scripts/OmniCppComplete', { 'for': 'cpp' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 
 "include custom plugin
-if filereadable('.vimrc.plugin')
-  runtime .vimrc.plugin
-  echo 'Warning: put settings in .vimrc.plugin is deprecated, use custom/plugin.vim instead'
-endif
 runtime custom/plugin.vim
 
 execute plug#end()
@@ -582,10 +574,6 @@ let g:yacc_uses_cpp = 1
 " }}}
 " => Load custom settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable('.vimrc.local')
-  runtime .vimrc.local
-  echo 'Warning: put settings in .vimrc.local is deprecated, use custom/local.vim instead'
-endif
 runtime custom/local.vim
 " }}}
 " vim:fdm=marker:foldlevel=0
