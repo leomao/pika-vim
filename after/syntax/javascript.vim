@@ -15,15 +15,12 @@ hi link jsFuncName         Normal
 hi link jsFuncArgCommas    jsNoise
 hi link jsFuncArgOperator  Operator
 
-hi link jsObjectBraces     jsBraces
 hi link jsObjectSeparator  jsNoise
 
-hi link jsTemplateBraces   jsBraces
-
-hi link jsNoise            Delimiter
 hi link jsParens           Delimiter
 hi link jsBraces           Delimiter
 hi link jsBrackets         Delimiter
+hi link Noise              Delimiter
 hi link jsNull             Constant
 
 hi link jsArrowFunction    Function
