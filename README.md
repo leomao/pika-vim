@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 5.0.1
+Version: 5.1.0
 
 My Pika vim configuration
 
@@ -12,14 +12,15 @@ This configuration is only tested on my own environments.
 
 ### Dependencies
 
-- vim 7.4+ (or latest [neovim][neovim])
+- Latest [neovim][neovim] (or vim 7.4+)
 
 ### Optional Dependencies
 
 These are needed if you want to use all features.
 
 - g++ (for compile c++ programs)
-- python3 and vim with python3 support (for python omni completion)
+- python3 and vim with python3 support (for python omni completion and
+  editorconfig)
 - [ag (the\_silver\_searcher)](https://github.com/ggreer/the_silver_searcher)
   (see [fzf.vim](https://github.com/junegunn/fzf.vim))
 - ctags (for tags generation)
@@ -33,6 +34,19 @@ $ git clone --depth=1 https://github.com/leomao/pika-vim.git
 $ cd pika-vim
 $ ./deploy.py -h # check help (need python3)
 $ ./deploy.py # deploy the configuration
+```
+
+or deploy manually:
+- neovim
+```console
+$ ln -sr pika-vim ~/.config/neovim
+$ nvim +PlugInstall +qall
+```
+- vim
+```console
+$ ln -sr pika-vim ~/.vim
+$ ln -sr ~/.vim/init.vim ~/.vimrc
+$ vim +PlugInstall +qall
 ```
 
 ### Update Plugins
@@ -62,6 +76,7 @@ $ ./deploy.py # deploy the configuration
 
 ## Plugins for general usage:
 - [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)
+- [Editorconfig](https://github.com/editorconfig/editorconfig-vim)
 - [FZF](https://github.com/junegunn/fzf)
 - [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
 - [TagBar](https://github.com/majutsushi/tagbar)
@@ -97,7 +112,7 @@ $ ./deploy.py # deploy the configuration
 - customization: (see [Customization](#customization))
 ```vim
 " cpp ftplugin settings
-let g:cpp_astyle_mapping = '<F10>'
+let g:cpp_astyle_mapping = '<F6>'
 let g:cpp_astyle_options = '-A8KpHUyk1qs2 -xG'
 let g:cpp_compile_options = '-O2 -Wall -Wshadow'
 ```
@@ -127,7 +142,7 @@ in  `~/.latexmkrc`.
 - toggle TagBar `<leader>tb`
 
 ### vim-tags
-- Generate tags for the project (ctags) `<F12>`
+- Generate tags for the project (ctags) `:TagGenerate!`
 
 ### undotree
 - toggle undotree panel `<F5>`
@@ -137,11 +152,11 @@ in  `~/.latexmkrc`.
 
 ### lightline pika
 - To disable it:  
-  add `let g:disable_lightline_pika = 1` to `.vimrc.local`
+  add `let g:disable_lightline_pika = 1` to `local.vim`
 - To disable the patch font:  
-  add `unlet g:lightline_pika_patchfont` to `.vimrc.local`
+  add `unlet g:lightline_pika_patchfont` to `local.vim`
 - To change the patch font:  
-  change the unicode add the following to `.vimrc.local`:
+  change the unicode add the following to `local.vim`:
 ```vim
 let g:lightline_pika_patchfont = {
       \ 'leftsep': "\ue0b0",
@@ -194,5 +209,4 @@ For more detail, please refer to the docs of each plugin and the `init.vim`.
 # Known Issues:
 
 - `<C-Fn>` doesn't work in neovim. See
-  [neovim/neovim#4862](/neovim/neovim/issues/4862).
-  (But it works in tmux...)
+  [neovim/neovim#4862](https://github.com/neovim/neovim/issues/4862#issuecomment-282988543) for a workaround.

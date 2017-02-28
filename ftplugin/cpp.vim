@@ -6,7 +6,7 @@
 setl cindent
 
 if !exists('g:cpp_astyle_mapping')
-  let g:cpp_astyle_mapping = '<F10>'
+  let g:cpp_astyle_mapping = '<F6>'
 endif
 
 if !exists('g:cpp_astyle_options')
@@ -23,6 +23,8 @@ execute 'noremap <buffer>' . g:cpp_astyle_mapping .
 
 " compile mappings (need g++)
 noremap <buffer><C-F9> <ESC>:call SingleCompile()<CR>:echo "Single Compile On"<CR>
+" workaround for neovim
+noremap <buffer><F33> <ESC>:call SingleCompile()<CR>:echo "Single Compile On"<CR>
 
 " for compile single cpp file
 function! SingleCompile()

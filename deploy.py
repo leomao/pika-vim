@@ -16,8 +16,6 @@ updatep = subparsers.add_parser('update',
                                 help='update the configuration.')
 parser.add_argument('-k', '--keep', action='store_true',
                     help='keep old files (for deploy and link).')
-parser.add_argument('--nvim', action='store_true',
-                    help='deploy config files for nvim.')
 
 FILE_PATH = os.path.dirname(os.path.realpath(__file__))
 CMD_LN = 'ln -srfT {} {}'
@@ -47,11 +45,8 @@ def task_vim(keep, nvim):
     vimmap = {
         FILE_PATH: '~/.vim',
         '~/.vim/init.vim': '~/.vimrc',
+        FILE_PATH: '~/.config/nvim',
     }
-    if nvim:
-        vimmap = {
-            FILE_PATH: '~/.config/nvim',
-        }
     task_link(vimmap, keep)
 
 def init():
@@ -83,6 +78,6 @@ if __name__ == '__main__':
         update()
     else:
         init()
-        task_vim(args.keep, args.nvim)
+        task_vim(args.keep)
         run_cmd('vim +PlugInstall +qall')
 

@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 5.0.1
+" Version: 5.1.0
 "
 " Sections:
 "    -> Map leader settings
@@ -104,6 +104,7 @@ execute plug#begin()
 
 Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
+Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'for' : 'go' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'itchyny/lightline.vim'
@@ -148,6 +149,10 @@ nnoremap <leader>ff <ESC>:FZF<CR>
 nnoremap <leader>bf <ESC>:Buffers<CR>
 " }}}
 
+" --- editorconfig plugin --- {{{
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+" }}}
+
 " --- Buffer plugin --- {{{
 let g:bufExplorerSortBy = 'name'
 let g:bufExplorerShowRelativePath = 1
@@ -167,8 +172,6 @@ let g:vim_tags_use_language_field = 1
 let g:vim_tags_project_tags_command = '{CTAGS}
       \ -R --c++-kinds=+pl --python-kinds=-i --fields=+iaS --extra=+q
       \ {OPTIONS} {DIRECTORY} 2>/dev/null'
-
-noremap <F12> <ESC>:TagsGenerate!<CR>
 " }}}
 
 " --- vimtex --- {{{
@@ -525,9 +528,14 @@ command! -nargs=0 Wsudo :w !sudo tee > /dev/null %
 noremap <silent><F9> <ESC>:wa!<CR>:make<CR><CR>:cw<CR>
 
 " check the syntax group under the cursor
-noremap <F7> :echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<'
-\ . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<'
-\ . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>
+function! ShowHiGroup()
+  echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<'
+    \ . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<'
+    \ . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'
+endfunction
+noremap <S-F7> :call ShowHiGroup()<CR>
+" workaround for neovim
+noremap <F19> :call ShowHiGroup()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
