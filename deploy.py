@@ -41,10 +41,15 @@ def task_link(maps, keep):
     for f, t in maps.items():
         run_cmd(CMD_LN.format(f, t))
 
-def task_vim(keep, nvim):
+def task_vim(keep):
     vimmap = {
         FILE_PATH: '~/.vim',
         '~/.vim/init.vim': '~/.vimrc',
+    }
+    task_link(vimmap, keep)
+
+    # link nvim config
+    vimmap = {
         FILE_PATH: '~/.config/nvim',
     }
     task_link(vimmap, keep)
@@ -73,7 +78,7 @@ if __name__ == '__main__':
     os.chdir(FILE_PATH)
     args = parser.parse_args()
     if args.command == 'link':
-        task_vim(args.keep, args.nvim)
+        task_vim(args.keep)
     elif args.command == 'update':
         update()
     else:
