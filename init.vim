@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 5.1.0
+" Version: 5.1.1
 "
 " Sections:
 "    -> Map leader settings
@@ -177,13 +177,13 @@ let g:vim_tags_project_tags_command = '{CTAGS}
 " --- vimtex --- {{{
 let g:vimtex_fold_enabled = 0
 let g:vimtex_imaps_leader = ';'
-let g:vimtex_quickfix_ignored_warnings = [
-      \ 'Underfull',
-      \ 'Overfull',
-      \ 'specifier changed to',
-      \ 'xparse/redefine-command',
-      \ 'script-not-exist',
-      \ ]
+let g:vimtex_quickfix_warnings = {
+      \ 'overfull' : 0,
+      \ 'underfull' : 0,
+      \ 'specifier changed to' : 0,
+      \ 'xparse/redefine-command' : 0,
+      \ 'script-not-exist' : 0,
+      \ }
 " }}}
 
 " --- NERD Commenter plugin --- {{{
