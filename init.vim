@@ -63,7 +63,7 @@ endif
 
 " True color support
 " If your terminal doesn't support true color,
-" set notermguicolors in your .vimrc.local
+" set notermguicolors in your local.vim
 if has('termguicolors')
   if has('patch1942') || has('nvim') || version >= 800
     set termguicolors
@@ -177,7 +177,7 @@ let g:vim_tags_project_tags_command = '{CTAGS}
 " --- vimtex --- {{{
 let g:vimtex_fold_enabled = 0
 let g:vimtex_imaps_leader = ';'
-let g:vimtex_quickfix_warnings = {
+let g:vimtex_quickfix_latexlog = {
       \ 'overfull' : 0,
       \ 'underfull' : 0,
       \ 'specifier changed to' : 0,
