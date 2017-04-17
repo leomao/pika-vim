@@ -10,6 +10,7 @@ for folder in ./plugged/*; do
     {
       cd "$folder"
       git fetch --depth=1 --update-shallow -t -p
+      git reset --hard origin/master
       git gc
       git prune
       cd -
