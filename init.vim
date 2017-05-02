@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 5.1.2
+" Version: 5.2.0
 "
 " Sections:
 "    -> Map leader settings
@@ -138,6 +138,10 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/OmniCppComplete', { 'for': 'cpp' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
+
 "include custom plugin
 runtime custom/plugin.vim
 
@@ -253,6 +257,14 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+" }}}
+
+" --- deoplete.nvim --- {{{
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#sources = {}
+  let g:deoplete#sources._ = []
+endif
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

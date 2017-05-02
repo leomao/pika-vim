@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 5.1.1
+Version: 5.2.0
 
 My Pika vim configuration
 
@@ -12,15 +12,15 @@ This configuration is only tested on my own environments.
 
 ### Dependencies
 
-- Latest [neovim][neovim] (or vim 7.4+)
+- Latest [neovim][neovim]. (or vim 7.4+)
+  Notice that some features require neovim to work.
+- python3 and python-neovim
 
 ### Optional Dependencies
 
 These are needed if you want to use all features.
 
 - g++ (for compile c++ programs)
-- python3 and vim with python3 support (for python omni completion and
-  editorconfig)
 - [ag (the\_silver\_searcher)](https://github.com/ggreer/the_silver_searcher)
   (see [fzf.vim](https://github.com/junegunn/fzf.vim))
 - ctags (for tags generation)
@@ -80,6 +80,7 @@ $ vim +PlugInstall +qall
 - [FZF](https://github.com/junegunn/fzf)
 - [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
 - [TagBar](https://github.com/majutsushi/tagbar)
+- [deoplete.nvim](https://github.com/Shougo/deoplete.nvim)
 - [fzf.vim](https://github.com/junegunn/fzf.vim)
 - [gv.vim](https://github.com/junegunn/gv.vim)
 - [lightline-pika](https://github.com/leomao/lightline-pika)
