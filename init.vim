@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 5.1.1
+" Version: 5.1.2
 "
 " Sections:
 "    -> Map leader settings
@@ -68,6 +68,11 @@ if has('termguicolors')
   if has('patch1942') || has('nvim') || version >= 800
     set termguicolors
   endif
+endif
+
+" Neovim settings
+if has('nvim')
+  let g:python3_host_prog = '/usr/bin/python3'
 endif
 
 " Enable filetype plugin (called by vim-plug)
@@ -217,7 +222,6 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=python3complete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " }}}
 
