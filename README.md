@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 5.2.0
+Version: 5.2.1
 
 My Pika vim configuration
 
@@ -157,7 +157,7 @@ in  `~/.latexmkrc`.
 - To disable the patch font:  
   add `unlet g:lightline_pika_patchfont` to `local.vim`
 - To change the patch font:  
-  change the unicode add the following to `local.vim`:
+  add the following to `local.vim` (change the unicode to what you want):
 ```vim
 let g:lightline_pika_patchfont = {
       \ 'leftsep': "\ue0b0",
@@ -186,7 +186,7 @@ let g:maplocalleader = ','
 ```
 Use your favorite key to substitute `,`.  
 
-To add more plugin via vim-plug, create a file named `plugin.vim` in `custom`
+To add more plugins via vim-plug, create a file named `plugin.vim` in `custom`
 and add something like following:
 ```vim
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
