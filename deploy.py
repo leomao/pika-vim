@@ -55,7 +55,7 @@ def task_vim(keep):
     task_link(vimmap, keep)
 
 def init():
-    p = Path('~/.config')
+    p = Path('~/.config').expanduser()
     if not p.is_dir():
         if p.exists():
             raise ValueError('~/.config must be a directory!')
