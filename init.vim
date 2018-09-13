@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 5.2.1
+" Version: 5.3.0
 "
 " Sections:
 "    -> Map leader settings
@@ -114,7 +114,9 @@ Plug 'fatih/vim-go', { 'for' : 'go' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+if !filereadable('/usr/share/vim/vimfiles/plugin/fzf.vim')
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+endif
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'leomao/lightline-pika'
