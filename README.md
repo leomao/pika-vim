@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 5.3.0
+Version: 5.4.0
 
 My Pika vim configuration
 
@@ -12,7 +12,7 @@ This configuration is only tested on my own environments.
 
 ### Dependencies
 
-- Latest [neovim][neovim]. (or vim 7.4+)
+- Latest [neovim][neovim]. (or vim 8+)
   Notice that some features require neovim to work.
 - python3 and python-neovim
 

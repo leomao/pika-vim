@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 5.3.0
+" Version: 5.4.0
 "
 " Sections:
 "    -> Map leader settings
@@ -65,9 +65,7 @@ endif
 " If your terminal doesn't support true color,
 " set notermguicolors in your local.vim
 if has('termguicolors')
-  if has('patch1942') || has('nvim') || version >= 800
-    set termguicolors
-  endif
+  set termguicolors
 endif
 
 " Neovim settings
@@ -142,6 +140,10 @@ Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 "include custom plugin
@@ -286,11 +288,9 @@ let g:go_highlight_build_constraints = 1
 " }}}
 
 " --- deoplete.nvim --- {{{
-if has('nvim')
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#sources = {}
-  let g:deoplete#sources._ = []
-endif
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = []
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
