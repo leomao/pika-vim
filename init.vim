@@ -69,9 +69,7 @@ if has('termguicolors')
 endif
 
 " Neovim settings
-if has('nvim')
-  let g:python3_host_prog = '/usr/bin/python3'
-endif
+let g:python3_host_prog = '/usr/bin/python3'
 
 " Enable filetype plugin (called by vim-plug)
 "filetype plugin indent on
