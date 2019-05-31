@@ -9,8 +9,9 @@ for folder in ./plugged/*; do
     echo "cleanup $folder ..."
     {
       cd "$folder"
+      bname=$(git rev-parse --abbrev-ref HEAD)
       git fetch --depth=1 --update-shallow -t -p
-      git reset --hard origin/master
+      git reset --hard origin/$bname
       git gc
       git prune
       cd -
