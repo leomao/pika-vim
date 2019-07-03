@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 5.4.0
+" Version: 5.5.0
 "
 " Sections:
 "    -> Map leader settings
@@ -104,6 +104,7 @@ execute plug#begin()
 " - leomao/lightline-pika is my personal settings.
 
 Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'for' : 'go' }
