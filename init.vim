@@ -288,8 +288,8 @@ let g:go_highlight_build_constraints = 1
 
 " --- deoplete.nvim --- {{{
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = []
+let g:deoplete#custom#option = {}
+let g:deoplete#custom#option._ = []
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
