@@ -1,6 +1,6 @@
 # pika-vim
 
-Version: 5.4.0
+Version: 6.0.0
 
 My Pika vim configuration
 
@@ -12,20 +12,21 @@ This configuration is only tested on my own environments.
 
 ### Dependencies
 
-- Latest [neovim][neovim]. (or vim 8+)
-  Notice that some features require neovim to work.
+- Latest [neovim][neovim] 0.5.0+. (or vim 8+)
+  Note: Some features require neovim to work. (I have moved to neovim completely.)
 - python3 and python-neovim
 
 ### Optional Dependencies
 
 These are needed if you want to use all features.
 
-- g++ (for compile c++ programs)
-- [ag (the\_silver\_searcher)](https://github.com/ggreer/the_silver_searcher)
+- g++/clang (for compile c++ programs)
+  - clangd provides LSP support.
+- [rg](https://github.com/BurntSushi/ripgrep)
   (see [fzf.vim](https://github.com/junegunn/fzf.vim))
-- ctags (for tags generation)
 - (xe)latex compiler (for latex usage)
 - go (see the plugin `vim-go`)
+- rust (and rls)
 
 ### Deploy
 To use this configuration, run following commands:
@@ -56,42 +57,7 @@ $ vim +PlugInstall +qall
 
 # Included Plugins:
 
-## Colorscheme:
-- [pikacode.vim](https://github.com/leomao/pikacode.vim)
-
-## Plugins for filetypes:
-- [Emmet](https://github.com/mattn/emmet-vim)
-- [OmnicppComplete](https://github.com/vim-scripts/OmniCppComplete)
-- [Python pep8 indent](https://github.com/hynek/vim-python-pep8-indent)
-- [html5.vim](https://github.com/othree/html5.vim)
-- [python syntax](https://github.com/leomao/python-syntax)
-- [rust.vim](https://github.com/rust-lang/rust.vim)
-- [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
-- [vim-go](https://github.com/fatih/vim-go)
-- [vim-javscript](https://github.com/pangloss/vim-javascript)
-- [vim-jsx](https://github.com/mxw/vim-jsx)
-- [vim-pug](https://github.com/digitaltoad/vim-pug)
-- [vim-stylus](https://github.com/wavded/vim-stylus)
-- [vimtex](https://github.com/lervag/vimtex)
-
-## Plugins for general usage:
-- [Buffer Explorer](https://github.com/jlanzarotta/bufexplorer)
-- [Editorconfig](https://github.com/editorconfig/editorconfig-vim)
-- [FZF](https://github.com/junegunn/fzf)
-- [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
-- [TagBar](https://github.com/majutsushi/tagbar)
-- [deoplete.nvim](https://github.com/Shougo/deoplete.nvim)
-- [fzf.vim](https://github.com/junegunn/fzf.vim)
-- [gv.vim](https://github.com/junegunn/gv.vim)
-- [lightline-pika](https://github.com/leomao/lightline-pika)
-- [lightline.vim](https://github.com/itchyny/lightline.vim)
-- [undotree](https://github.com/mbbill/undotree)
-- [vim-abolish](https://github.com/tpope/vim-abolish)
-- [vim-fugitive](https://github.com/tpope/vim-fugitive)
-- [vim-repeat](https://github.com/tpope/vim-repeat)
-- [vim-surround](https://github.com/tpope/vim-surround)
-- [vim-tags](https://github.com/szw/vim-tags)
-- [vim-vinegar](https://github.com/tpope/vim-vinegar)
+Please just check the section inside `plug#begin()` and `plug#end()`.
 
 # Common Shortcut
 ## General
@@ -138,12 +104,6 @@ See [NERD Commenter](https://github.com/scrooloose/nerdcommenter)
 $pdflatex = 'xelatex -synctex=1 -interaction=nonstopmode --shell-escape %O %S';
 ```
 in  `~/.latexmkrc`.
-
-### TagBar
-- toggle TagBar `<leader>tb`
-
-### vim-tags
-- Generate tags for the project (ctags) `:TagGenerate!`
 
 ### undotree
 - toggle undotree panel `<F5>`

@@ -10,7 +10,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: LeoMao
 "
-" Version: 5.5.0
+" Version: 6.0.0
 "
 " Sections:
 "    -> Map leader settings
@@ -103,46 +103,43 @@ execute plug#begin()
 " NOTE:
 " - leomao/lightline-pika is my personal settings.
 
-Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
-Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
-Plug 'editorconfig/editorconfig-vim'
-Plug 'fatih/vim-go', { 'for' : 'go' }
-Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'leomao/pikacode.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'leomao/lightline-pika'
+
+Plug 'leomao/python-syntax', { 'for': 'python' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'fatih/vim-go', { 'for' : 'go' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'mattn/emmet-vim', { 'for': [ 'html', 'css' ] }
+Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
+Plug 'cakebaker/scss-syntax.vim', { 'for': [ 'scss', 'sass' ] }
+Plug 'wavded/vim-stylus', { 'for': 'stylus' }
+Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'javascript.jsx', 'html' ] }
+Plug 'mxw/vim-jsx', { 'for': [ 'javascript', 'javascript.jsx', 'html' ] }
+Plug 'lervag/vimtex', { 'for': 'tex' }
+
 Plug 'jlanzarotta/bufexplorer'
+Plug 'editorconfig/editorconfig-vim'
 if !filereadable('/usr/share/vim/vimfiles/plugin/fzf.vim')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-Plug 'leomao/lightline-pika'
-Plug 'leomao/pikacode.vim'
-Plug 'leomao/python-syntax', { 'for': 'python' }
-Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-Plug 'mattn/emmet-vim', { 'for': [ 'html', 'css' ] }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'mxw/vim-jsx', { 'for': [ 'javascript', 'javascript.jsx', 'html' ] }
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'javascript.jsx', 'html' ] }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'szw/vim-tags'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
-Plug 'vim-scripts/OmniCppComplete', { 'for': 'cpp' }
-Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/nvim-compe'
+  set completeopt=menuone,noselect
 endif
 
 "include custom plugin
@@ -160,22 +157,15 @@ let g:netrw_altv = 1
 nnoremap <leader>ff <ESC>:FZF<CR>
 nnoremap <leader>bf <ESC>:Buffers<CR>
 
-" Augmenting Ag command using fzf#vim#with_preview function
+" Augmenting Rg command using fzf#vim#with_preview function
 "   * fzf#vim#with_preview([[options], preview window, [toggle keys...]])
 "     * For syntax-highlighting, Ruby and any of the following tools are required:
 "       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
 "       - CodeRay: http://coderay.rubychan.de/
 "       - Rouge: https://github.com/jneen/rouge
 "
-"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
-"   :Ag! - Start fzf in fullscreen and display the preview window above
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
-
-" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+"   :Rg  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Rg! - Start fzf in fullscreen and display the preview window above
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
@@ -193,21 +183,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:bufExplorerSortBy = 'name'
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerShowNoName = 1
-" }}}
-
-" --- Tagbar plugin --- {{{
-nnoremap <silent> <leader>tb :TagbarToggle<CR>
-let g:tagbar_left = 1
-let g:tagbar_width = 25
-let g:tagbar_autofocus = 1
-let g:tagbar_autoclose = 0
-" }}}
-
-" --- vim tags plugin --- {{{
-let g:vim_tags_use_language_field = 1
-let g:vim_tags_project_tags_command = '{CTAGS}
-      \ -R --c++-kinds=+pl --python-kinds=-i --fields=+iaS --extra=+q
-      \ {OPTIONS} {DIRECTORY} 2>/dev/null'
 " }}}
 
 " --- vimtex --- {{{
@@ -235,26 +210,6 @@ let g:NERDRemoveExtraSpaces = 1
 noremap <silent><F5> <ESC>:UndotreeToggle<CR>
 " }}}
 
-" --- Omni complete functions --- {{{
-set completeopt=menuone
-set omnifunc=syntaxcomplete#Complete
-
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-" automatically open and close the popup menu / preview window
-
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=python3complete#Complete
-
-" }}}
 
 " --- Emmet --- {{{
 " let g:user_zen_leader_key = '<c-m>'
@@ -286,10 +241,106 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 " }}}
 
-" --- deoplete.nvim --- {{{
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#custom#option = {}
-let g:deoplete#custom#option._ = []
+" --- nvim-lspconfig --- {{{
+if has('nvim')
+lua << EOF
+local nvim_lsp = require('lspconfig')
+
+-- Use an on_attach function to only map the following keys 
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  --Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  --buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  --buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  --buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  --buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  --buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  --buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  --buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  --buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  --buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+end
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { "rls", "clangd" }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+-- rust, rls
+nvim_lsp.rls.setup {
+  settings = {
+    rust = {
+      unstable_features = true,
+      build_on_save = false,
+      all_features = true,
+    },
+  },
+}
+EOF
+endif
+" }}}
+
+" --- nvim-compe --- {{{
+if has('nvim')
+lua << EOF
+require('compe').setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  resolve_timeout = 800;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+  };
+}
+EOF
+
+  inoremap <silent><expr> <C-n> compe#complete()
+  inoremap <silent><expr> <CR>  compe#confirm('<CR>')
+  "inoremap <silent><expr> <C-e> compe#close('<C-e>')
+  inoremap <silent><expr> <C-f> compe#scroll({ 'delta': +4 })
+  inoremap <silent><expr> <C-d> compe#scroll({ 'delta': -4 })
+
+  set shortmess+=c
+endif
+
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
