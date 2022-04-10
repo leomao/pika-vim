@@ -27,16 +27,17 @@ These are needed if you want to use all features.
 ### Deploy
 To use this configuration, run following commands:
 ```console
-$ git clone --depth=1 https://github.com/leomao/pika-vim.git
-$ cd pika-vim
-$ git checkout neovim
-$ ln -sr $(pwd) ~/.config/nvim
+$ git clone --depth=1 -b neovim https://github.com/leomao/pika-vim.git
+$ ln -sr pika-vim ~/.config/nvim
 ```
 
 ### Update Plugins
 Execute `:PackerSync`. See [packer.nvim][packer.nvim] for more details.
 
 ## Common Shortcut
+
+Currently both `<Leader>` and `<LocalLeader>` are `<space>`.
+
 ### General
 - Save file `<Leader>w`
 - next buffer `L`
@@ -44,6 +45,9 @@ Execute `:PackerSync`. See [packer.nvim][packer.nvim] for more details.
 - close buffer `<Leader>q`
 - `:nohl` `<Leader>/`
 - Toggle paste mode `<F2>`
+
+### Comment
+See [Comment.nvim](https://github.com/numToStr/Comment.nvim)
 
 ### vimtex
 - Compile `<Leader>ll`
@@ -55,6 +59,9 @@ Execute `:PackerSync`. See [packer.nvim][packer.nvim] for more details.
 $pdflatex = 'xelatex -synctex=1 -interaction=nonstopmode --shell-escape %O %S';
 ```
 in  `~/.latexmkrc`.
+
+### LSP
+TBD
 
 ## Acknowledgement
 
