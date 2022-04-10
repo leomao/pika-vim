@@ -9,6 +9,7 @@ function M.setup()
       'git', 'clone', '--depth', '1',
       'https://github.com/wbthomason/packer.nvim', install_path
     })
+    vim.cmd 'packadd packer.nvim'
   end
 
   return require('packer').startup(function(use)
