@@ -25,6 +25,7 @@ local function nvim_cmp_config()
         return string.sub(s, 1, max_len - 1) .. '…'
       end
     end
+
     vim_item.abbr = trim(vim_item.abbr, 80)
     if has_lspkind then
       return lspkind_format(entry, vim_item)
@@ -36,45 +37,49 @@ local function nvim_cmp_config()
   cmp.setup {
     snippet = {
       expand = function(args)
-        vim.fn['vsnip#anonymous'](args.body)
+        require('snippy').expand_snippet(args.body)
       end,
     },
-    mapping = {
-      ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-      ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-      ['<C-e>'] = cmp.mapping({
-        i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
-      }),
-      -- Accept currently selected item.
-      -- Set `select` to `false` to only confirm explicitly selected items.
-      ['<CR>'] = cmp.mapping.confirm({ select = false }),
-    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+    }),
     sources = {
-      {name = 'nvim_lsp'},
-      {name = 'buffer'},
-      {name = 'path'},
+      { name = 'nvim_lsp' },
+      { name = 'buffer' },
+      { name = 'path' },
+      { name = 'snippy' },
     },
-    formatting = {format = format},
+    formatting = { format = format },
   }
-  cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = { { name = 'buffer' } },
+  })
   cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}}),
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } }),
   })
 end
 
 function M.setup(use)
   use {
     'hrsh7th/nvim-cmp',
-    requires = {'onsails/lspkind-nvim'},
+    requires = { 'onsails/lspkind-nvim' },
     config = nvim_cmp_config,
-    event = {'InsertEnter', 'CmdlineEnter'},
+    event = { 'InsertEnter', 'CmdlineEnter' },
   }
-  use {'hrsh7th/cmp-nvim-lsp', module = 'cmp_nvim_lsp'}
-  use {'hrsh7th/cmp-buffer', after = 'nvim-cmp'}
-  use {'hrsh7th/cmp-path', after = 'nvim-cmp'}
-  use {'hrsh7th/cmp-cmdline', after = 'nvim-cmp'}
+  use { 'hrsh7th/cmp-nvim-lsp', module = 'cmp_nvim_lsp' }
+  use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }
+  use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
+  use { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }
+  use {
+    'dcampos/cmp-snippy',
+    requires = { 'dcampos/nvim-snippy' },
+    after = 'nvim-cmp',
+  }
 end
 
 return M
