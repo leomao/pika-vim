@@ -1,6 +1,6 @@
 # pika-nvim
 
-Version: 0.1.0
+Version: 0.2.0
 
 My neovim configuration
 
@@ -10,7 +10,7 @@ This configuration is only tested on my own environments.
 
 ### Dependencies
 
-- Latest [neovim][neovim] 0.6.0+.
+- Latest [neovim][neovim] 0.7.0+.
 
 ### Optional Dependencies
 
@@ -19,7 +19,6 @@ These are needed if you want to use all features.
 - g++/clang (for compile c++ programs)
   - clangd provides LSP support.
 - [rg](https://github.com/BurntSushi/ripgrep)
-  (see [fzf.vim](https://github.com/junegunn/fzf.vim))
 - (xe)latex compiler (for latex usage)
 - rust (and rust\_analyzer)
 - pyright

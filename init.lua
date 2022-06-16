@@ -61,16 +61,6 @@ local function setup_vim_settings()
 
   -- Incremental replace with preview
   vim.opt.inccommand = 'nosplit'
-
-  -- Restore the cursor to the line when reopen a file.
-  vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g`\"" | endif]]
-  -- Open :help vertically
-  vim.cmd [[
-    augroup vimrc_help
-    autocmd!
-    autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
-    augroup END
-  ]]
 end
 
 local function setup()
@@ -78,6 +68,7 @@ local function setup()
   vim.opt.termguicolors = true
   require('pika.plugins').setup()
   require('pika.mappings').setup()
+  require('pika.autocmd').setup()
   setup_vim_settings()
 end
 
