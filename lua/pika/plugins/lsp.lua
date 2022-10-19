@@ -77,13 +77,8 @@ end
 
 function M.get_base_config()
   return {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(
-      vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
     on_attach = require('pika.plugins.lsp').lsp_on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
   }
 end
 
