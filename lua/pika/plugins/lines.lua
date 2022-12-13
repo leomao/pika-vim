@@ -15,7 +15,6 @@ local function lualine_config()
     options = {theme = 'onedark'},
     sections = {
       lualine_b = {
-        require('pika.util').lsp_readiness,
         'diagnostics',
       },
       lualine_c = {
