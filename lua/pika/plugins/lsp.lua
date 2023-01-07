@@ -51,17 +51,17 @@ function M.lsp_on_attach(client, bufnr)
       '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
 
   -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.document_formatting then
     buf_set_keymap('n', '<Localleader>f',
         '<Cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   end
-  if client.resolved_capabilities.document_range_formatting then
+  if client.server_capabilities.document_range_formatting then
     buf_set_keymap('v', '<Localleader>f',
         '<Cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
   end
 
   -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.document_highlight then
     vim.api.nvim_exec([[
       hi link LspReferenceRead Search
       hi link LspReferenceText Search
