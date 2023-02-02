@@ -1,14 +1,11 @@
-local M = {}
-
-function M.setup(use)
-  -- Colorscheme
-  -- use 'rktjmp/lush.nvim'
-  use {
-    'olimorris/onedarkpro.nvim',
+return {
+  -- 'rktjmp/lush.nvim',
+  {
+    "olimorris/onedarkpro.nvim",
+    lazy = false,
+    priority = 1000,
     config = function()
-      require('onedarkpro').load()
-    end
-  }
-end
-
-return M
+      require("onedarkpro").load()
+    end,
+  },
+}

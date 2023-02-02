@@ -1,55 +1,55 @@
-local M = {}
-
 local function bufferline_config()
-  require('bufferline').setup {
+  require("bufferline").setup({
     options = {
-      separator_style = 'thick',
+      separator_style = "thick",
       show_buffer_close_icons = false,
-      diagnostics = 'nvim_lsp',
+      diagnostics = "nvim_lsp",
     },
-  }
+  })
 end
 
 local function lualine_config()
-  require('lualine').setup {
-    options = {theme = 'onedark'},
+  require("lualine").setup({
+    options = { theme = "onedark" },
     sections = {
       lualine_b = {
-        'diagnostics',
+        "diagnostics",
       },
       lualine_c = {
-        { 'filename', path = 1 }
+        { "filename", path = 1 },
       },
       lualine_x = {
-        'branch',
+        "branch",
         {
-          'signify_diff',
-          symbols = {added = '+', modified = '~', removed = '-'}
+          "signify_diff",
+          symbols = { added = "+", modified = "~", removed = "-" },
         },
       },
-      lualine_y = {'encoding', 'fileformat', 'filetype'},
-      lualine_z = {'progress'},
+      lualine_y = { "encoding", "fileformat", "filetype" },
+      lualine_z = { "progress" },
     },
     extensions = {
-      'quickfix', 'symbols-outline',
+      "quickfix",
+      "symbols-outline",
     },
-  }
+  })
 end
 
-function M.setup(use)
-  use {
-    'akinsho/bufferline.nvim',
-    -- after = 'colorscheme',
-    requires = 'kyazdani42/nvim-web-devicons',
+return {
+  {
+    "akinsho/bufferline.nvim",
+    dependencies = { "kyazdani42/nvim-web-devicons" },
     config = bufferline_config,
-  }
-  use {
-    'hoob3rt/lualine.nvim',
-    after = {'lualine-signify-diff'},
-    requires = 'kyazdani42/nvim-web-devicons',
+  },
+  {
+    "hoob3rt/lualine.nvim",
+    dependencies = {
+      "kyazdani42/nvim-web-devicons",
+      {
+        "chmnchiang/lualine-signify-diff",
+        dependencies = { "mhinz/vim-signify" },
+      },
+    },
     config = lualine_config,
-  }
-  use {'chmnchiang/lualine-signify-diff', requires = 'mhinz/vim-signify'}
-end
-
-return M
+  },
+}

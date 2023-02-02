@@ -1,6 +1,6 @@
 # pika-nvim
 
-Version: 0.2.0
+Version: 0.3.0
 
 My neovim configuration
 
@@ -10,7 +10,9 @@ This configuration is only tested on my own environments.
 
 ### Dependencies
 
-- Latest [neovim][neovim] 0.7.0+.
+- Latest [neovim][neovim] 0.8.0+.
+- [rg](https://github.com/BurntSushi/ripgrep)
+- Dependencies of [fzf-lua](https://github.com/ibhagwan/fzf-lua)
 
 ### Optional Dependencies
 
@@ -18,7 +20,6 @@ These are needed if you want to use all features.
 
 - g++/clang (for compile c++ programs)
   - clangd provides LSP support.
-- [rg](https://github.com/BurntSushi/ripgrep)
 - (xe)latex compiler (for latex usage)
 - rust (and rust\_analyzer)
 - pyright
@@ -31,7 +32,7 @@ $ ln -sr pika-vim ~/.config/nvim
 ```
 
 ### Update Plugins
-Execute `:PackerSync`. See [packer.nvim][packer.nvim] for more details.
+Execute `:Lazy update`. See [lazy.nvim][lazy.nvim] for more details.
 
 ## Common Shortcut
 
@@ -68,4 +69,4 @@ This configuration borrowed lots of things from
 https://github.com/chmnchiang/vim.
 
 [neovim]: https://github.com/neovim/neovim
-[packer.nvim]: https://github.com/wbthomason/packer.nvim
+[lazy.nvim]: https://github.com/folke/lazy.nvim

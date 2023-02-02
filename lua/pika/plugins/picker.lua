@@ -1,10 +1,8 @@
-local M = {}
-
 local function fzf_config()
-  local actions = require('fzf-lua.actions')
-  local fzf = require('fzf-lua')
+  local actions = require("fzf-lua.actions")
+  local fzf = require("fzf-lua")
   fzf.setup({
-    fzf_bin = 'sk',
+    fzf_bin = "sk",
     actions = {
       files = {
         ["default"] = actions.file_edit,
@@ -12,25 +10,30 @@ local function fzf_config()
     },
   })
   fzf.register_ui_select()
-end
 
-function M.setup(use)
-  local sk_plugin = { 'lotabout/skim' }
-  if not vim.fn.executable('sk') then
-    sk_plugin.run = './install'
+  local map = function(lhs, rhs)
+    vim.keymap.set("n", lhs, rhs)
   end
 
-  use(sk_plugin)
+  map("<Leader>ff", fzf.files)
+  map("<Leader>fb", fzf.buffers)
+  map("<Leader>fg", fzf.grep)
+end
 
-  use { 'ibhagwan/fzf-lua',
-    -- optional for icon support
-    requires = {
-      'kyazdani42/nvim-web-devicons',
+return {
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = {
+      -- optional for icon support
+      "kyazdani42/nvim-web-devicons",
+      --  { 'lotabout/skim', build = './install' }
       -- 'junegunn/fzf',
     },
     config = fzf_config,
-  }
-
-end
-
-return M
+    keys = {
+      "<Leader>ff",
+      "<Leader>fb",
+      "<Leader>fg",
+    },
+  },
+}
