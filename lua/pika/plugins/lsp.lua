@@ -111,7 +111,7 @@ local function lsp_config()
   table.insert(runtime_path, "lua/?.lua")
   table.insert(runtime_path, "lua/?/init.lua")
 
-  nvim_lsp["sumneko_lua"].setup(vim.tbl_extend("force", get_base_config(), {
+  nvim_lsp.lua_ls.setup(vim.tbl_extend("force", get_base_config(), {
     cmd = { "lua-language-server" },
     settings = {
       Lua = {
