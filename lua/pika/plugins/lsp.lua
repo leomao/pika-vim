@@ -80,11 +80,13 @@ local function lsp_on_attach(client, bufnr)
   end
 end
 
-local function get_base_config()
-  return {
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
-    on_attach = lsp_on_attach,
-  }
+local function create_setup_config(base)
+  if base == nil then
+    base = {}
+  end
+  base.capabilities = require("cmp_nvim_lsp").default_capabilities()
+  base.on_attach = lsp_on_attach
+  return base
 end
 
 local function lsp_config()
@@ -104,14 +106,14 @@ local function lsp_config()
   -- rust_analyzer will be set up by rust-tools.
   local servers = { "pyright", "texlab" }
   for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup(get_base_config())
+    nvim_lsp[lsp].setup(create_setup_config())
   end
 
   local runtime_path = vim.split(package.path, ";")
   table.insert(runtime_path, "lua/?.lua")
   table.insert(runtime_path, "lua/?/init.lua")
 
-  nvim_lsp.lua_ls.setup(vim.tbl_extend("force", get_base_config(), {
+  nvim_lsp.lua_ls.setup(create_setup_config({
     cmd = { "lua-language-server" },
     settings = {
       Lua = {
@@ -126,12 +128,12 @@ end
 
 local function clangd_config()
   require("clangd_extensions").setup({
-    server = get_base_config(),
+    server = create_setup_config(),
   })
 end
 
 local function rust_config()
-  require("rust-tools").setup(get_base_config())
+  require("rust-tools").setup(create_setup_config())
 end
 
 return {
