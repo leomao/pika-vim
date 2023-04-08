@@ -12,5 +12,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("pika.plugins", {
-  ui = { border = "rounded" }
+  ui = { border = "rounded" },
 })

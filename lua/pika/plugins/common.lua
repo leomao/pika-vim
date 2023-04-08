@@ -1,15 +1,15 @@
 return {
-  { "ntpeters/vim-better-whitespace", event = "BufEnter" },
-  { "kylechui/nvim-surround", event = "BufEnter" },
-  { "tpope/vim-abolish", event = "BufEnter" },
+  { "ntpeters/vim-better-whitespace", event = "VeryLazy" },
+  { "kylechui/nvim-surround", event = "VeryLazy" },
+  { "tpope/vim-abolish", event = "VeryLazy" },
   {
     "numToStr/Comment.nvim",
-    event = "BufEnter",
+    event = "VeryLazy",
     config = true,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufEnter",
+    event = "VeryLazy",
     config = true,
     opts = {
       buftype_exclude = { "terminal", "help" },
@@ -17,18 +17,13 @@ return {
     },
   },
   {
-    "ojroques/vim-oscyank",
-    cmd = "OSCYankReg",
+    "ojroques/nvim-osc52",
     init = function()
       vim.api.nvim_create_autocmd("TextYankPost", {
         callback = function()
-          local event = vim.v.event
-          if event == nil then
-            return
-          end
           -- Use OSC52 when + register is used
-          if event.operator == "y" and event.regname == "+" then
-            vim.cmd("OSCYankReg +")
+          if vim.v.event.operator == "y" and vim.v.event.regname == "+" then
+            require("osc52").copy_register("+")
           end
         end,
       })

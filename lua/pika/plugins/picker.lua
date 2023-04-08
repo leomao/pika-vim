@@ -18,6 +18,7 @@ local function fzf_config()
   map("<Leader>ff", fzf.files)
   map("<Leader>fb", fzf.buffers)
   map("<Leader>fg", fzf.grep)
+  map("<Leader>fd", fzf.diagnostics_document)
 end
 
 return {
@@ -30,10 +31,6 @@ return {
       -- 'junegunn/fzf',
     },
     config = fzf_config,
-    keys = {
-      "<Leader>ff",
-      "<Leader>fb",
-      "<Leader>fg",
-    },
+    event = "VeryLazy",
   },
 }

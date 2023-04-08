@@ -92,15 +92,12 @@ end
 local function lsp_config()
   local nvim_lsp = require("lspconfig")
 
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    {
-      virtual_text = false,
-      signs = { priority = 20 },
-      underline = false,
-      severity_sort = true,
-    }
-  )
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = false,
+    signs = { priority = 20 },
+    underline = false,
+    severity_sort = true,
+  })
 
   -- clangd will be set up by clangd_extensions.
   -- rust_analyzer will be set up by rust-tools.
