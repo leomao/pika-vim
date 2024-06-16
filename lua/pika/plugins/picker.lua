@@ -2,7 +2,7 @@ local function fzf_config()
   local actions = require("fzf-lua.actions")
   local fzf = require("fzf-lua")
   fzf.setup({
-    fzf_bin = "sk",
+    fzf_bin = "fzf",
     actions = {
       files = {
         ["default"] = actions.file_edit,

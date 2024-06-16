@@ -1,4 +1,6 @@
-local buf_get_option = vim.api.nvim_buf_get_option
+local buf_get_option = function(buf, name)
+  return vim.api.nvim_get_option_value(name, { buf = buf })
+end
 
 local function has_ignore_buftype(buf)
   local ignore_bts = { "quickfix", "nofile", "help" }
