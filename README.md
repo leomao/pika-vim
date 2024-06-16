@@ -1,6 +1,6 @@
 # pika-nvim
 
-Version: 0.3.0
+Version: 0.4.0
 
 My neovim configuration
 
@@ -10,7 +10,7 @@ This configuration is only tested on my own environments.
 
 ### Dependencies
 
-- Latest [neovim][neovim] 0.8.0+.
+- Latest [neovim][neovim] 0.10.0+.
 - [rg](https://github.com/BurntSushi/ripgrep)
 - Dependencies of [fzf-lua](https://github.com/ibhagwan/fzf-lua)
 
@@ -32,7 +32,7 @@ $ ln -sr pika-vim ~/.config/nvim
 ```
 
 ### Update Plugins
-Execute `:Lazy update`. See [lazy.nvim][lazy.nvim] for more details.
+Execute `:Lazy sync`. See [lazy.nvim][lazy.nvim] for more details.
 
 ## Common Shortcut
 
@@ -44,7 +44,6 @@ Currently both `<Leader>` and `<LocalLeader>` are `<space>`.
 - previous buffer `H`
 - close buffer `<Leader>q`
 - `:nohl` `<Leader>/`
-- Toggle paste mode `<F2>`
 
 ### Comment
 See [Comment.nvim](https://github.com/numToStr/Comment.nvim)
