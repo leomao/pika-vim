@@ -20,10 +20,14 @@ local function lsp_on_attach(client, bufnr)
   require("lsp_signature").on_attach({}, bufnr)
 
   if vim.lsp.formatexpr then
-    vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr")
+    vim.api.nvim_set_option_value("formatexpr", "v:lua.vim.lsp.formatexpr", {
+      buf = bufnr
+    })
   end
   if vim.lsp.tagfunc then
-    vim.api.nvim_buf_set_option(bufnr, "tagfunc", "v:lua.vim.lsp.tagfunc")
+    vim.api.nvim_set_option_value("tagfunc", "v:lua.vim.lsp.tagfunc", {
+      buf = bufnr
+    })
   end
 
   local function map(mode, lhs, rhs)
@@ -46,7 +50,6 @@ local function lsp_on_attach(client, bufnr)
     vim.diagnostic.goto_next({ float = border_opts })
   end)
   map("n", "<Localleader>a", vim.lsp.buf.code_action)
-  map("v", "<Localleader>a", vim.lsp.buf.range_code_action)
 
   map("n", "<Localleader>d", vim.lsp.buf.definition)
   map("n", "<Localleader>i", vim.lsp.buf.implementation)

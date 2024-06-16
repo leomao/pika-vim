@@ -11,7 +11,6 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.pastetoggle = "<F2>"
 -- Swap j <-> gj, k <-> gk. It is more intuitive when moving in long lines.
 map("n", "j", "gj")
 map("n", "k", "gk")
