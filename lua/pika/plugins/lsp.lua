@@ -132,10 +132,6 @@ local function clangd_config()
   })
 end
 
-local function rust_config()
-  require("rust-tools").setup(create_setup_config())
-end
-
 return {
   {
     "neovim/nvim-lspconfig",
@@ -162,9 +158,8 @@ return {
     ft = { "c", "cpp" },
   },
   {
-    "simrat39/rust-tools.nvim",
-    dependencies = { "neovim/nvim-lspconfig" },
-    config = rust_config,
-    ft = { "rust" },
-  },
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
+  }
 }
