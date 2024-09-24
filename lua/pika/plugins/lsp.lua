@@ -58,10 +58,10 @@ local function lsp_on_attach(client, bufnr)
 
   -- Set some keybinds conditional on server capabilities
   if client.server_capabilities.document_formatting then
-    map("n", "<Localleader>f", vim.lsp.buf.formatting)
+    map("n", "<Localleader>F", vim.lsp.buf.formatting)
   end
   if client.server_capabilities.document_range_formatting then
-    map("v", "<Localleader>f", vim.lsp.buf.range_formatting)
+    map("v", "<Localleader>F", vim.lsp.buf.range_formatting)
   end
 
   -- Set autocommands conditional on server_capabilities
@@ -144,7 +144,7 @@ return {
   },
   {
     "simrat39/symbols-outline.nvim",
-    setup = function()
+    init = function()
       vim.g.symbols_outline = { auto_preview = false }
     end,
     cmd = { "SymbolsOutline" },
@@ -159,6 +159,13 @@ return {
   },
   {
     'mrcjkb/rustaceanvim',
+    init = function()
+      vim.g.rustaceanvim = {
+        server = {
+          on_attach = lsp_on_attach
+        }
+      }
+    end,
     version = '^5', -- Recommended
     lazy = false, -- This plugin is already lazy
   }
