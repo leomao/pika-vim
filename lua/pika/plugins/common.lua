@@ -9,8 +9,9 @@ return {
     main = "ibl",
     opts = {
       exclude = {
-        buftypes = { "terminal", "help" },
-      }
+        filetypes = { "help", "man" },
+        buftypes = { "terminal" },
+      },
     },
   },
 }

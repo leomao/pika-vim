@@ -45,6 +45,19 @@ local function nvim_cmp_config()
       { name = "snippy" },
     },
     formatting = { format = format },
+    sorting = {
+      comparators = {
+        cmp.config.compare.offset,
+        cmp.config.compare.exact,
+        require("clangd_extensions.cmp_scores"),
+        cmp.config.compare.score,
+        cmp.config.compare.recently_used,
+        cmp.config.compare.locality,
+        cmp.config.compare.kind,
+        cmp.config.compare.length,
+        cmp.config.compare.order,
+      },
+    },
   })
   cmp.setup.cmdline("/", {
     mapping = cmp.mapping.preset.cmdline(),

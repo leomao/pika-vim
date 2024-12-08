@@ -13,6 +13,9 @@ return {
     configs.setup({
       ensure_installed = treesitter_langs,
       sync_install = false,
+      auto_install = true,
+      ignore_install = {},
+      modules = {},
       highlight = { enable = true },
       indent = { enable = true },
     })

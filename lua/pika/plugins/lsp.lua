@@ -83,17 +83,25 @@ local function lsp_on_attach(client, bufnr)
   end
 end
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(args)
+    local bufnr = args.buf
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    lsp_on_attach(client, bufnr)
+  end
+})
+
 local function create_setup_config(base)
   if base == nil then
     base = {}
   end
   base.capabilities = require("cmp_nvim_lsp").default_capabilities()
-  base.on_attach = lsp_on_attach
   return base
 end
 
 local function lsp_config()
-  local nvim_lsp = require("lspconfig")
+  local lspconfig = require("lspconfig")
 
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false,
@@ -102,18 +110,16 @@ local function lsp_config()
     severity_sort = true,
   })
 
-  -- clangd will be set up by clangd_extensions.
-  -- rust_analyzer will be set up by rust-tools.
-  local servers = { "pyright", "texlab" }
+  local servers = { "clangd", "pyright", "texlab" }
   for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup(create_setup_config())
+    lspconfig[lsp].setup(create_setup_config())
   end
 
   local runtime_path = vim.split(package.path, ";")
   table.insert(runtime_path, "lua/?.lua")
   table.insert(runtime_path, "lua/?/init.lua")
 
-  nvim_lsp.lua_ls.setup(create_setup_config({
+  lspconfig.lua_ls.setup(create_setup_config({
     cmd = { "lua-language-server" },
     settings = {
       Lua = {
@@ -126,18 +132,20 @@ local function lsp_config()
   }))
 end
 
-local function clangd_config()
-  require("clangd_extensions").setup({
-    server = create_setup_config(),
-  })
-end
-
 return {
+  {
+    "ray-x/lsp_signature.nvim",
+    lazy = true,
+  },
+  {
+    "j-hui/fidget.nvim",
+    opts = {},
+    event = "LspAttach",
+  },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
-      "ray-x/lsp_signature.nvim",
     },
     config = lsp_config,
     ft = lsp_enabled_filetypes,
@@ -149,23 +157,13 @@ return {
     end,
     cmd = { "SymbolsOutline" },
   },
-
   -- Language specific packages
   {
     "p00f/clangd_extensions.nvim",
-    dependencies = { "neovim/nvim-lspconfig" },
-    config = clangd_config,
-    ft = { "c", "cpp" },
+    lazy = true,
   },
   {
     'mrcjkb/rustaceanvim',
-    init = function()
-      vim.g.rustaceanvim = {
-        server = {
-          on_attach = lsp_on_attach
-        }
-      }
-    end,
     version = '^5', -- Recommended
     lazy = false, -- This plugin is already lazy
   }
