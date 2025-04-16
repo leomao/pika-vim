@@ -1,13 +1,23 @@
 local treesitter_langs = {
-  "c", "cpp", "python", "rust", "lua", "vim", "vimdoc",
-  "javascript", "html", "css", "scss",
-  "markdown", "markdown_inline",
+  "c",
+  "cpp",
+  "python",
+  "rust",
+  "lua",
+  "vim",
+  "vimdoc",
+  "javascript",
+  "html",
+  "css",
+  "scss",
+  "markdown",
+  "markdown_inline",
 }
 
 return {
-  'nvim-treesitter/nvim-treesitter',
+  "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-  config = function ()
+  config = function()
     local configs = require("nvim-treesitter.configs")
 
     configs.setup({

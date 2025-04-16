@@ -21,12 +21,12 @@ local function lsp_on_attach(client, bufnr)
 
   if vim.lsp.formatexpr then
     vim.api.nvim_set_option_value("formatexpr", "v:lua.vim.lsp.formatexpr", {
-      buf = bufnr
+      buf = bufnr,
     })
   end
   if vim.lsp.tagfunc then
     vim.api.nvim_set_option_value("tagfunc", "v:lua.vim.lsp.tagfunc", {
-      buf = bufnr
+      buf = bufnr,
     })
   end
 
@@ -34,20 +34,16 @@ local function lsp_on_attach(client, bufnr)
     vim.keymap.set(mode, lhs, rhs, { buffer = true, silent = true })
   end
 
-  local border_opts = { border = "rounded" }
-
   map("n", "<Localleader>D", vim.lsp.buf.declaration)
   map("n", "K", vim.lsp.buf.hover)
   map("n", "<Localleader>k", vim.lsp.buf.signature_help)
-  map("n", "<Localleader>e", function()
-    vim.diagnostic.open_float(border_opts)
-  end)
+  map("n", "<Localleader>e", vim.diagnostic.open_float)
   map("n", "<Localleader>R", vim.lsp.buf.rename)
   map("n", "[g", function()
-    vim.diagnostic.goto_prev({ float = border_opts })
+    vim.diagnostic.jump({ count = -1, float = true })
   end)
   map("n", "]g", function()
-    vim.diagnostic.goto_next({ float = border_opts })
+    vim.diagnostic.jump({ count = 1, float = true })
   end)
   map("n", "<Localleader>a", vim.lsp.buf.code_action)
 
@@ -89,7 +85,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     lsp_on_attach(client, bufnr)
-  end
+  end,
 })
 
 local function create_setup_config(base)
@@ -102,13 +98,6 @@ end
 
 local function lsp_config()
   local lspconfig = require("lspconfig")
-
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = false,
-    signs = { priority = 20 },
-    underline = false,
-    severity_sort = true,
-  })
 
   local servers = { "clangd", "pyright", "texlab" }
   for _, lsp in ipairs(servers) do
@@ -133,10 +122,6 @@ local function lsp_config()
 end
 
 return {
-  {
-    "ray-x/lsp_signature.nvim",
-    lazy = true,
-  },
   {
     "j-hui/fidget.nvim",
     opts = {},
@@ -163,8 +148,8 @@ return {
     lazy = true,
   },
   {
-    'mrcjkb/rustaceanvim',
-    version = '^5', -- Recommended
+    "mrcjkb/rustaceanvim",
+    version = "^5", -- Recommended
     lazy = false, -- This plugin is already lazy
-  }
+  },
 }
