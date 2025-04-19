@@ -1,5 +1,8 @@
 # pika-vim
 
+> [!WARNING]
+> This branch is unmaintained. Please use the `neovim` branch.
+
 Version: 6.0.0
 
 My Pika vim configuration
