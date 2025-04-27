@@ -123,6 +123,10 @@ end
 
 return {
   {
+    "ray-x/lsp_signature.nvim",
+    lazy = true,
+  },
+  {
     "j-hui/fidget.nvim",
     opts = {},
     event = "LspAttach",
