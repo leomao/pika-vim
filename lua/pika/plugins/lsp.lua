@@ -14,6 +14,7 @@ local lsp_enabled_filetypes = {
   "bib",
   "rust",
   "lua",
+  "markdown",
 }
 
 local function lsp_on_attach(client, bufnr)

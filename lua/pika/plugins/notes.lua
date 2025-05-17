@@ -1,6 +1,9 @@
 return {
   "zk-org/zk-nvim",
-  main = "zk",
-  opts = {},
+  config = function()
+    require("zk").setup({
+      picker = "fzf_lua",
+    })
+  end,
   ft = { "markdown" },
 }
