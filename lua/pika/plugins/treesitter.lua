@@ -7,9 +7,11 @@ local treesitter_langs = {
   "vim",
   "vimdoc",
   "javascript",
+  "typescript",
   "html",
   "css",
   "scss",
+  "styled",
   "markdown",
   "markdown_inline",
 }

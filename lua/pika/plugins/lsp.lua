@@ -1,22 +1,3 @@
-local lsp_enabled_filetypes = {
-  "c",
-  "cpp",
-  "objc",
-  "objcpp",
-  "javascript",
-  "javascriptreact",
-  "javascript.jsx",
-  "typescript",
-  "typescriptreact",
-  "typescript.tsx",
-  "python",
-  "tex",
-  "bib",
-  "rust",
-  "lua",
-  "markdown",
-}
-
 local function lsp_on_attach(client, bufnr)
   require("lsp_signature").on_attach({}, bufnr)
 
@@ -89,28 +70,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-local function create_setup_config(base)
-  if base == nil then
-    base = {}
-  end
-  base.capabilities = require("cmp_nvim_lsp").default_capabilities()
-  return base
-end
-
 local function lsp_config()
-  local lspconfig = require("lspconfig")
-
-  local servers = { "clangd", "pyright", "texlab" }
-  for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup(create_setup_config())
-  end
+  vim.lsp.config('*', {
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    root_markers = { '.git' }
+  })
 
   local runtime_path = vim.split(package.path, ";")
   table.insert(runtime_path, "lua/?.lua")
   table.insert(runtime_path, "lua/?/init.lua")
 
-  lspconfig.lua_ls.setup(create_setup_config({
-    cmd = { "lua-language-server" },
+  vim.lsp.config('lua_ls', {
     settings = {
       Lua = {
         runtime = { version = "LuaJIT", path = runtime_path },
@@ -119,7 +89,14 @@ local function lsp_config()
         telemetry = { enable = false },
       },
     },
-  }))
+  })
+
+  vim.lsp.enable('clangd')
+  vim.lsp.enable('pyright')
+  vim.lsp.enable('ruff')
+  vim.lsp.enable('texlab')
+  vim.lsp.enable('lua_ls')
+  vim.lsp.enable('ts_ls')
 end
 
 return {
@@ -138,7 +115,6 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = lsp_config,
-    ft = lsp_enabled_filetypes,
   },
   {
     "simrat39/symbols-outline.nvim",
@@ -154,7 +130,7 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = "^5", -- Recommended
+    version = "^6", -- Recommended
     lazy = false, -- This plugin is already lazy
   },
 }
