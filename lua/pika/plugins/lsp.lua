@@ -71,16 +71,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 local function lsp_config()
-  vim.lsp.config('*', {
+  vim.lsp.config("*", {
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
-    root_markers = { '.git' }
+    root_markers = { ".git" },
   })
 
   local runtime_path = vim.split(package.path, ";")
   table.insert(runtime_path, "lua/?.lua")
   table.insert(runtime_path, "lua/?/init.lua")
 
-  vim.lsp.config('lua_ls', {
+  vim.lsp.config("lua_ls", {
     settings = {
       Lua = {
         runtime = { version = "LuaJIT", path = runtime_path },
@@ -91,12 +91,12 @@ local function lsp_config()
     },
   })
 
-  vim.lsp.enable('clangd')
-  vim.lsp.enable('pyright')
-  vim.lsp.enable('ruff')
-  vim.lsp.enable('texlab')
-  vim.lsp.enable('lua_ls')
-  vim.lsp.enable('ts_ls')
+  vim.lsp.enable("clangd")
+  vim.lsp.enable("pyright")
+  vim.lsp.enable("ruff")
+  vim.lsp.enable("texlab")
+  vim.lsp.enable("lua_ls")
+  vim.lsp.enable("ts_ls")
 end
 
 return {
