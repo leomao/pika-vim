@@ -19,7 +19,7 @@ end
 local group_id = vim.api.nvim_create_augroup("pika_group", {})
 
 -- Restore the cursor to the line when reopen a file.
-vim.api.nvim_create_autocmd("BufReadPost", {
+vim.api.nvim_create_autocmd("BufWinEnter", {
   group = group_id,
   pattern = "*",
   callback = function(args)
