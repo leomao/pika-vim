@@ -92,7 +92,7 @@ local function lsp_config()
   })
 
   vim.lsp.enable("clangd")
-  vim.lsp.enable("pyright")
+  vim.lsp.enable("ty")
   vim.lsp.enable("ruff")
   vim.lsp.enable("texlab")
   vim.lsp.enable("lua_ls")
@@ -130,7 +130,7 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = "^6", -- Recommended
+    version = "^7", -- Recommended
     lazy = false, -- This plugin is already lazy
   },
 }
