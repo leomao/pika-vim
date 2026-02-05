@@ -1,6 +1,6 @@
 # pika-nvim
 
-Version: 0.4.0
+Version: 0.5.0
 
 My neovim configuration
 
@@ -22,7 +22,8 @@ These are needed if you want to use all features.
   - clangd provides LSP support.
 - (xe)latex compiler (for latex usage)
 - rust (and rust\_analyzer)
-- pyright
+- ty, ruff (Python LSP)
+- typescript-language-server
 
 ### Deploy
 To use this configuration, run following commands:
