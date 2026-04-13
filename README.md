@@ -1,18 +1,17 @@
 # pika-nvim
 
-Version: 0.5.0
+Version: 0.6.0
 
-My neovim configuration
-
-This configuration is only tested on my own environments.
+My neovim configuration. It is only tested in my own environments.
 
 ## How to Use
 
 ### Dependencies
 
-- Latest [neovim][neovim] 0.10.0+.
+- Latest [neovim][neovim] 0.12.0+.
 - [rg](https://github.com/BurntSushi/ripgrep)
 - Dependencies of [fzf-lua](https://github.com/ibhagwan/fzf-lua)
+- Dependencies of [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
 ### Optional Dependencies
 
@@ -47,7 +46,7 @@ Currently both `<Leader>` and `<LocalLeader>` are `<space>`.
 - `:nohl` `<Leader>/`
 
 ### Comment
-See [Comment.nvim](https://github.com/numToStr/Comment.nvim)
+See https://neovim.io/doc/user/various/#commenting
 
 ### vimtex
 - Compile `<Leader>ll`

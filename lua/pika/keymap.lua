@@ -19,8 +19,8 @@ map("n", "gk", "k")
 -- Swap 0 <-> ^. 0 is easier to press while the original ^ is more useful.
 map("n", "0", "^")
 map("n", "^", "0")
-map("v", "0", "^")
-map("v", "^", "0")
+map("x", "0", "^")
+map("x", "^", "0")
 -- Make +/- be increasing/decreasing the number.
 map("n", "+", "<C-a>")
 map("n", "-", "<C-x>")

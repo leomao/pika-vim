@@ -1,10 +1,10 @@
 return {
   {
-    "mhinz/vim-signify",
+    "algmyr/vcsigns.nvim",
     config = function()
-      vim.g.signify_sign_add = "│"
-      vim.g.signify_sign_change = "│"
-      vim.g.signify_priority = 5
+      require("vcsigns").setup({
+        target_commit = 1, -- Nice default for jj with new+squash flow.
+      })
     end,
   },
 }

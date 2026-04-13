@@ -14,22 +14,22 @@ local treesitter_langs = {
   "styled",
   "markdown",
   "markdown_inline",
+  "latex",
+  "yaml",
+  "toml",
 }
 
 return {
   "nvim-treesitter/nvim-treesitter",
+  lazy = false,
   build = ":TSUpdate",
   config = function()
-    local configs = require("nvim-treesitter.configs")
-
-    configs.setup({
-      ensure_installed = treesitter_langs,
-      sync_install = false,
-      auto_install = true,
-      ignore_install = {},
-      modules = {},
-      highlight = { enable = true },
-      indent = { enable = true },
+    require("nvim-treesitter").install(treesitter_langs)
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = treesitter_langs,
+      callback = function()
+        vim.treesitter.start()
+      end,
     })
   end,
 }

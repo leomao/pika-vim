@@ -1,8 +1,8 @@
 return {
   { "ntpeters/vim-better-whitespace", event = "VeryLazy" },
-  { "tpope/vim-abolish", event = "VeryLazy" },
   { "kylechui/nvim-surround", event = "VeryLazy", config = true },
-  { "numToStr/Comment.nvim", event = "VeryLazy", config = true },
+  { "johmsalas/text-case.nvim", event = "VeryLazy", opts = {} },
+  { "folke/ts-comments.nvim", event = "VeryLazy", opts = {} },
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "VeryLazy",
