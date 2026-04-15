@@ -28,7 +28,10 @@ return {
     vim.api.nvim_create_autocmd("FileType", {
       pattern = treesitter_langs,
       callback = function()
+        -- Enable treesitter highlighting and disable regex syntax
         vim.treesitter.start()
+        -- Enable treesitter-based indentation
+        vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
       end,
     })
   end,
