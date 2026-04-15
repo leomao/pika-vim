@@ -20,10 +20,7 @@ local function lualine_config()
       },
       lualine_x = {
         "branch",
-        {
-          "signify_diff",
-          symbols = { added = "+", modified = "~", removed = "-" },
-        },
+        require("vcsigns.info").lualine_module(),
       },
       lualine_y = { "encoding", "fileformat", "filetype" },
       lualine_z = { "progress" },
@@ -45,10 +42,7 @@ return {
     "hoob3rt/lualine.nvim",
     dependencies = {
       "kyazdani42/nvim-web-devicons",
-      {
-        "chmnchiang/lualine-signify-diff",
-        dependencies = { "mhinz/vim-signify" },
-      },
+      "algmyr/vcsigns.nvim",
     },
     config = lualine_config,
   },
